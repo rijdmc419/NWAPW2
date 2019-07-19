@@ -81,10 +81,14 @@ class GameScene: SKScene {
             let nodesArray = self.nodes(at: location)
             
             if nodesArray.first?.name == "nextScenenButton" {
-                let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                /*let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
                 let page2 = mainStoryboard.instantiateViewController(withIdentifier: "next") //as! Page2
                 //self.present(page2, animated: true)
                 self.view!.window?.rootViewController?.present(page2, animated: true, completion: nil)
+                    */
+                let circlechange = circleChange(fileNamed: "circleChange")
+                circlechange?.scaleMode = .aspectFill
+                self.view?.presentScene(circlechange!, transition: SKTransition.fade(withDuration: 0.5))
             }
             
         }
