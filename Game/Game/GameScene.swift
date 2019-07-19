@@ -14,6 +14,8 @@ class GameScene: SKScene {
     
     var label : SKLabelNode?
     var spinnyNode : SKShapeNode?
+    var nextScenenButton: SKSpriteNode!
+    var background: SKSpriteNode!
     
     override func didMove(to view: SKView) {
         
@@ -24,8 +26,10 @@ class GameScene: SKScene {
         
         label?.fontSize = 63
         
+        background = self.childNode(withName: "background") as? SKSpriteNode
+        nextScenenButton = self.childNode(withName: "nextScenenButton") as? SKSpriteNode
         
-        
+        /*
         // Create shape node to use during mouse interaction
         let w = (self.size.width + self.size.height) * 0.05
         self.spinnyNode = SKShapeNode.init(rectOf: CGSize.init(width: w, height: w), cornerRadius: w * 0.3)
@@ -37,7 +41,11 @@ class GameScene: SKScene {
             spinnyNode.run(SKAction.sequence([SKAction.wait(forDuration: 0.5),
                                               SKAction.fadeOut(withDuration: 0.5),
                                               SKAction.removeFromParent()]))
-        }
+         
+         }
+        */
+ 
+        
     }
     
     /*
@@ -67,16 +75,28 @@ class GameScene: SKScene {
     */
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
-        /*
-        let level1 = Level1(fileNamed: "Level1")
-        level1?.scaleMode = .aspectFill
-        self.view?.presentScene(level1!, transition: SKTransition.fade(withDuration: 0.5))
-        */
+        let touch = touches.first
         
-        let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let page2 = mainStoryboard.instantiateViewController(withIdentifier: "next") //as! Page2
-        //self.present(page2, animated: true)
-        self.view!.window?.rootViewController?.present(page2, animated: true, completion: nil)
+        if let location = touch?.location(in: self) {
+            let nodesArray = self.nodes(at: location)
+            
+            if nodesArray.first?.name == "nextScenenButton" {
+                let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                let page2 = mainStoryboard.instantiateViewController(withIdentifier: "next") //as! Page2
+                //self.present(page2, animated: true)
+                self.view!.window?.rootViewController?.present(page2, animated: true, completion: nil)
+            }
+            
+        }
+        
+        
+        
+        /*
+         let level1 = Level1(fileNamed: "Level1")
+         level1?.scaleMode = .aspectFill
+         self.view?.presentScene(level1!, transition: SKTransition.fade(withDuration: 0.5))
+         */
+        
       /*
         for t in touches { self.touchDown(atPoint: t.location(in: self)) }
     }
