@@ -81,12 +81,15 @@ class GameScene: SKScene {
             let nodesArray = self.nodes(at: location)
             
             if nodesArray.first?.name == "nextScenenButton" {
-                let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                /*let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
                 let page2 = mainStoryboard.instantiateViewController(withIdentifier: "next") //as! Page2
                 //self.present(page2, animated: true)
-                self.view!.window?.rootViewController?.present(page2, animated: true, completion: nil)
+                self.view!.window?.rootViewController?.present(page2, animated: true, completion: nil)*/
+                    
+                    let level1 = Level1(fileNamed: "Level1")
+                    level1?.scaleMode = .aspectFill
+                    self.view?.presentScene(level1!, transition: SKTransition.fade(withDuration: 0.5))
             }
-            
         }
         
         
