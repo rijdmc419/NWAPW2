@@ -12,66 +12,104 @@ import GameplayKit
 
 
 class Shape {
-    let shape_texture: SKSpriteNode
+    let shape_sprite: SKSpriteNode
     
-    init(shape_texture: SKSpriteNode) {
+    init(shape_sprite: SKSpriteNode) {
         
-        self.shape_texture = shape_texture
+        self.shape_sprite = shape_sprite
     }
-}
 
+}
 
 class Circle: Shape{
-    let isPink: Bool
+    var isPink: Bool
     
-    init(shape_texture: SKSpriteNode, isPink: Bool = false) {
+    init(shape_sprite: SKSpriteNode, isPink: Bool = false) {
         self.isPink = isPink
-        // 4
-        super.init(shape_texture: shape_texture)
+        super.init(shape_sprite: shape_sprite)
     }
-    
 }
 
+class Square: Shape{
+    //var isThere: Bool
+    
+    override init(shape_sprite: SKSpriteNode /*, isPink: Bool = false*/) {
+        //self.isThere = isThere
+        super.init(shape_sprite: shape_sprite)
+    }
+}
 class circleChange: SKScene {
     
-    var isPink = false
-    var circ_made: SKSpriteNode!
-    //var sprite_array: [SKSpriteNode] = []
-    var arraySprites :[SKSpriteNode] = [SKSpriteNode]()
-    //let circ_made = SKSpriteNode(imageNamed: "Circle_White")
+
+    var arraySprites : [Shape]!
+    var circ_made1: SKSpriteNode!
+    var circ1 : Circle!
+    var square_made1: SKSpriteNode!
+    var square1 : Square!
+    var regualr_guy: SKNode!
+     //var sprite_array: [SKSpriteNode] = []
     
     
     override func didMove(to view: SKView) {
         self.backgroundColor = SKColor.init(red: 0, green: 0, blue: 1, alpha: 1)
-        //circle1 = self.childNode(withName: "circle1") as? SKSpriteNode
         
+        //circle1 = self.childNode(withName: "circle1") as? SKSpriteNode
         //let circ_made = SKSpriteNode(imageNamed: "Circle_White")
        // background = self.childNode(withName: "background") as? SKSpriteNode
         //circ_made = self.childNode(withName: "Circle_White") as? SKSpriteNode
-        circ_made = SKSpriteNode(imageNamed: "Circle_White")
-        circ_made.size = CGSize (width: 200, height: 200)
-        circ_made.position = CGPoint (x: 0, y: 200)
-        circ_made.anchorPoint = CGPoint (x: 0.5, y: 0.5)
-        self.addChild(circ_made)
+       
+        //for shape in arraySprites {
+            
+        
+        
+        circ_made1 = SKSpriteNode(imageNamed: "Circle_White")
+        circ_made1.name = "circ_made1"
+        circ_made1.size = CGSize (width: 200, height: 200)
+        circ_made1.position = CGPoint (x: 0, y: 200)
+        circ_made1.anchorPoint = CGPoint (x: 0.5, y: 0.5)
+        self.addChild(circ_made1)
+        
+        //regualr_guy.addChild(circ_made1)
+        
+        circ1 = Circle(shape_sprite: circ_made1, isPink: false)
+        
+        square_made1 = SKSpriteNode(imageNamed: "square_white")
+        square_made1.name = "square_made1"
+        square_made1.size = CGSize (width: 200, height: 200)
+        square_made1.position = CGPoint (x: 0, y: 0)
+        square_made1.anchorPoint = CGPoint (x: 0.5, y: 0.5)
+        self.addChild(square_made1)
         
         //arraySprites.append(circ)
-        
-       let circ1 = Circle(shape_texture: circ_made, isPink: false)
-        
-        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
+       
         let touch = touches.first
         
         if let location = touch?.location(in: self) {
-            let nodesArray = self.nodes(at: location)
+            let clickedNodes = self.nodes(at: location)
+            print("part1")
             
-            if nodesArray.first?.name == "circ_made" {
-                changetoPink()
+            if clickedNodes.first?.name == "circ_made1" {
+                if circ1.isPink == false {
+                    print("part2")
+                    changetoPink(circle_shape: circ_made1)
+                    circ1.isPink = true
+                }
+               
+                print("part3")
             }
+            
+            if clickedNodes.first?.name == "square_made1" {
+                square_made1.alpha = 0
+                
+                
+            }
+            
+            //make square go away!!!
         }
+        
         /*
         let gameScene = GameScene(fileNamed: "GameScene")
         gameScene?.scaleMode = .aspectFill
@@ -79,11 +117,9 @@ class circleChange: SKScene {
          */
     }
     
-    func changetoPink() {
-        if isPink==false{
-            circ_made.texture = SKTexture( imageNamed: "Circle_Pink")
-            isPink = true
-        }
+    func changetoPink(circle_shape: SKSpriteNode) {
+            circle_shape.texture = SKTexture(imageNamed: "Circle_Pink")
+            print("Hi")
     }
 }
 

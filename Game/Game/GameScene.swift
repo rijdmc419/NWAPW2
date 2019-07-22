@@ -88,7 +88,7 @@ class GameScene: SKScene {
                     */
                 let circlechange = circleChange(fileNamed: "circleChange")
                 circlechange?.scaleMode = .aspectFill
-                self.view?.presentScene(circlechange!, transition: SKTransition.fade(withDuration: 0.5))
+                self.view?.presentScene(circlechange!)
             }
             
         }
