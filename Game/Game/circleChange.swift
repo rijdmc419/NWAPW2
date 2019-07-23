@@ -23,9 +23,10 @@ class Shape {
 
 class Circle: Shape{
     var isPink: Bool
-    
-    init(shape_sprite: SKSpriteNode, isPink: Bool = false) {
+    var isCircle: Bool
+    init(shape_sprite: SKSpriteNode, isPink: Bool = false, isCircle: Bool = true) {
         self.isPink = isPink
+        self.isCircle = isCircle
         super.init(shape_sprite: shape_sprite)
     }
 }
@@ -52,9 +53,11 @@ class circleChange: SKScene {
     var circ3 : Circle!
     var circ4 : Circle!
     var circ5 : Circle!
+    var arrayCircles : [Circle]!
     var square_made1: SKSpriteNode!
     var square_made2: SKSpriteNode!
     var square1 : Square!
+    //var score : Int
     //var regualr_guy: SKNode!
      //var sprite_array: [SKSpriteNode] = []
     
@@ -89,7 +92,7 @@ class circleChange: SKScene {
         circ_made1.physicsBody?.restitution = 1.0
         circ_made1.physicsBody?.friction = 0
         circ_made1.physicsBody?.applyImpulse(CGVector(dx: 90, dy: 90))
-        circ1 = Circle(shape_sprite: circ_made1, isPink: false)
+        circ1 = Circle(shape_sprite: circ_made1, isPink: false, isCircle: true)
         
         circ_made2 = SKSpriteNode(imageNamed: "Circle_White")
         circ_made2.name = "circ_made2"
@@ -106,7 +109,7 @@ class circleChange: SKScene {
         circ_made2.physicsBody?.restitution = 1.0
         circ_made2.physicsBody?.friction = 0
         circ_made2.physicsBody?.applyImpulse(CGVector(dx: 90, dy: 90))
-        circ2 = Circle(shape_sprite: circ_made2, isPink: false)
+        circ2 = Circle(shape_sprite: circ_made2, isPink: false, isCircle: true)
         
         circ_made3 = SKSpriteNode(imageNamed: "Circle_White")
         circ_made3.name = "circ_made3"
@@ -123,7 +126,7 @@ class circleChange: SKScene {
         circ_made3.physicsBody?.restitution = 1.0
         circ_made3.physicsBody?.friction = 0
         circ_made3.physicsBody?.applyImpulse(CGVector(dx: 90, dy: 90))
-        circ3 = Circle(shape_sprite: circ_made3, isPink: false)
+        circ3 = Circle(shape_sprite: circ_made3, isPink: false, isCircle: true)
         
         circ_made4 = SKSpriteNode(imageNamed: "Circle_White")
         circ_made4.name = "circ_made4"
@@ -140,7 +143,7 @@ class circleChange: SKScene {
         circ_made4.physicsBody?.restitution = 1.0
         circ_made4.physicsBody?.friction = 0
         circ_made4.physicsBody?.applyImpulse(CGVector(dx: 90, dy: 90))
-        circ4 = Circle(shape_sprite: circ_made4, isPink: false)
+        circ4 = Circle(shape_sprite: circ_made4, isPink: false, isCircle: true)
         
         circ_made5 = SKSpriteNode(imageNamed: "Circle_White")
         circ_made5.name = "circ_made5"
@@ -157,7 +160,7 @@ class circleChange: SKScene {
         circ_made5.physicsBody?.restitution = 1.0
         circ_made5.physicsBody?.friction = 0
         circ_made5.physicsBody?.applyImpulse(CGVector(dx: 90, dy: 90))
-        circ5 = Circle(shape_sprite: circ_made5, isPink: false)
+        circ5 = Circle(shape_sprite: circ_made5, isPink: false, isCircle: true)
         
         //regualr_guy.addChild(circ_made1)
         
@@ -196,6 +199,7 @@ class circleChange: SKScene {
         square_made2.physicsBody?.applyImpulse(CGVector(dx: 90, dy: 90))
         
         //arraySprites.append(circ)
+        arrayCircles = [circ1, circ2, circ3, circ4, circ5]
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -204,6 +208,7 @@ class circleChange: SKScene {
         
         if let location = touch?.location(in: self) {
             let clickedNodes = self.nodes(at: location)
+                
             print("part1")
             
             if clickedNodes.first?.name == "circ_made1" {
@@ -267,8 +272,22 @@ class circleChange: SKScene {
                 square_made2.physicsBody = SKPhysicsBody(rectangleOf: CGSize (width: 00,height: 00))
                 
             }
+            var score = 0
+            for item in arrayCircles {
+                
+                if item.isCircle == true {
+                
+                    if item.isPink == true {
+                        
+                        score = score+1
+                        if score >= 3 {
+                            // open level completed scene, or reveal next level button
+                            print("you win!")
+                        }
+                    }
+                }
+            }
             
-            //make square go away!!!
         }
         
         /*
@@ -282,6 +301,9 @@ class circleChange: SKScene {
             circle_shape.texture = SKTexture(imageNamed: "Circle_Pink")
             print("Hi")
     }
+    
+    
+    
     /*
     func makeCircSprite() {
         
