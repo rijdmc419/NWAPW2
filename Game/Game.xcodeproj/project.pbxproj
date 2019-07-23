@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8D12B04E22E62F1F007A6578 /* audioTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D12B04D22E62F1F007A6578 /* audioTest.swift */; };
+		8D12B05122E6342F007A6578 /* sample.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 8D12B05022E63328007A6578 /* sample.m4a */; };
+		8D5DE71A22E64C0F0054A4B4 /* sample1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8D5DE71922E64C0F0054A4B4 /* sample1.mp3 */; };
+		8D5DE71C22E658E30054A4B4 /* launchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5DE71B22E658E30054A4B4 /* launchScreen.swift */; };
 		F72BD8B822DD285900BAF3C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72BD8B722DD285900BAF3C4 /* AppDelegate.swift */; };
 		F72BD8BA22DD285900BAF3C4 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = F72BD8B922DD285900BAF3C4 /* GameScene.sks */; };
 		F72BD8BC22DD285900BAF3C4 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = F72BD8BB22DD285900BAF3C4 /* Actions.sks */; };
@@ -42,6 +46,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8D12B04D22E62F1F007A6578 /* audioTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = audioTest.swift; sourceTree = "<group>"; };
+		8D12B05022E63328007A6578 /* sample.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = sample.m4a; path = "../../../../../../Music/iTunes/iTunes Media/Voice Memos/sample.m4a"; sourceTree = "<group>"; };
+		8D5DE71922E64C0F0054A4B4 /* sample1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = sample1.mp3; path = ../../../../../NWAPW/sample1.mp3; sourceTree = "<group>"; };
+		8D5DE71B22E658E30054A4B4 /* launchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = launchScreen.swift; sourceTree = "<group>"; };
 		F72BD8B422DD285900BAF3C4 /* Game.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Game.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F72BD8B722DD285900BAF3C4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F72BD8B922DD285900BAF3C4 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -90,6 +98,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8D12B04F22E631F7007A6578 /* Music */ = {
+			isa = PBXGroup;
+			children = (
+				8D5DE71922E64C0F0054A4B4 /* sample1.mp3 */,
+				8D12B05022E63328007A6578 /* sample.m4a */,
+			);
+			path = Music;
+			sourceTree = "<group>";
+		};
 		F72BD8AB22DD285900BAF3C4 = {
 			isa = PBXGroup;
 			children = (
@@ -124,9 +141,12 @@
 				F72BD8F522E0D7B000BAF3C4 /* Page2.swift */,
 				F72BD8BF22DD285900BAF3C4 /* GameViewController.swift */,
 				F72BD8C122DD285900BAF3C4 /* Main.storyboard */,
+				8D12B04D22E62F1F007A6578 /* audioTest.swift */,
 				F72BD8C422DD285A00BAF3C4 /* Assets.xcassets */,
 				F72BD8C622DD285A00BAF3C4 /* LaunchScreen.storyboard */,
+				8D5DE71B22E658E30054A4B4 /* launchScreen.swift */,
 				F72BD8C922DD285A00BAF3C4 /* Info.plist */,
+				8D12B04F22E631F7007A6578 /* Music */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -260,6 +280,7 @@
 				F72BD8C822DD285A00BAF3C4 /* LaunchScreen.storyboard in Resources */,
 				F74DDFE722E22F2E00349C4A /* circleChange.sks in Resources */,
 				F72BD8BC22DD285900BAF3C4 /* Actions.sks in Resources */,
+				8D5DE71A22E64C0F0054A4B4 /* sample1.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -267,6 +288,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D12B05122E6342F007A6578 /* sample.m4a in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,6 +307,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				F72BD8EC22DE381600BAF3C4 /* Level1.swift in Sources */,
+				8D12B04E22E62F1F007A6578 /* audioTest.swift in Sources */,
+				8D5DE71C22E658E30054A4B4 /* launchScreen.swift in Sources */,
 				F72BD8BE22DD285900BAF3C4 /* GameScene.swift in Sources */,
 				F72BD8C022DD285900BAF3C4 /* GameViewController.swift in Sources */,
 				F74DDFEB22E22FB800349C4A /* circleChange.swift in Sources */,
