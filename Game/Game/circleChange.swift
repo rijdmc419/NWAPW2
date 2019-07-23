@@ -283,6 +283,10 @@ class circleChange: SKScene {
                         if score >= 3 {
                             // open level completed scene, or reveal next level button
                             print("you win!")
+                            let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                            let levelDone = mainStoryboard.instantiateViewController(withIdentifier: "level_done") //as! Page2
+                            //self.present(page2, animated: true)
+                            self.view!.window?.rootViewController?.present(levelDone, animated: true, completion: nil)
                         }
                     }
                 }

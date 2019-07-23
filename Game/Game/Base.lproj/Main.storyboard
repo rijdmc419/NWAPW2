@@ -130,7 +130,7 @@
         <!--LevelComplete-->
         <scene sceneID="ShO-7P-tDy">
             <objects>
-                <viewController title="LevelComplete" id="ZNl-Zc-58d" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="level_done" title="LevelComplete" id="ZNl-Zc-58d" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WQQ-D4-e4v">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -139,8 +139,20 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="eraser_next" translatesAutoresizingMaskIntoConstraints="NO" id="VWV-g2-ezB">
+                                <rect key="frame" x="44" y="194" width="327" height="277"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o6O-MY-A5D">
+                                <rect key="frame" x="92" y="237" width="202" height="112"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title=" "/>
+                                <connections>
+                                    <segue destination="41q-Ch-39W" kind="presentation" id="hJk-Ip-e4F"/>
+                                </connections>
+                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uch-Bn-man">
-                                <rect key="frame" x="20" y="44" width="374" height="142"/>
+                                <rect key="frame" x="20" y="30" width="374" height="142"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <attributedString key="attributedText">
                                     <fragment content="Level Complete!">
@@ -152,11 +164,6 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C0Y-Gf-nMf">
-                                <rect key="frame" x="20" y="230" width="434" height="436"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button" image="eraser_next"/>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="14N-Xw-eQi"/>
@@ -172,6 +179,6 @@
         <image name="eraser_next" width="800" height="800"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="XSx-gB-eek"/>
+        <segue reference="hJk-Ip-e4F"/>
     </inferredMetricsTieBreakers>
 </document>
