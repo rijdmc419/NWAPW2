@@ -60,14 +60,29 @@ class circleChange: SKScene {
        
         //for shape in arraySprites {
             
-        
+        let boarder = SKPhysicsBody(edgeLoopFrom: self.frame)
+        boarder.friction = 0
+        boarder.restitution = 1.0
+        self.physicsBody = boarder
         
         circ_made1 = SKSpriteNode(imageNamed: "Circle_White")
         circ_made1.name = "circ_made1"
-        circ_made1.size = CGSize (width: 200, height: 200)
+        circ_made1.size = CGSize (width: 100, height: 100)
         circ_made1.position = CGPoint (x: 0, y: 200)
         circ_made1.anchorPoint = CGPoint (x: 0.5, y: 0.5)
         self.addChild(circ_made1)
+        
+        circ_made1.physicsBody = SKPhysicsBody(circleOfRadius: 50)
+        circ_made1.physicsBody?.isDynamic = true
+        circ_made1.physicsBody?.affectedByGravity = false
+        circ_made1.physicsBody?.allowsRotation = false
+        circ_made1.physicsBody?.linearDamping = 0.0
+        circ_made1.physicsBody?.angularDamping = 0.0
+        circ_made1.physicsBody?.restitution = 1.0
+        circ_made1.physicsBody?.friction = 0
+        
+        circ_made1.physicsBody?.applyImpulse(CGVector(dx: 90, dy: 90))
+
         
         //regualr_guy.addChild(circ_made1)
         
@@ -75,10 +90,22 @@ class circleChange: SKScene {
         
         square_made1 = SKSpriteNode(imageNamed: "square_white")
         square_made1.name = "square_made1"
-        square_made1.size = CGSize (width: 200, height: 200)
+        square_made1.size = CGSize (width: 100, height: 100)
         square_made1.position = CGPoint (x: 0, y: 0)
         square_made1.anchorPoint = CGPoint (x: 0.5, y: 0.5)
         self.addChild(square_made1)
+        
+        square_made1.physicsBody = SKPhysicsBody(rectangleOf: CGSize (width: 100,height: 100))
+        square_made1.physicsBody?.isDynamic = true
+        square_made1.physicsBody?.affectedByGravity = false
+        square_made1.physicsBody?.allowsRotation = false
+        square_made1.physicsBody?.linearDamping = 0.0
+        square_made1.physicsBody?.angularDamping = 0.0
+        square_made1.physicsBody?.restitution = 1.0
+        square_made1.physicsBody?.friction = 0
+        
+        square_made1.physicsBody?.applyImpulse(CGVector(dx: 90, dy: 90))
+
         
         //arraySprites.append(circ)
     }
