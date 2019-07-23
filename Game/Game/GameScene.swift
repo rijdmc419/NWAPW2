@@ -12,8 +12,8 @@ import GameplayKit
 
 class GameScene: SKScene {
     
-    var label : SKLabelNode?
-    var spinnyNode : SKShapeNode?
+    var label : SKLabelNode? // 
+    var spinnyNode : SKShapeNode? //
     
     override func didMove(to view: SKView) {
         
