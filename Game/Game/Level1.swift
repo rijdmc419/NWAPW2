@@ -39,6 +39,7 @@ class Level1: SKScene, SKPhysicsContactDelegate
         good1.position = CGPoint (x: 0, y: 0)
         good1.anchorPoint = CGPoint (x: 0.5, y: 0.5)
         self.addChild(good1)
+        good1.name = "good"
         
         good1.physicsBody = SKPhysicsBody(circleOfRadius: 25)
         good1.physicsBody?.isDynamic = true
@@ -49,6 +50,7 @@ class Level1: SKScene, SKPhysicsContactDelegate
         good1.physicsBody?.restitution = 1.0
         good1.physicsBody?.friction = 0
         
+        
         //Good Two
         
         good2 = SKSpriteNode(imageNamed: "Circle_White")
@@ -56,6 +58,7 @@ class Level1: SKScene, SKPhysicsContactDelegate
         good2.position = CGPoint (x: -200, y: 0)
         good2.anchorPoint = CGPoint (x: 0.5, y: 0.5)
         self.addChild(good2)
+        good2.name = "good"
         
         good2.physicsBody = SKPhysicsBody(circleOfRadius: 25)
         good2.physicsBody?.isDynamic = true
@@ -72,6 +75,7 @@ class Level1: SKScene, SKPhysicsContactDelegate
         bad1.position = CGPoint (x: 200, y: 200)
         bad1.anchorPoint = CGPoint (x: 0.5, y: 0.5)
         self.addChild(bad1)
+        bad1.name = "bad"
         
         bad1.physicsBody = SKPhysicsBody(rectangleOf: CGSize (width: 50, height: 50))
         bad1.physicsBody?.isDynamic = true
@@ -88,6 +92,7 @@ class Level1: SKScene, SKPhysicsContactDelegate
         bad2.position = CGPoint (x: 200, y: -200)
         bad2.anchorPoint = CGPoint (x: 0.5, y: 0.5)
         self.addChild(bad2)
+        bad2.name = "bad"
         
         bad2.physicsBody = SKPhysicsBody(rectangleOf: CGSize (width: 50, height: 50))
         bad2.physicsBody?.isDynamic = true
@@ -99,9 +104,9 @@ class Level1: SKScene, SKPhysicsContactDelegate
         bad2.physicsBody?.friction = 0
         
         //Apply movement
-        good1.physicsBody?.applyImpulse(CGVector(dx: 15.0, dy: 15.0))
-        bad1.physicsBody?.applyImpulse(CGVector(dx: -15, dy: -15.0))
-        good2.physicsBody?.applyImpulse(CGVector(dx: 15.0, dy: -15.0))
+        good1.physicsBody?.applyImpulse(CGVector(dx: 15, dy: 15))
+        bad1.physicsBody?.applyImpulse(CGVector(dx: -15, dy: -15))
+        good2.physicsBody?.applyImpulse(CGVector(dx: 15, dy: -15))
         bad2.physicsBody?.applyImpulse(CGVector(dx: 15, dy: 15))
         
         // two
@@ -124,29 +129,27 @@ class Level1: SKScene, SKPhysicsContactDelegate
     
     func didBegin(_ contact: SKPhysicsContact)
     {
-        let collision:UInt32 = contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask
-        
-        if collision == goodCatergory | badCategorry
+        let firstBody = contact.bodyA.node as! SKSpriteNode
+        let secondBody = contact.bodyB.node as! SKSpriteNode
+    
+        if ((firstBody.name == "good") && (secondBody.name == "bad"))
         {
-            print("collision")
-            
-            if isPink == false
-            {
-                good1.texture = SKTexture(imageNamed: "squareish")
-                good2.texture = SKTexture(imageNamed: "squareish")
-
-            }
- 
- 
+            collisions(good: firstBody, bad: secondBody)
         }
+        else if ((firstBody.name == "bad") && (secondBody.name == "good"))
+        {
+            collisions(good: secondBody, bad: firstBody)
+        }
+
+    }
+    
+    func collisions(good : SKSpriteNode, bad : SKSpriteNode)
+    {
+        good.size = CGSize (width: 100, height: 100)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
-        /*let gameScene = GameScene(fileNamed: "GameScene")
-        gameScene?.scaleMode = .aspectFill
-        self.view?.presentScene(gameScene!, transition: SKTransition.fade(withDuration: 0.5))*/
-    }
+            }
     override func update(_ currentTime: TimeInterval)
     {
         
