@@ -57,7 +57,9 @@ class circleChange: SKScene {
     var square_made1: SKSpriteNode!
     var square_made2: SKSpriteNode!
     var square1 : Square!
-    //var score : Int
+    var level_doneButton: SKSpriteNode!
+    var restartButton: SKSpriteNode!
+
     //var regualr_guy: SKNode!
      //var sprite_array: [SKSpriteNode] = []
     
@@ -71,7 +73,25 @@ class circleChange: SKScene {
         //circ_made = self.childNode(withName: "Circle_White") as? SKSpriteNode
        
         //for shape in arraySprites {
-            
+        
+        level_doneButton = SKSpriteNode(imageNamed: "square_white")
+        level_doneButton.name = "levelButton"
+        level_doneButton.alpha = 0
+        level_doneButton.size = CGSize (width: 120, height: 60)
+        level_doneButton.position = CGPoint (x: -200, y: 610)
+        level_doneButton.anchorPoint = CGPoint (x: 0.5, y: 0.5)
+        level_doneButton.zPosition = 2
+        self.addChild(level_doneButton)
+        
+        restartButton = SKSpriteNode(imageNamed: "square_white")
+        restartButton.name = "restartButton"
+        restartButton.alpha = 1
+        restartButton.size = CGSize (width: 120, height: 60)
+        restartButton.position = CGPoint (x: 210, y: 610)
+        restartButton.anchorPoint = CGPoint (x: 0.5, y: 0.5)
+        restartButton.zPosition = 2
+        self.addChild(restartButton)
+        
         let boarder = SKPhysicsBody(edgeLoopFrom: self.frame)
         boarder.friction = 0
         boarder.restitution = 1.0
@@ -272,21 +292,33 @@ class circleChange: SKScene {
                 square_made2.physicsBody = SKPhysicsBody(rectangleOf: CGSize (width: 00,height: 00))
                 
             }
-            var score = 0
+            
+            if clickedNodes.first?.name == "restartButton" {
+                
+                let circlechange = circleChange(fileNamed: "circleChange")
+                circlechange?.scaleMode = .aspectFill
+                self.view?.presentScene(circlechange!, transition: SKTransition.fade(withDuration: 0.5))
+                
+            }
+            var numPinkCirc = 0
             for item in arrayCircles {
                 
                 if item.isCircle == true {
                 
                     if item.isPink == true {
                         
-                        score = score+1
-                        if score >= 3 {
+                        numPinkCirc = numPinkCirc+1
+                        if numPinkCirc >= 3 {
                             // open level completed scene, or reveal next level button
                             print("you win!")
-                            let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                            let levelDone = mainStoryboard.instantiateViewController(withIdentifier: "level_done") //as! Page2
-                            //self.present(page2, animated: true)
-                            self.view!.window?.rootViewController?.present(levelDone, animated: true, completion: nil)
+                            level_doneButton.alpha = 1
+                            if clickedNodes.first?.name == "levelButton" {
+                                
+                                let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                                let levelDone = mainStoryboard.instantiateViewController(withIdentifier: "level_done") //as! Page2
+                                //self.present(page2, animated: true)
+                                self.view!.window?.rootViewController?.present(levelDone, animated: true, completion: nil)
+                            }
                         }
                     }
                 }
