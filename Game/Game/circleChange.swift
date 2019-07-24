@@ -99,6 +99,12 @@ class circleChange: SKScene {
         
         circ_made1 = SKSpriteNode(imageNamed: "Circle_White")
         circ_made1.name = "circ_made1"
+        
+        circ_made1.userData = [
+            "isPink" : false,
+            "isCircle" : true
+        ];
+        
         circ_made1.size = CGSize (width: 100, height: 100)
         circ_made1.position = CGPoint (x: 0, y: -150)
         circ_made1.anchorPoint = CGPoint (x: 0.5, y: 0.5)
@@ -132,7 +138,7 @@ class circleChange: SKScene {
         circ2 = Circle(shape_sprite: circ_made2, isPink: false, isCircle: true)
         
         circ_made3 = SKSpriteNode(imageNamed: "Circle_White")
-        circ_made3.name = "circ_made3"
+        circ_made3.name = "circle"
         circ_made3.size = CGSize (width: 100, height: 100)
         circ_made3.position = CGPoint (x: 0, y: 400)
         circ_made3.anchorPoint = CGPoint (x: 0.5, y: 0.5)
@@ -188,6 +194,9 @@ class circleChange: SKScene {
         
         square_made1 = SKSpriteNode(imageNamed: "square_white")
         square_made1.name = "square_made1"
+            square_made1.userData = [
+                "isCircle" : false
+        ];
         square_made1.size = CGSize (width: 100, height: 100)
         square_made1.position = CGPoint (x: 0, y: 0)
         square_made1.anchorPoint = CGPoint (x: 0.5, y: 0.5)
@@ -204,6 +213,9 @@ class circleChange: SKScene {
 
         square_made2 = SKSpriteNode(imageNamed: "square_white")
         square_made2.name = "square_made2"
+        square_made1.userData = [
+            "isCircle" : false
+        ];
         square_made2.size = CGSize (width: 100, height: 100)
         square_made2.position = CGPoint (x: 0, y: 0)
         square_made2.anchorPoint = CGPoint (x: 0.5, y: 0.5)
@@ -220,6 +232,15 @@ class circleChange: SKScene {
         
         //arraySprites.append(circ)
         arrayCircles = [circ1, circ2, circ3, circ4, circ5]
+        
+        for item in arrayCircles {
+            
+            item.shape_sprite.userData = [
+                "isPink" : false,
+                "isCircle" : true
+            ];
+            
+        }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -231,65 +252,20 @@ class circleChange: SKScene {
                 
             print("part1")
             
-            if clickedNodes.first?.name == "circ_made1" {
-                if circ1.isPink == false {
+            if clickedNodes.first?.userData?.value(forKey: "isCircle") as? Bool == true {
+                let check = clickedNodes.first?.userData?.value(forKey: "isPink") as? Bool
+                if check == false {
                     print("part2")
-                    changetoPink(circle_shape: circ_made1)
-                    circ1.isPink = true
+                    changetoPink(circle_shape: clickedNodes.first as! SKSpriteNode)
+                    clickedNodes.first?.userData?.setValue(true, forKey: "isPink")
                 }
                
                 print("part3")
             }
-            
-            if clickedNodes.first?.name == "circ_made2" {
-                if circ2.isPink == false {
-                    print("part2")
-                    changetoPink(circle_shape: circ_made2)
-                    circ2.isPink = true
-                }
-                
-                print("part3")
-            }
-            
-            if clickedNodes.first?.name == "circ_made3" {
-                if circ3.isPink == false {
-                    print("part2")
-                    changetoPink(circle_shape: circ_made3)
-                    circ3.isPink = true
-                }
-                
-                print("part3")
-            }
-            
-            if clickedNodes.first?.name == "circ_made4" {
-                if circ4.isPink == false {
-                    print("part2")
-                    changetoPink(circle_shape: circ_made4)
-                    circ4.isPink = true
-                }
-                
-                print("part3")
-            }
-            
-            if clickedNodes.first?.name == "circ_made5" {
-                if circ5.isPink == false {
-                    print("part2")
-                    changetoPink(circle_shape: circ_made5)
-                    circ5.isPink = true
-                }
-                
-                print("part3")
-            }
-            
-            if clickedNodes.first?.name == "square_made1" {
-                square_made1.alpha = 0
-                square_made1.physicsBody = SKPhysicsBody(rectangleOf: CGSize (width: 00,height: 00))
-                
-            }
-            
-            if clickedNodes.first?.name == "square_made2" {
-                square_made2.alpha = 0
-                square_made2.physicsBody = SKPhysicsBody(rectangleOf: CGSize (width: 00,height: 00))
+           
+            if clickedNodes.first?.userData?.value(forKey: "isCircle") as? Bool == false {
+                clickedNodes.first?.alpha = 0
+                clickedNodes.first?.physicsBody = SKPhysicsBody(rectangleOf: CGSize (width: 00,height: 00))
                 
             }
             
@@ -303,9 +279,9 @@ class circleChange: SKScene {
             var numPinkCirc = 0
             for item in arrayCircles {
                 
-                if item.isCircle == true {
+                if item.shape_sprite.userData?.value(forKey: "isCircle") as? Bool == true {
                 
-                    if item.isPink == true {
+                    if item.shape_sprite.userData?.value(forKey: "isPink") as? Bool == true {
                         
                         numPinkCirc = numPinkCirc+1
                         if numPinkCirc >= 3 {
