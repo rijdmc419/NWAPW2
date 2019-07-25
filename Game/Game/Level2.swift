@@ -227,6 +227,7 @@ class Level2: SKScene, SKPhysicsContactDelegate {
                 circle.physicsBody?.mass = 1
                 circle.physicsBody?.velocity = CGVector(dx: velocityx!,dy: velocityy!)
                 circle.userData?.setValue(false, forKey: "isCircle")
+                circle.name = "square"
             }
         }
     }
@@ -282,12 +283,7 @@ class Level2: SKScene, SKPhysicsContactDelegate {
                                 let level = Level3(fileNamed: "Level3")
                                 level?.scaleMode = .aspectFill
                                 self.view?.presentScene(level!, transition: SKTransition.fade(withDuration: 0.5))
-                                /*
-                                 let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                                 let levelDone = mainStoryboard.instantiateViewController(withIdentifier: "level_done") //as! Page2
-                                 //self.present(page2, animated: true)
-                                 self.view!.window?.rootViewController?.present(levelDone, animated: true, completion: nil)
-                                 */
+
                             }
                         }
                     }

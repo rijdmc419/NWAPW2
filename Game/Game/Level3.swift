@@ -252,6 +252,8 @@ class Level3: SKScene, SKPhysicsContactDelegate {
                 circle.physicsBody?.mass = 1
                 circle.physicsBody?.velocity = CGVector(dx: velocityx!,dy: velocityy!)
                 circle.userData?.setValue(false, forKey: "isCircle")
+                circle.name = "square"
+
             }
         }
     }
