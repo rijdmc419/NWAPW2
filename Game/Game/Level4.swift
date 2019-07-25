@@ -58,7 +58,7 @@ class Level4: SKScene, SKPhysicsContactDelegate {
         restartButton = SKSpriteNode(imageNamed: "restart_button")
         restartButton.name = "restartButton"
         restartButton.alpha = 1
-        restartButton.size = CGSize (width: 120, height: 60)
+        restartButton.size = CGSize (width: 60, height: 60)
         restartButton.position = CGPoint (x: 210, y: 610)
         restartButton.anchorPoint = CGPoint (x: 0.5, y: 0.5)
         restartButton.zPosition = 2
