@@ -39,10 +39,16 @@ class Square: Shape{
         super.init(shape_sprite: shape_sprite)
     }
 }
-class circleChange: SKScene {
+class circleChange: SKScene, SKPhysicsContactDelegate {
     
 
     var arraySprites : [Shape]!
+    let goodCategory:UInt32 = 0x1 << 0 //1
+    let badCategory:UInt32 = 0x1 << 2 //4
+    var lineb: SKSpriteNode!
+    var linet: SKSpriteNode!
+    var liner: SKSpriteNode!
+    var linel: SKSpriteNode!
     var circ_made1: SKSpriteNode!
     var circ_made2: SKSpriteNode!
     var circ_made3: SKSpriteNode!
@@ -66,7 +72,7 @@ class circleChange: SKScene {
     
     override func didMove(to view: SKView) {
         self.backgroundColor = SKColor.init(red: 0, green: 0, blue: 1, alpha: 1)
-        
+        self.physicsWorld.contactDelegate = self
         //circle1 = self.childNode(withName: "circle1") as? SKSpriteNode
         //let circ_made = SKSpriteNode(imageNamed: "Circle_White")
        // background = self.childNode(withName: "background") as? SKSpriteNode
@@ -92,13 +98,66 @@ class circleChange: SKScene {
         restartButton.zPosition = 2
         self.addChild(restartButton)
         
+        //bottom boarder
+        lineb = SKSpriteNode(imageNamed: "line2")
+        lineb.size = CGSize (width: 600, height: 2)
+        lineb.position = CGPoint (x: 0, y: -550)
+        lineb.anchorPoint = CGPoint (x: 0.5, y: 0.5)
+        self.addChild(lineb)
+        lineb.physicsBody = SKPhysicsBody(rectangleOf:  CGSize (width: 600, height: 2))
+        lineb.physicsBody?.isDynamic = false
+        lineb.physicsBody?.friction = 0
+        lineb.physicsBody?.restitution = 1
+        lineb.name = "wall"
+        
+        //topboarder
+        linet = SKSpriteNode(imageNamed: "line2")
+        linet.size = CGSize (width: 600, height: 2)
+        linet.position = CGPoint (x: 0, y: 550)
+        linet.anchorPoint = CGPoint (x: 0.5, y: 0.5)
+        self.addChild(linet)
+        linet.physicsBody = SKPhysicsBody(rectangleOf:  CGSize (width: 600, height: 2))
+        linet.physicsBody?.isDynamic = false
+        linet.physicsBody?.friction = 0
+        linet.physicsBody?.restitution = 1
+        linet.name = "wall"
+        
+        
+        
+        //rightside baorder
+        liner = SKSpriteNode(imageNamed: "line2")
+        liner.size = CGSize (width: 20, height: 1100)
+        liner.position = CGPoint (x: 300, y: 0)
+        liner.anchorPoint = CGPoint (x: 0.5, y: 0.5)
+        liner.physicsBody = SKPhysicsBody(rectangleOf:  CGSize (width: 20, height: 1100))
+        liner.physicsBody?.isDynamic = false
+        liner.physicsBody?.friction = 1
+        liner.physicsBody?.restitution = 1
+        liner.physicsBody?.affectedByGravity = false
+        self.addChild(liner)
+        liner.name = "wall"
+        
+        
+        //leftside boarder
+        linel = SKSpriteNode(imageNamed: "line2")
+        linel.size = CGSize (width: 2, height: 1100)
+        linel.position = CGPoint (x: -300, y: 0)
+        linel.anchorPoint = CGPoint (x: 0.5, y: 0.5)
+        self.addChild(linel)
+        linel.physicsBody = SKPhysicsBody(rectangleOf:  CGSize (width: 2, height: 1100))
+        linel.physicsBody?.isDynamic = false
+        linel.physicsBody?.friction = 0
+        linel.physicsBody?.restitution = 1
+        linel.name = "wall"
+
+        
         let boarder = SKPhysicsBody(edgeLoopFrom: self.frame)
         boarder.friction = 0
         boarder.restitution = 1.0
         self.physicsBody = boarder
         
         circ_made1 = SKSpriteNode(imageNamed: "Circle_White")
-        circ_made1.name = "circ_made1"
+        circ_made1.name = "circle"
         
         circ_made1.userData = [
             "isPink" : false,
@@ -121,7 +180,7 @@ class circleChange: SKScene {
         circ1 = Circle(shape_sprite: circ_made1, isPink: false, isCircle: true)
         
         circ_made2 = SKSpriteNode(imageNamed: "Circle_White")
-        circ_made2.name = "circ_made2"
+        circ_made2.name = "circle"
         circ_made2.size = CGSize (width: 100, height: 100)
         circ_made2.position = CGPoint (x: 0, y: 30)
         circ_made2.anchorPoint = CGPoint (x: 0.5, y: 0.5)
@@ -155,7 +214,7 @@ class circleChange: SKScene {
         circ3 = Circle(shape_sprite: circ_made3, isPink: false, isCircle: true)
         
         circ_made4 = SKSpriteNode(imageNamed: "Circle_White")
-        circ_made4.name = "circ_made4"
+        circ_made4.name = "circle"
         circ_made4.size = CGSize (width: 100, height: 100)
         circ_made4.position = CGPoint (x: 0, y: 200)
         circ_made4.anchorPoint = CGPoint (x: 0.5, y: 0.5)
@@ -172,7 +231,7 @@ class circleChange: SKScene {
         circ4 = Circle(shape_sprite: circ_made4, isPink: false, isCircle: true)
         
         circ_made5 = SKSpriteNode(imageNamed: "Circle_White")
-        circ_made5.name = "circ_made5"
+        circ_made5.name = "circle"
         circ_made5.size = CGSize (width: 100, height: 100)
         circ_made5.position = CGPoint (x: 0, y: 100)
         circ_made5.anchorPoint = CGPoint (x: 0.5, y: 0.5)
@@ -193,12 +252,12 @@ class circleChange: SKScene {
         
         
         square_made1 = SKSpriteNode(imageNamed: "square_white")
-        square_made1.name = "square_made1"
+        square_made1.name = "square"
             square_made1.userData = [
                 "isCircle" : false
         ];
         square_made1.size = CGSize (width: 100, height: 100)
-        square_made1.position = CGPoint (x: 0, y: 0)
+        square_made1.position = CGPoint (x: -200, y: -400)
         square_made1.anchorPoint = CGPoint (x: 0.5, y: 0.5)
                     self.addChild(square_made1)
         square_made1.physicsBody = SKPhysicsBody(rectangleOf: CGSize (width: 100,height: 100))
@@ -207,13 +266,18 @@ class circleChange: SKScene {
         square_made1.physicsBody?.allowsRotation = false
         square_made1.physicsBody?.linearDamping = 0.0
         square_made1.physicsBody?.angularDamping = 0.0
-        square_made1.physicsBody?.restitution = 1.0
-        square_made1.physicsBody?.friction = 0
-        square_made1.physicsBody?.applyImpulse(CGVector(dx: 90, dy: 90))
+        square_made1.physicsBody?.restitution = 0
+        square_made1.physicsBody?.friction = 1
+        square_made1.physicsBody?.mass = 1
+        square_made1.physicsBody?.applyImpulse(CGVector(dx: 50, dy: 50))
+        square_made1.physicsBody?.categoryBitMask = badCategory
+        square_made1.physicsBody?.collisionBitMask = goodCategory
+        square_made1.physicsBody?.contactTestBitMask = goodCategory
+
 
         square_made2 = SKSpriteNode(imageNamed: "square_white")
-        square_made2.name = "square_made2"
-        square_made1.userData = [
+        square_made2.name = "square"
+        square_made2.userData = [
             "isCircle" : false
         ];
         square_made2.size = CGSize (width: 100, height: 100)
@@ -226,10 +290,14 @@ class circleChange: SKScene {
         square_made2.physicsBody?.allowsRotation = false
         square_made2.physicsBody?.linearDamping = 0.0
         square_made2.physicsBody?.angularDamping = 0.0
-        square_made2.physicsBody?.restitution = 1.0
+        square_made2.physicsBody?.restitution = 1
         square_made2.physicsBody?.friction = 0
-        square_made2.physicsBody?.applyImpulse(CGVector(dx: 90, dy: 90))
-        
+        square_made2.physicsBody?.mass = 1
+        square_made2.physicsBody?.applyImpulse(CGVector(dx: 50, dy: 50))
+        square_made2.physicsBody?.categoryBitMask = badCategory
+        square_made2.physicsBody?.collisionBitMask = goodCategory
+        square_made2.physicsBody?.contactTestBitMask = goodCategory
+
         //arraySprites.append(circ)
         arrayCircles = [circ1, circ2, circ3, circ4, circ5]
         
@@ -240,6 +308,60 @@ class circleChange: SKScene {
                 "isCircle" : true
             ];
             
+            item.shape_sprite.physicsBody?.collisionBitMask = goodCategory
+            item.shape_sprite.physicsBody?.categoryBitMask = goodCategory
+            item.shape_sprite.physicsBody?.mass = 1
+
+            
+        }
+    }
+    func didBegin(_ contact: SKPhysicsContact)
+    {
+        let firstBody = contact.bodyA.node as! SKSpriteNode
+        let secondBody = contact.bodyB.node as! SKSpriteNode
+        
+        print("hello")
+        
+        
+        if ((firstBody.name == "square") && (secondBody.name == "circle"))
+        {
+            collisions(circle: secondBody, square: firstBody)
+            print("hi")
+
+        }
+        else if ((firstBody.name == "circle") && (secondBody.name == "square"))
+        {
+            collisions(circle: firstBody, square: secondBody)
+            print("hi")
+
+        }
+    }
+    
+    func collisions(circle : SKSpriteNode, square : SKSpriteNode)
+    {
+        print("coollision")
+        if circle.userData?.value(forKey: "isPink") as? Bool == false
+        {
+            print("loop1")
+            if circle.userData?.value(forKey: "isCircle") as? Bool == true
+            {
+                print("loop2")
+                //turn to square
+                circle.texture = SKTexture(imageNamed: "square_white")
+                let velocityx = circle.physicsBody?.velocity.dx
+                let velocityy = circle.physicsBody?.velocity.dy
+                circle.physicsBody = SKPhysicsBody(rectangleOf: CGSize (width: 100,height: 100))
+                circle.physicsBody?.isDynamic = true
+                circle.physicsBody?.affectedByGravity = false
+                circle.physicsBody?.allowsRotation = false
+                circle.physicsBody?.linearDamping = 0.0
+                circle.physicsBody?.angularDamping = 0.0
+                circle.physicsBody?.restitution = 1
+                circle.physicsBody?.friction = 0
+                circle.physicsBody?.mass = 1
+                circle.physicsBody?.velocity = CGVector(dx: velocityx!,dy: velocityy!)
+                circle.userData?.setValue(false, forKey: "isCircle")
+            }
         }
     }
     
