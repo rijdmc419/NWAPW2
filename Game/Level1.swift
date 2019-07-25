@@ -28,26 +28,29 @@ class Level1: SKScene, SKPhysicsContactDelegate {
     var square_made1: SKSpriteNode!
     var level_doneButton: SKSpriteNode!
     var restartButton: SKSpriteNode!
-    
+    var background: SKSpriteNode!
     
     override func didMove(to view: SKView) {
-        self.backgroundColor = SKColor.init(red: 0, green: 0, blue: 1, alpha: 1)
+        background = SKSpriteNode(imageNamed: "Pad_Background")
+        background?.size = CGSize (width: 750, height: 1334)
+        self.addChild(background)
+        background.zPosition = -1
         self.physicsWorld.contactDelegate = self
         
-        level_doneButton = SKSpriteNode(imageNamed: "square_white")
+        level_doneButton = SKSpriteNode(imageNamed: "done_button")
         level_doneButton.name = "levelButton"
         level_doneButton.alpha = 0
         level_doneButton.size = CGSize (width: 120, height: 60)
-        level_doneButton.position = CGPoint (x: -200, y: 610)
+        level_doneButton.position = CGPoint (x: -210, y: 610)
         level_doneButton.anchorPoint = CGPoint (x: 0.5, y: 0.5)
         level_doneButton.zPosition = 2
         self.addChild(level_doneButton)
         
-        restartButton = SKSpriteNode(imageNamed: "square_white")
+        restartButton = SKSpriteNode(imageNamed: "restart_button")
         restartButton.name = "restartButton"
         restartButton.alpha = 1
-        restartButton.size = CGSize (width: 120, height: 60)
-        restartButton.position = CGPoint (x: 210, y: 610)
+        restartButton.size = CGSize (width: 60, height: 60)
+        restartButton.position = CGPoint (x: 220, y: 610)
         restartButton.anchorPoint = CGPoint (x: 0.5, y: 0.5)
         restartButton.zPosition = 2
         self.addChild(restartButton)
