@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		8D12B04E22E62F1F007A6578 /* audioTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D12B04D22E62F1F007A6578 /* audioTest.swift */; };
 		8D5DE71C22E658E30054A4B4 /* launchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5DE71B22E658E30054A4B4 /* launchScreen.swift */; };
+		8F2256B322EA2BEC0017FD72 /* Level1.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8F2256B222EA2BEC0017FD72 /* Level1.sks */; };
+		8F2256B522EA2C040017FD72 /* Level1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2256B422EA2C040017FD72 /* Level1.swift */; };
+		8F2256B722EA2E110017FD72 /* Level5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2256B622EA2E110017FD72 /* Level5.swift */; };
+		8F2256B922EA2E240017FD72 /* Level5.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8F2256B822EA2E240017FD72 /* Level5.sks */; };
 		F72BD8B822DD285900BAF3C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72BD8B722DD285900BAF3C4 /* AppDelegate.swift */; };
 		F72BD8BA22DD285900BAF3C4 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = F72BD8B922DD285900BAF3C4 /* GameScene.sks */; };
 		F72BD8BC22DD285900BAF3C4 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = F72BD8BB22DD285900BAF3C4 /* Actions.sks */; };
@@ -46,6 +50,10 @@
 /* Begin PBXFileReference section */
 		8D12B04D22E62F1F007A6578 /* audioTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = audioTest.swift; sourceTree = "<group>"; };
 		8D5DE71B22E658E30054A4B4 /* launchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = launchScreen.swift; sourceTree = "<group>"; };
+		8F2256B222EA2BEC0017FD72 /* Level1.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level1.sks; sourceTree = "<group>"; };
+		8F2256B422EA2C040017FD72 /* Level1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Level1.swift; path = ../Level1.swift; sourceTree = "<group>"; };
+		8F2256B622EA2E110017FD72 /* Level5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level5.swift; sourceTree = "<group>"; };
+		8F2256B822EA2E240017FD72 /* Level5.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level5.sks; sourceTree = "<group>"; };
 		F72BD8B422DD285900BAF3C4 /* Game.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Game.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F72BD8B722DD285900BAF3C4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F72BD8B922DD285900BAF3C4 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -130,9 +138,13 @@
 				F72BD8BD22DD285900BAF3C4 /* GameScene.swift */,
 				F74DDFE622E22F2E00349C4A /* circleChange.sks */,
 				F74DDFEA22E22FB800349C4A /* circleChange.swift */,
+				8F2256B422EA2C040017FD72 /* Level1.swift */,
+				8F2256B222EA2BEC0017FD72 /* Level1.sks */,
 				F72BD8EB22DE381600BAF3C4 /* Level2.swift */,
 				F72BD8EF22DE38A900BAF3C4 /* Level2.sks */,
 				F72BD8F522E0D7B000BAF3C4 /* Page2.swift */,
+				8F2256B622EA2E110017FD72 /* Level5.swift */,
+				8F2256B822EA2E240017FD72 /* Level5.sks */,
 				F72BD8BF22DD285900BAF3C4 /* GameViewController.swift */,
 				F72BD8C122DD285900BAF3C4 /* Main.storyboard */,
 				8D12B04D22E62F1F007A6578 /* audioTest.swift */,
@@ -269,7 +281,9 @@
 			files = (
 				F72BD8C322DD285900BAF3C4 /* Main.storyboard in Resources */,
 				F72BD8BA22DD285900BAF3C4 /* GameScene.sks in Resources */,
+				8F2256B322EA2BEC0017FD72 /* Level1.sks in Resources */,
 				F72BD8F022DE38A900BAF3C4 /* Level2.sks in Resources */,
+				8F2256B922EA2E240017FD72 /* Level5.sks in Resources */,
 				F72BD8C522DD285A00BAF3C4 /* Assets.xcassets in Resources */,
 				F72BD8C822DD285A00BAF3C4 /* LaunchScreen.storyboard in Resources */,
 				F74DDFE722E22F2E00349C4A /* circleChange.sks in Resources */,
@@ -298,6 +312,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F2256B722EA2E110017FD72 /* Level5.swift in Sources */,
+				8F2256B522EA2C040017FD72 /* Level1.swift in Sources */,
 				F72BD8EC22DE381600BAF3C4 /* Level2.swift in Sources */,
 				8D12B04E22E62F1F007A6578 /* audioTest.swift in Sources */,
 				8D5DE71C22E658E30054A4B4 /* launchScreen.swift in Sources */,
