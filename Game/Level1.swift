@@ -254,11 +254,15 @@ class Level1: SKScene, SKPhysicsContactDelegate {
                             print("you win!")
                             level_doneButton.alpha = 1
                             if clickedNodes.first?.name == "levelButton" {
-                                
+                                let level = Level2(fileNamed: "Level2")
+                                level?.scaleMode = .aspectFill
+                                self.view?.presentScene(level!, transition: SKTransition.fade(withDuration: 0.5))
+                                /*
                                 let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
                                 let levelDone = mainStoryboard.instantiateViewController(withIdentifier: "level_done") //as! Page2
                                 //self.present(page2, animated: true)
                                 self.view!.window?.rootViewController?.present(levelDone, animated: true, completion: nil)
+                                    */
                             }
                         }
                     }

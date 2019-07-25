@@ -28,10 +28,14 @@ class Level2: SKScene, SKPhysicsContactDelegate {
     var square1 : Square!
     var level_doneButton: SKSpriteNode!
     var restartButton: SKSpriteNode!
-    
+    var background: SKSpriteNode!
+
     
     override func didMove(to view: SKView) {
-        self.backgroundColor = SKColor.init(red: 0, green: 0, blue: 1, alpha: 1)
+        background = SKSpriteNode(imageNamed: "Pad_Background")
+        background?.size = CGSize (width: 750, height: 1334)
+        self.addChild(background)
+        background.zPosition = -1
         self.physicsWorld.contactDelegate = self
         //circle1 = self.childNode(withName: "circle1") as? SKSpriteNode
         //let circ_made = SKSpriteNode(imageNamed: "Circle_White")
@@ -40,7 +44,7 @@ class Level2: SKScene, SKPhysicsContactDelegate {
         
         //for shape in arraySprites {
         
-        level_doneButton = SKSpriteNode(imageNamed: "square_white")
+        level_doneButton = SKSpriteNode(imageNamed: "done_button")
         level_doneButton.name = "levelButton"
         level_doneButton.alpha = 0
         level_doneButton.size = CGSize (width: 120, height: 60)
@@ -49,7 +53,7 @@ class Level2: SKScene, SKPhysicsContactDelegate {
         level_doneButton.zPosition = 2
         self.addChild(level_doneButton)
         
-        restartButton = SKSpriteNode(imageNamed: "square_white")
+        restartButton = SKSpriteNode(imageNamed: "restart_button")
         restartButton.name = "restartButton"
         restartButton.alpha = 1
         restartButton.size = CGSize (width: 120, height: 60)
@@ -275,11 +279,15 @@ class Level2: SKScene, SKPhysicsContactDelegate {
                             print("you win!")
                             level_doneButton.alpha = 1
                             if clickedNodes.first?.name == "levelButton" {
-                                
-                                let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                                let levelDone = mainStoryboard.instantiateViewController(withIdentifier: "level_done") //as! Page2
-                                //self.present(page2, animated: true)
-                                self.view!.window?.rootViewController?.present(levelDone, animated: true, completion: nil)
+                                let level = Level3(fileNamed: "Level3")
+                                level?.scaleMode = .aspectFill
+                                self.view?.presentScene(level!, transition: SKTransition.fade(withDuration: 0.5))
+                                /*
+                                 let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                                 let levelDone = mainStoryboard.instantiateViewController(withIdentifier: "level_done") //as! Page2
+                                 //self.present(page2, animated: true)
+                                 self.view!.window?.rootViewController?.present(levelDone, animated: true, completion: nil)
+                                 */
                             }
                         }
                     }
