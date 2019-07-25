@@ -24,6 +24,10 @@
 		F72BD8F622E0D7B000BAF3C4 /* Page2.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72BD8F522E0D7B000BAF3C4 /* Page2.swift */; };
 		F74DDFE722E22F2E00349C4A /* circleChange.sks in Resources */ = {isa = PBXBuildFile; fileRef = F74DDFE622E22F2E00349C4A /* circleChange.sks */; };
 		F74DDFEB22E22FB800349C4A /* circleChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74DDFEA22E22FB800349C4A /* circleChange.swift */; };
+		F7E1176422EA2C830069331C /* Level3.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E1176322EA2C830069331C /* Level3.swift */; };
+		F7E1176622EA2D0D0069331C /* Level3.sks in Resources */ = {isa = PBXBuildFile; fileRef = F7E1176522EA2D0D0069331C /* Level3.sks */; };
+		F7E1176822EA32D80069331C /* Level4.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E1176722EA32D80069331C /* Level4.swift */; };
+		F7E1176A22EA32E80069331C /* Level4.sks in Resources */ = {isa = PBXBuildFile; fileRef = F7E1176922EA32E80069331C /* Level4.sks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +71,10 @@
 		F72BD8F522E0D7B000BAF3C4 /* Page2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page2.swift; sourceTree = "<group>"; };
 		F74DDFE622E22F2E00349C4A /* circleChange.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = circleChange.sks; sourceTree = "<group>"; };
 		F74DDFEA22E22FB800349C4A /* circleChange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = circleChange.swift; sourceTree = "<group>"; };
+		F7E1176322EA2C830069331C /* Level3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level3.swift; sourceTree = "<group>"; };
+		F7E1176522EA2D0D0069331C /* Level3.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level3.sks; sourceTree = "<group>"; };
+		F7E1176722EA32D80069331C /* Level4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level4.swift; sourceTree = "<group>"; };
+		F7E1176922EA32E80069331C /* Level4.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level4.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,8 +138,12 @@
 				F72BD8BD22DD285900BAF3C4 /* GameScene.swift */,
 				F74DDFE622E22F2E00349C4A /* circleChange.sks */,
 				F74DDFEA22E22FB800349C4A /* circleChange.swift */,
-				F72BD8EB22DE381600BAF3C4 /* Level2.swift */,
+				F7E1176522EA2D0D0069331C /* Level3.sks */,
+				F7E1176322EA2C830069331C /* Level3.swift */,
+				F7E1176922EA32E80069331C /* Level4.sks */,
+				F7E1176722EA32D80069331C /* Level4.swift */,
 				F72BD8EF22DE38A900BAF3C4 /* Level2.sks */,
+				F72BD8EB22DE381600BAF3C4 /* Level2.swift */,
 				F72BD8F522E0D7B000BAF3C4 /* Page2.swift */,
 				F72BD8BF22DD285900BAF3C4 /* GameViewController.swift */,
 				F72BD8C122DD285900BAF3C4 /* Main.storyboard */,
@@ -271,9 +283,11 @@
 				F72BD8BA22DD285900BAF3C4 /* GameScene.sks in Resources */,
 				F72BD8F022DE38A900BAF3C4 /* Level2.sks in Resources */,
 				F72BD8C522DD285A00BAF3C4 /* Assets.xcassets in Resources */,
+				F7E1176622EA2D0D0069331C /* Level3.sks in Resources */,
 				F72BD8C822DD285A00BAF3C4 /* LaunchScreen.storyboard in Resources */,
 				F74DDFE722E22F2E00349C4A /* circleChange.sks in Resources */,
 				F72BD8BC22DD285900BAF3C4 /* Actions.sks in Resources */,
+				F7E1176A22EA32E80069331C /* Level4.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,10 +312,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7E1176422EA2C830069331C /* Level3.swift in Sources */,
 				F72BD8EC22DE381600BAF3C4 /* Level2.swift in Sources */,
 				8D12B04E22E62F1F007A6578 /* audioTest.swift in Sources */,
 				8D5DE71C22E658E30054A4B4 /* launchScreen.swift in Sources */,
 				F72BD8BE22DD285900BAF3C4 /* GameScene.swift in Sources */,
+				F7E1176822EA32D80069331C /* Level4.swift in Sources */,
 				F72BD8C022DD285900BAF3C4 /* GameViewController.swift in Sources */,
 				F74DDFEB22E22FB800349C4A /* circleChange.swift in Sources */,
 				F72BD8B822DD285900BAF3C4 /* AppDelegate.swift in Sources */,
