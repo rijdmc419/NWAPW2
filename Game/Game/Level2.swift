@@ -37,10 +37,6 @@ class Level2: SKScene, SKPhysicsContactDelegate {
         self.addChild(background)
         background.zPosition = -1
         self.physicsWorld.contactDelegate = self
-        //circle1 = self.childNode(withName: "circle1") as? SKSpriteNode
-        //let circ_made = SKSpriteNode(imageNamed: "Circle_White")
-        // background = self.childNode(withName: "background") as? SKSpriteNode
-        //circ_made = self.childNode(withName: "Circle_White") as? SKSpriteNode
         
         //for shape in arraySprites {
         
@@ -159,7 +155,7 @@ class Level2: SKScene, SKPhysicsContactDelegate {
         square_made1.physicsBody?.linearDamping = 0.0
         square_made1.physicsBody?.angularDamping = 0.0
         square_made1.physicsBody?.restitution = 1.0
-        square_made1.physicsBody?.friction = 1
+        square_made1.physicsBody?.friction = 0
         square_made1.physicsBody?.mass = 1
         square_made1.physicsBody?.applyImpulse(CGVector(dx: 50, dy: 50))
         square_made1.physicsBody?.categoryBitMask = badCategory
@@ -179,7 +175,6 @@ class Level2: SKScene, SKPhysicsContactDelegate {
             item.shape_sprite.physicsBody?.collisionBitMask = goodCategory
             item.shape_sprite.physicsBody?.categoryBitMask = goodCategory
             item.shape_sprite.physicsBody?.mass = 1
-            
         }
     }
     func didBegin(_ contact: SKPhysicsContact)
