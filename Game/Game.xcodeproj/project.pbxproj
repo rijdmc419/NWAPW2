@@ -25,7 +25,6 @@
 		F72BD8DE22DD285A00BAF3C4 /* GameUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72BD8DD22DD285A00BAF3C4 /* GameUITests.swift */; };
 		F72BD8EC22DE381600BAF3C4 /* Level2.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72BD8EB22DE381600BAF3C4 /* Level2.swift */; };
 		F72BD8F022DE38A900BAF3C4 /* Level2.sks in Resources */ = {isa = PBXBuildFile; fileRef = F72BD8EF22DE38A900BAF3C4 /* Level2.sks */; };
-		F72BD8F622E0D7B000BAF3C4 /* Page2.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72BD8F522E0D7B000BAF3C4 /* Page2.swift */; };
 		F74DDFE722E22F2E00349C4A /* circleChange.sks in Resources */ = {isa = PBXBuildFile; fileRef = F74DDFE622E22F2E00349C4A /* circleChange.sks */; };
 		F74DDFEB22E22FB800349C4A /* circleChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74DDFEA22E22FB800349C4A /* circleChange.swift */; };
 		F7E1176422EA2C830069331C /* Level3.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E1176322EA2C830069331C /* Level3.swift */; };
@@ -76,7 +75,6 @@
 		F72BD8DF22DD285A00BAF3C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F72BD8EB22DE381600BAF3C4 /* Level2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level2.swift; sourceTree = "<group>"; };
 		F72BD8EF22DE38A900BAF3C4 /* Level2.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level2.sks; sourceTree = "<group>"; };
-		F72BD8F522E0D7B000BAF3C4 /* Page2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page2.swift; sourceTree = "<group>"; };
 		F74DDFE622E22F2E00349C4A /* circleChange.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = circleChange.sks; sourceTree = "<group>"; };
 		F74DDFEA22E22FB800349C4A /* circleChange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = circleChange.swift; sourceTree = "<group>"; };
 		F7E1176322EA2C830069331C /* Level3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level3.swift; sourceTree = "<group>"; };
@@ -146,17 +144,16 @@
 				F72BD8BD22DD285900BAF3C4 /* GameScene.swift */,
 				F74DDFE622E22F2E00349C4A /* circleChange.sks */,
 				F74DDFEA22E22FB800349C4A /* circleChange.swift */,
+				8F2256B222EA2BEC0017FD72 /* Level1.sks */,
+				8F2256B422EA2C040017FD72 /* Level1.swift */,
+				F72BD8EF22DE38A900BAF3C4 /* Level2.sks */,
+				F72BD8EB22DE381600BAF3C4 /* Level2.swift */,
 				F7E1176522EA2D0D0069331C /* Level3.sks */,
 				F7E1176322EA2C830069331C /* Level3.swift */,
 				F7E1176922EA32E80069331C /* Level4.sks */,
 				F7E1176722EA32D80069331C /* Level4.swift */,
-				8F2256B422EA2C040017FD72 /* Level1.swift */,
-				8F2256B222EA2BEC0017FD72 /* Level1.sks */,
-				F72BD8EF22DE38A900BAF3C4 /* Level2.sks */,
-				F72BD8EB22DE381600BAF3C4 /* Level2.swift */,
-				F72BD8F522E0D7B000BAF3C4 /* Page2.swift */,
-				8F2256B622EA2E110017FD72 /* Level5.swift */,
 				8F2256B822EA2E240017FD72 /* Level5.sks */,
+				8F2256B622EA2E110017FD72 /* Level5.swift */,
 				F72BD8BF22DD285900BAF3C4 /* GameViewController.swift */,
 				F72BD8C122DD285900BAF3C4 /* Main.storyboard */,
 				8D12B04D22E62F1F007A6578 /* audioTest.swift */,
@@ -337,7 +334,6 @@
 				F72BD8C022DD285900BAF3C4 /* GameViewController.swift in Sources */,
 				F74DDFEB22E22FB800349C4A /* circleChange.swift in Sources */,
 				F72BD8B822DD285900BAF3C4 /* AppDelegate.swift in Sources */,
-				F72BD8F622E0D7B000BAF3C4 /* Page2.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

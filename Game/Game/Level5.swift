@@ -160,7 +160,7 @@ class Level5: SKScene, SKPhysicsContactDelegate {
         circ2 = Circle(shape_sprite: circ_made2, isPink: false, isCircle: true)
         
         
-        square_made1 = SKSpriteNode(imageNamed: "square_white")
+        square_made1 = SKSpriteNode(imageNamed: "angryface")
         square_made1.name = "square"
         square_made1.userData = [
             "isCircle" : false
@@ -179,12 +179,12 @@ class Level5: SKScene, SKPhysicsContactDelegate {
         square_made1.physicsBody?.friction = 1
         square_made1.physicsBody?.mass = 0.5
         square_made1.physicsBody?.applyImpulse(CGVector(dx: 90, dy: 90))
-        square_made1.physicsBody?.categoryBitMask = badCategory
+        square_made1.physicsBody?.categoryBitMask = goodCategory
         square_made1.physicsBody?.collisionBitMask = goodCategory
         square_made1.physicsBody?.contactTestBitMask = goodCategory
         
         
-        square_made2 = SKSpriteNode(imageNamed: "square_white")
+        square_made2 = SKSpriteNode(imageNamed: "angryface")
         square_made2.name = "square"
         square_made2.userData = [
             "isCircle" : false
@@ -203,7 +203,7 @@ class Level5: SKScene, SKPhysicsContactDelegate {
         square_made2.physicsBody?.friction = 0
         square_made2.physicsBody?.mass = 0.5
         square_made2.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 90))
-        square_made2.physicsBody?.categoryBitMask = badCategory
+        square_made2.physicsBody?.categoryBitMask = goodCategory
         square_made2.physicsBody?.collisionBitMask = goodCategory
         square_made2.physicsBody?.contactTestBitMask = goodCategory
         
@@ -256,7 +256,7 @@ class Level5: SKScene, SKPhysicsContactDelegate {
             {
                 print("loop2")
                 //turn to square
-                circle.texture = SKTexture(imageNamed: "square_white")
+                circle.texture = SKTexture(imageNamed: "angryface")
                 let velocityx = circle.physicsBody?.velocity.dx
                 let velocityy = circle.physicsBody?.velocity.dy
                 circle.physicsBody = SKPhysicsBody(rectangleOf: CGSize (width: 100,height: 100))

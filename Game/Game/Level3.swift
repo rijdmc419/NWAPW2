@@ -168,7 +168,7 @@ class Level3: SKScene, SKPhysicsContactDelegate {
         circ_made2.physicsBody?.applyImpulse(CGVector(dx: 70, dy: -70))
         circ2 = Circle(shape_sprite: circ_made2, isPink: false, isCircle: true)
         
-        square_made1 = SKSpriteNode(imageNamed: "square_white")
+        square_made1 = SKSpriteNode(imageNamed: "angryface")
         square_made1.name = "square"
         square_made1.userData = [
             "isCircle" : false
@@ -187,7 +187,7 @@ class Level3: SKScene, SKPhysicsContactDelegate {
         square_made1.physicsBody?.friction = 1
         square_made1.physicsBody?.mass = 0.3
         square_made1.physicsBody?.applyImpulse(CGVector(dx: -70, dy: 0))
-        square_made1.physicsBody?.categoryBitMask = badCategory
+        square_made1.physicsBody?.categoryBitMask = goodCategory
         square_made1.physicsBody?.collisionBitMask = goodCategory
         square_made1.physicsBody?.contactTestBitMask = goodCategory
         
@@ -238,7 +238,7 @@ class Level3: SKScene, SKPhysicsContactDelegate {
             {
                 print("loop2")
                 //turn to square
-                circle.texture = SKTexture(imageNamed: "square_white")
+                circle.texture = SKTexture(imageNamed: "angryface")
                 let velocityx = circle.physicsBody?.velocity.dx
                 let velocityy = circle.physicsBody?.velocity.dy
                 circle.physicsBody = SKPhysicsBody(rectangleOf: CGSize (width: 100,height: 100))
