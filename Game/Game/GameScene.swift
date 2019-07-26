@@ -15,6 +15,7 @@ class GameScene: SKScene {
     var label : SKLabelNode?
     var spinnyNode : SKShapeNode?
     var nextScenenButton: SKSpriteNode!
+    var TutorialScenenButton: SKSpriteNode!
     var background: SKSpriteNode!
     
     override func didMove(to view: SKView) {
@@ -28,51 +29,9 @@ class GameScene: SKScene {
         
         background = self.childNode(withName: "background") as? SKSpriteNode
         nextScenenButton = self.childNode(withName: "nextScenenButton") as? SKSpriteNode
-        
-        /*
-        // Create shape node to use during mouse interaction
-        let w = (self.size.width + self.size.height) * 0.05
-        self.spinnyNode = SKShapeNode.init(rectOf: CGSize.init(width: w, height: w), cornerRadius: w * 0.3)
-        
-        if let spinnyNode = self.spinnyNode {
-            spinnyNode.lineWidth = 2.5
-            
-            spinnyNode.run(SKAction.repeatForever(SKAction.rotate(byAngle: CGFloat(Double.pi), duration: 1)))
-            spinnyNode.run(SKAction.sequence([SKAction.wait(forDuration: 0.5),
-                                              SKAction.fadeOut(withDuration: 0.5),
-                                              SKAction.removeFromParent()]))
-         
-         }
-        */
- 
-        
+        TutorialScenenButton = self.childNode(withName: "TutorialScenenButton") as? SKSpriteNode
     }
-    
-    /*
-    func touchDown(atPoint pos : CGPoint) {
-        if let n = self.spinnyNode?.copy() as! SKShapeNode? {
-            n.position = pos
-            n.strokeColor = SKColor.green
-            self.addChild(n)
-        }
-    }
-    
-    func touchMoved(toPoint pos : CGPoint) {
-        if let n = self.spinnyNode?.copy() as! SKShapeNode? {
-            n.position = pos
-            n.strokeColor = SKColor.blue
-            self.addChild(n)
-        }
-    }
-    
-    func touchUp(atPoint pos : CGPoint) {
-        if let n = self.spinnyNode?.copy() as! SKShapeNode? {
-            n.position = pos
-            n.strokeColor = SKColor.red
-            self.addChild(n)
-        }
-    }
-    */
+     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
         let touch = touches.first
@@ -90,8 +49,13 @@ class GameScene: SKScene {
                     level?.scaleMode = .aspectFill
                     self.view?.presentScene(level!, transition: SKTransition.fade(withDuration: 0.5))
             }
+            
+            if nodesArray.first?.name == "TutorialScenenButton" {
+                
+                
+            }
         }
-        
+    }
         
         
         /*
@@ -115,7 +79,7 @@ class GameScene: SKScene {
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
         for t in touches { self.touchUp(atPoint: t.location(in: self)) }
         */
-    }
+    
     
     
     override func update(_ currentTime: TimeInterval) {
