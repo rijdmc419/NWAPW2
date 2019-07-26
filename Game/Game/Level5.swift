@@ -89,7 +89,7 @@ class Level5: SKScene, SKPhysicsContactDelegate {
         
         //rightside baorder
         liner = SKSpriteNode(imageNamed: "line2")
-        liner.size = CGSize (width: 20, height: 1100)
+        liner.size = CGSize (width: 2, height: 1100)
         liner.position = CGPoint (x: 300, y: 0)
         liner.anchorPoint = CGPoint (x: 0.5, y: 0.5)
         liner.physicsBody = SKPhysicsBody(rectangleOf:  CGSize (width: 20, height: 1100))

@@ -90,7 +90,7 @@ class Level2: SKScene, SKPhysicsContactDelegate {
         
         //rightside baorder
         liner = SKSpriteNode(imageNamed: "line2")
-        liner.size = CGSize (width: 20, height: 1100)
+        liner.size = CGSize (width: 2, height: 1100)
         liner.position = CGPoint (x: 300, y: 0)
         liner.anchorPoint = CGPoint (x: 0.5, y: 0.5)
         liner.physicsBody = SKPhysicsBody(rectangleOf:  CGSize (width: 20, height: 1100))
@@ -158,7 +158,7 @@ class Level2: SKScene, SKPhysicsContactDelegate {
         square_made1.physicsBody?.allowsRotation = false
         square_made1.physicsBody?.linearDamping = 0.0
         square_made1.physicsBody?.angularDamping = 0.0
-        square_made1.physicsBody?.restitution = 0
+        square_made1.physicsBody?.restitution = 1.0
         square_made1.physicsBody?.friction = 1
         square_made1.physicsBody?.mass = 1
         square_made1.physicsBody?.applyImpulse(CGVector(dx: 50, dy: 50))
