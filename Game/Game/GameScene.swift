@@ -86,7 +86,7 @@ class GameScene: SKScene {
                 //self.present(page2, animated: true)
                 self.view!.window?.rootViewController?.present(page2, animated: true, completion: nil)*/
                     
-                    let level = Level1(fileNamed: "Level1")
+                    let level = LevelScreen(fileNamed: "LevelScreen")
                     level?.scaleMode = .aspectFill
                     self.view?.presentScene(level!, transition: SKTransition.fade(withDuration: 0.5))
             }
