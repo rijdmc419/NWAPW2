@@ -52,7 +52,9 @@ class GameScene: SKScene {
             
             if nodesArray.first?.name == "TutorialScenenButton" {
                 
-                
+                let level = TutorialScene(fileNamed: "TutorialScene")
+                level?.scaleMode = .aspectFill
+                self.view?.presentScene(level!, transition: SKTransition.fade(withDuration: 0.5))
             }
         }
     }

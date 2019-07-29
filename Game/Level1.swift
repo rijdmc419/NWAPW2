@@ -58,7 +58,7 @@ class Level1: SKScene, SKPhysicsContactDelegate {
         //bottom boarder
         lineb = SKSpriteNode(imageNamed: "line2")
         lineb.size = CGSize (width: 600, height: 2)
-        lineb.position = CGPoint (x: 0, y: -550)
+        lineb.position = CGPoint (x: 0, y: -400)
         lineb.anchorPoint = CGPoint (x: 0.5, y: 0.5)
         self.addChild(lineb)
         lineb.physicsBody = SKPhysicsBody(rectangleOf:  CGSize (width: 600, height: 2))
@@ -70,7 +70,7 @@ class Level1: SKScene, SKPhysicsContactDelegate {
         //topboarder
         linet = SKSpriteNode(imageNamed: "line2")
         linet.size = CGSize (width: 600, height: 2)
-        linet.position = CGPoint (x: 0, y: 550)
+        linet.position = CGPoint (x: 0, y: 400)
         linet.anchorPoint = CGPoint (x: 0.5, y: 0.5)
         self.addChild(linet)
         linet.physicsBody = SKPhysicsBody(rectangleOf:  CGSize (width: 600, height: 2))
