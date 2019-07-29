@@ -38,6 +38,7 @@ class Level5: SKScene, SKPhysicsContactDelegate {
     override func didMove(to view: SKView) {
         background = SKSpriteNode(imageNamed: "Pad_Background")
         background?.size = CGSize (width: 750, height: 1334)
+        background?.zPosition = -1
         self.addChild(background)
         background.zPosition = -1
         self.physicsWorld.contactDelegate = self
@@ -110,7 +111,7 @@ class Level5: SKScene, SKPhysicsContactDelegate {
         linel.physicsBody = SKPhysicsBody(rectangleOf:  CGSize (width: 2, height: 1100))
         linel.physicsBody?.isDynamic = false
         linel.physicsBody?.friction = 0
-        linel.physicsBody?.restitution = 1
+        linel.physicsBody?.restitution = 1.0
         linel.name = "wall"
         
         
@@ -172,14 +173,14 @@ class Level5: SKScene, SKPhysicsContactDelegate {
         square_made1.physicsBody = SKPhysicsBody(rectangleOf: CGSize (width: 100,height: 100))
         square_made1.physicsBody?.isDynamic = true
         square_made1.physicsBody?.affectedByGravity = false
-        square_made1.physicsBody?.allowsRotation = false
+        square_made1.physicsBody?.allowsRotation = true
         square_made1.physicsBody?.linearDamping = 0.0
         square_made1.physicsBody?.angularDamping = 0.0
-        square_made1.physicsBody?.restitution = 0
+        square_made1.physicsBody?.restitution = 1.0
         square_made1.physicsBody?.friction = 1
         square_made1.physicsBody?.mass = 0.5
         square_made1.physicsBody?.applyImpulse(CGVector(dx: 90, dy: 90))
-        square_made1.physicsBody?.categoryBitMask = badCategory
+        square_made1.physicsBody?.categoryBitMask = goodCategory
         square_made1.physicsBody?.collisionBitMask = goodCategory
         square_made1.physicsBody?.contactTestBitMask = goodCategory
         
@@ -196,14 +197,14 @@ class Level5: SKScene, SKPhysicsContactDelegate {
         square_made2.physicsBody = SKPhysicsBody(rectangleOf: CGSize (width: 100,height: 100))
         square_made2.physicsBody?.isDynamic = true
         square_made2.physicsBody?.affectedByGravity = false
-        square_made2.physicsBody?.allowsRotation = false
+        square_made2.physicsBody?.allowsRotation = true
         square_made2.physicsBody?.linearDamping = 0.0
         square_made2.physicsBody?.angularDamping = 0.0
-        square_made2.physicsBody?.restitution = 1
+        square_made2.physicsBody?.restitution = 1.0
         square_made2.physicsBody?.friction = 0
         square_made2.physicsBody?.mass = 0.5
         square_made2.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 90))
-        square_made2.physicsBody?.categoryBitMask = badCategory
+        square_made2.physicsBody?.categoryBitMask = goodCategory
         square_made2.physicsBody?.collisionBitMask = goodCategory
         square_made2.physicsBody?.contactTestBitMask = goodCategory
         
@@ -262,13 +263,15 @@ class Level5: SKScene, SKPhysicsContactDelegate {
                 circle.physicsBody = SKPhysicsBody(rectangleOf: CGSize (width: 100,height: 100))
                 circle.physicsBody?.isDynamic = true
                 circle.physicsBody?.affectedByGravity = false
-                circle.physicsBody?.allowsRotation = false
+                circle.physicsBody?.allowsRotation = true
                 circle.physicsBody?.linearDamping = 0.0
                 circle.physicsBody?.angularDamping = 0.0
                 circle.physicsBody?.restitution = 1
                 circle.physicsBody?.friction = 0
                 circle.physicsBody?.mass = 1
                 circle.physicsBody?.velocity = CGVector(dx: velocityx!,dy: velocityy!)
+                circle.physicsBody?.categoryBitMask = goodCategory
+                circle.physicsBody?.collisionBitMask = goodCategory
                 circle.userData?.setValue(false, forKey: "isCircle")
             }
         }
