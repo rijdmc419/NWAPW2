@@ -186,22 +186,17 @@ class Level2: SKScene, SKPhysicsContactDelegate {
     {
         let firstBody = contact.bodyA.node as! SKSpriteNode
         let secondBody = contact.bodyB.node as! SKSpriteNode
-        let vx = firstBody.physicsBody?.velocity.dx
-        let vy = firstBody.physicsBody?.velocity.dy
-        
-        print(vx)
+
         
         
         if ((firstBody.name == "square") && (secondBody.name == "circle"))
         {
-            //collisions(circle: secondBody, square: firstBody)
-            print("hhhhhhhhhhhi")
+            collisions(circle: secondBody, square: firstBody)
             
         }
         else if ((firstBody.name == "circle") && (secondBody.name == "square"))
         {
             collisions(circle: firstBody, square: secondBody)
-            print("hhhhhhhhhhhhi")
             
         }
     }
@@ -218,7 +213,7 @@ class Level2: SKScene, SKPhysicsContactDelegate {
                 //turn to square
                 circle.texture = SKTexture(imageNamed: "angryface")
                 let velocityx = circle.physicsBody?.velocity.dx
-                print(velocityx)
+                //print(velocityx)
                 let velocityy = circle.physicsBody?.velocity.dy
                 circle.physicsBody = SKPhysicsBody(rectangleOf: CGSize (width: 100,height: 100))
                 circle.physicsBody?.isDynamic = true
