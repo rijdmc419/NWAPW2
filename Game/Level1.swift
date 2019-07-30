@@ -30,12 +30,39 @@ class Level1: SKScene, SKPhysicsContactDelegate {
     var restartButton: SKSpriteNode!
     var background: SKSpriteNode!
     
+    var timearea : SKNode!
+    var timebox: SKSpriteNode!
+    var timeLabel: SKLabelNode!
+    var timer = Timer()
+    var duration = 0.0
+    var isTimerOn = false
+    
     override func didMove(to view: SKView) {
         background = SKSpriteNode(imageNamed: "Pad_Background")
         background?.size = CGSize (width: 750, height: 1334)
         self.addChild(background)
         background.zPosition = -1
         self.physicsWorld.contactDelegate = self
+        
+        timearea = SKNode()
+        
+        timebox = SKSpriteNode(imageNamed: "Timer")
+        timebox?.size = CGSize (width: 150, height: 180)
+        timebox.position = CGPoint (x: 190, y: 490)
+        timearea.addChild(timebox)
+        
+        timeLabel = SKLabelNode()
+        timeLabel.position = CGPoint (x: 190, y: 465)
+        timeLabel.fontName = "ChalkDuster"
+        timeLabel.fontSize = 40
+        timeLabel.fontColor = UIColor.black
+        timeLabel.zPosition = 0
+        timearea.addChild(timeLabel)
+        isTimerOn.toggle()
+        toggleTimer(on: isTimerOn, label: timeLabel)
+        timearea.position = CGPoint (x: 35, y: 0)
+        timearea.alpha = 1
+        self.addChild(timearea)
         
         level_doneButton = SKSpriteNode(imageNamed: "done_button")
         level_doneButton.name = "levelButton"
@@ -252,6 +279,12 @@ class Level1: SKScene, SKPhysicsContactDelegate {
                         if numPinkCirc >= 1 {
                             // open level completed scene, or reveal next level button
                             print("you win!")
+                            isTimerOn.toggle()
+                            toggleTimer(on: isTimerOn, label: timeLabel)
+                            //input if statements for stars
+                            //
+                            //
+                            //
                             level_doneButton.alpha = 1
                             if clickedNodes.first?.name == "levelButton" {
                                 let level = Level2(fileNamed: "Level2")
@@ -274,5 +307,21 @@ class Level1: SKScene, SKPhysicsContactDelegate {
     {
         circle_shape.texture = SKTexture(imageNamed: "Circle_Pink")
         print("Hi")
+    }
+    func toggleTimer(on: Bool, label: SKLabelNode) {
+    if on == true {
+        timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true, block: { [self] (_) in
+            self.duration += 0.1
+            self.duration = self.duration * 10
+            self.duration = round(self.duration)
+            self.duration = self.duration / 10
+          label.text = String(self.duration)
+            //print("gogogogogogogogogogogog")
+        })
+    }
+    else{
+        timer.invalidate()
+    }
+        
     }
 }
