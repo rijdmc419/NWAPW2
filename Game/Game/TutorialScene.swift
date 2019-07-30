@@ -342,14 +342,14 @@ class TutorialScene: SKScene, SKPhysicsContactDelegate {
                 newText(stuff1: stuff1, stuff2: stuff2, arrow: arrow)
                 
                 circ_made1.position = CGPoint (x: -200, y: 200)
-                circ_made1.physicsBody?.applyImpulse(CGVector(dx: 50, dy: -50))
+                circ_made1.physicsBody?.applyImpulse(CGVector(dx: 60, dy: -60))
                 circ_made1.texture = SKTexture(imageNamed: "Circle_White")
                 circ_made1.userData?.setValue(false, forKey: "isPink")
                 
                 square_made1.alpha = 1
                 square_made1.position = CGPoint (x: 200, y: -200)
                 square_made1.physicsBody = SKPhysicsBody(rectangleOf: CGSize (width: 100,height: 100))
-                square_made1.physicsBody?.applyImpulse(CGVector(dx: -50, dy: 50))
+                square_made1.physicsBody?.applyImpulse(CGVector(dx: -60, dy: 60))
                 square_made1.physicsBody?.affectedByGravity = false
                 square_made1.physicsBody?.contactTestBitMask = goodCategory
                 square_made1.physicsBody?.allowsRotation = false
@@ -390,8 +390,16 @@ class TutorialScene: SKScene, SKPhysicsContactDelegate {
             else if fourthtouch == false && circ_made1.userData?.value(forKey: "isPink") as? Bool == true && thirdtouch == true{
                 print("yeet")
                 allowclick = false
+                
+                circ_made1.physicsBody = SKPhysicsBody(circleOfRadius: 50)
                 circ_made1.physicsBody?.isDynamic = true
-                circ_made1.physicsBody?.applyImpulse(CGVector(dx: 70, dy: -70))
+                circ_made1.physicsBody?.affectedByGravity = false
+                circ_made1.physicsBody?.allowsRotation = false
+                circ_made1.physicsBody?.linearDamping = 0.0
+                circ_made1.physicsBody?.angularDamping = 0.0
+                circ_made1.physicsBody?.restitution = 1.0
+                circ_made1.physicsBody?.friction = 0
+                circ_made1.physicsBody?.applyImpulse(CGVector(dx: 50, dy: -50))
                 square_made1.physicsBody?.isDynamic = true
                 square_made1.physicsBody?.applyImpulse(CGVector(dx: -50, dy: 50))
                 fourthtouch = true
@@ -442,6 +450,8 @@ class TutorialScene: SKScene, SKPhysicsContactDelegate {
     func changetoPink(circle_shape: SKSpriteNode)
     {
         circle_shape.texture = SKTexture(imageNamed: "Circle_Pink")
+        circle_shape.physicsBody?.collisionBitMask = goodCategory
+
         print("Hi")
     }
     func disappearText(stuff1: SKLabelNode, stuff2: SKLabelNode, arrow: SKSpriteNode ) {
@@ -468,7 +478,50 @@ class TutorialScene: SKScene, SKPhysicsContactDelegate {
        // shape2.physicsBody = SKPhysicsBody(rectangleOf: CGSize (width: 00,height: 00))
         return true
     }
+    /*func normalixevectorx(x: CGFloat, y: CGFloat) -> CGFloat
+    {
+        var multiplier = sqrt((x*x)+(y*y))
+        multiplier = 1/multiplier
+        var xvec = multiplier*x
+        xvec = xvec * 400
+        
+        return xvec;
+    }
     
+    func normalixevectory(x: CGFloat, y: CGFloat) -> CGFloat
+    {
+        var multiplier = sqrt((x*x)+(y*y))
+        multiplier = 1/multiplier
+        var yvec = multiplier*y
+        yvec = yvec * 400
+        
+        return yvec;
+    }
+    override func update(_ currentTime: TimeInterval)
+    {
+        //Float((circ_made1.physicsBody?.velocity.dx)!)
+        let hold1 = sqrt(((circ_made1.physicsBody?.velocity.dx)!*(circ_made1.physicsBody?.velocity.dx)!) + ((circ_made1.physicsBody?.velocity.dy)! * (circ_made1.physicsBody?.velocity.dy)!))
+        if hold1 < 300
+        {
+            circ_made1.physicsBody?.velocity.dx = normalixevectorx(x: (circ_made1.physicsBody?.velocity.dx)!, y: (circ_made1.physicsBody?.velocity.dy)!)
+            print("circle x")
+            circ_made1.physicsBody?.velocity.dy = normalixevectory(x: (circ_made1.physicsBody?.velocity.dx)!, y: (circ_made1.physicsBody?.velocity.dy)!)
+        }
+        
+        
+        let hold3 = sqrt(((square_made1.physicsBody?.velocity.dx)!*(square_made1.physicsBody?.velocity.dx)!) + ((square_made1.physicsBody?.velocity.dy)! * (square_made1.physicsBody?.velocity.dy)!))
+        
+        if hold3 < 300
+        {
+            square_made1.physicsBody?.velocity.dx = normalixevectorx(x: (square_made1.physicsBody?.velocity.dx)!, y: (square_made1.physicsBody?.velocity.dy)!)
+            
+            square_made1.physicsBody?.velocity.dy = normalixevectory(x: (square_made1.physicsBody?.velocity.dx)!, y: (square_made1.physicsBody?.velocity.dy)!)
+            
+            print("square y")
+        }
+        
+    }*/
+
     
     
 }
