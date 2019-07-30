@@ -13,6 +13,8 @@
 		8F2256B522EA2C040017FD72 /* Level1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2256B422EA2C040017FD72 /* Level1.swift */; };
 		8F2256B722EA2E110017FD72 /* Level5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2256B622EA2E110017FD72 /* Level5.swift */; };
 		8F2256B922EA2E240017FD72 /* Level5.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8F2256B822EA2E240017FD72 /* Level5.sks */; };
+		F710627E22EB7A6900749F1E /* TutorialScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = F710627D22EB7A6900749F1E /* TutorialScene.swift */; };
+		F710628022EB7A7D00749F1E /* TutorialScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = F710627F22EB7A7D00749F1E /* TutorialScene.sks */; };
 		F72BD8B822DD285900BAF3C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72BD8B722DD285900BAF3C4 /* AppDelegate.swift */; };
 		F72BD8BA22DD285900BAF3C4 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = F72BD8B922DD285900BAF3C4 /* GameScene.sks */; };
 		F72BD8BC22DD285900BAF3C4 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = F72BD8BB22DD285900BAF3C4 /* Actions.sks */; };
@@ -57,6 +59,8 @@
 		8F2256B422EA2C040017FD72 /* Level1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Level1.swift; path = ../Level1.swift; sourceTree = "<group>"; };
 		8F2256B622EA2E110017FD72 /* Level5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level5.swift; sourceTree = "<group>"; };
 		8F2256B822EA2E240017FD72 /* Level5.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level5.sks; sourceTree = "<group>"; };
+		F710627D22EB7A6900749F1E /* TutorialScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialScene.swift; sourceTree = "<group>"; };
+		F710627F22EB7A7D00749F1E /* TutorialScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = TutorialScene.sks; sourceTree = "<group>"; };
 		F72BD8B422DD285900BAF3C4 /* Game.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Game.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F72BD8B722DD285900BAF3C4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F72BD8B922DD285900BAF3C4 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -142,6 +146,8 @@
 				F72BD8BB22DD285900BAF3C4 /* Actions.sks */,
 				F72BD8B922DD285900BAF3C4 /* GameScene.sks */,
 				F72BD8BD22DD285900BAF3C4 /* GameScene.swift */,
+				F710627F22EB7A7D00749F1E /* TutorialScene.sks */,
+				F710627D22EB7A6900749F1E /* TutorialScene.swift */,
 				F74DDFE622E22F2E00349C4A /* circleChange.sks */,
 				F74DDFEA22E22FB800349C4A /* circleChange.swift */,
 				8F2256B222EA2BEC0017FD72 /* Level1.sks */,
@@ -290,6 +296,7 @@
 			files = (
 				F72BD8C322DD285900BAF3C4 /* Main.storyboard in Resources */,
 				F72BD8BA22DD285900BAF3C4 /* GameScene.sks in Resources */,
+				F710628022EB7A7D00749F1E /* TutorialScene.sks in Resources */,
 				8F2256B322EA2BEC0017FD72 /* Level1.sks in Resources */,
 				F72BD8F022DE38A900BAF3C4 /* Level2.sks in Resources */,
 				8F2256B922EA2E240017FD72 /* Level5.sks in Resources */,
@@ -332,6 +339,7 @@
 				F72BD8BE22DD285900BAF3C4 /* GameScene.swift in Sources */,
 				F7E1176822EA32D80069331C /* Level4.swift in Sources */,
 				F72BD8C022DD285900BAF3C4 /* GameViewController.swift in Sources */,
+				F710627E22EB7A6900749F1E /* TutorialScene.swift in Sources */,
 				F74DDFEB22E22FB800349C4A /* circleChange.swift in Sources */,
 				F72BD8B822DD285900BAF3C4 /* AppDelegate.swift in Sources */,
 			);
@@ -509,13 +517,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8CN5B72QRR;
+				DEVELOPMENT_TEAM = 5P3C9RR4BA;
 				INFOPLIST_FILE = Game/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ameliaellis123;
+				PRODUCT_BUNDLE_IDENTIFIER = rij19;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -527,13 +535,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8CN5B72QRR;
+				DEVELOPMENT_TEAM = 5P3C9RR4BA;
 				INFOPLIST_FILE = Game/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ameliaellis123;
+				PRODUCT_BUNDLE_IDENTIFIER = rij19;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
