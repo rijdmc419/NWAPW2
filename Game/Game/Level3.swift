@@ -142,6 +142,7 @@ class Level3: SKScene, SKPhysicsContactDelegate {
         circ_made1.physicsBody?.angularDamping = 0.0
         circ_made1.physicsBody?.restitution = 1.0
         circ_made1.physicsBody?.friction = 0
+       
         circ_made1.physicsBody?.applyImpulse(CGVector(dx: 70, dy: 0))
         circ1 = Circle(shape_sprite: circ_made1, isPink: false, isCircle: true)
         
@@ -183,7 +184,7 @@ class Level3: SKScene, SKPhysicsContactDelegate {
         square_made1.physicsBody?.allowsRotation = false
         square_made1.physicsBody?.linearDamping = 0.0
         square_made1.physicsBody?.angularDamping = 0.0
-        square_made1.physicsBody?.restitution = 0
+        square_made1.physicsBody?.restitution = 1.0
         square_made1.physicsBody?.friction = 1
         square_made1.physicsBody?.mass = 0.3
         square_made1.physicsBody?.applyImpulse(CGVector(dx: -70, dy: 0))
@@ -247,11 +248,14 @@ class Level3: SKScene, SKPhysicsContactDelegate {
                 circle.physicsBody?.allowsRotation = false
                 circle.physicsBody?.linearDamping = 0.0
                 circle.physicsBody?.angularDamping = 0.0
-                circle.physicsBody?.restitution = 1
+                circle.physicsBody?.restitution = 1.0
                 circle.physicsBody?.friction = 0
                 circle.physicsBody?.mass = 1
                 circle.physicsBody?.velocity = CGVector(dx: velocityx!,dy: velocityy!)
                 circle.userData?.setValue(false, forKey: "isCircle")
+                circle.physicsBody?.categoryBitMask = goodCategory
+                circle.physicsBody?.collisionBitMask = goodCategory
+
                 circle.name = "square"
 
             }
@@ -325,6 +329,11 @@ class Level3: SKScene, SKPhysicsContactDelegate {
     func changetoPink(circle_shape: SKSpriteNode)
     {
         circle_shape.texture = SKTexture(imageNamed: "Circle_Pink")
+        circle_shape.physicsBody?.categoryBitMask = goodCategory
+        circle_shape.physicsBody?.collisionBitMask = goodCategory
+        circle_shape.physicsBody?.mass = 1
+
+
         print("Hi")
     }
 }
