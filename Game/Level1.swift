@@ -29,13 +29,17 @@ class Level1: SKScene, SKPhysicsContactDelegate {
     var level_doneButton: SKSpriteNode!
     var restartButton: SKSpriteNode!
     var background: SKSpriteNode!
-    
+    var goal: SKNode!
+
     var timearea : SKNode!
     var timebox: SKSpriteNode!
     var timeLabel: SKLabelNode!
     var timer = Timer()
     var duration = 0.0
     var isTimerOn = false
+    
+    var levelName: SKLabelNode!
+
     
     override func didMove(to view: SKView) {
         background = SKSpriteNode(imageNamed: "Pad_Background")
@@ -63,6 +67,16 @@ class Level1: SKScene, SKPhysicsContactDelegate {
         timearea.position = CGPoint (x: 35, y: 0)
         timearea.alpha = 1
         self.addChild(timearea)
+        
+        levelName = SKLabelNode ()
+        levelName.fontName = "ChalkDuster"
+        levelName.fontSize = 40
+        levelName.fontColor = UIColor.black
+        levelName.zPosition = 0
+        levelName.position = CGPoint (x: 0, y: 550)
+        levelName.text = "LEVEL 1"
+        self.addChild(levelName)
+
         
         level_doneButton = SKSpriteNode(imageNamed: "done_button")
         level_doneButton.name = "levelButton"
@@ -113,7 +127,7 @@ class Level1: SKScene, SKPhysicsContactDelegate {
         liner.size = CGSize (width: 2, height: 1100)
         liner.position = CGPoint (x: 300, y: 0)
         liner.anchorPoint = CGPoint (x: 0.5, y: 0.5)
-        liner.physicsBody = SKPhysicsBody(rectangleOf:  CGSize (width: 20, height: 1100))
+        liner.physicsBody = SKPhysicsBody(rectangleOf:  CGSize (width: 2, height: 1100))
         liner.physicsBody?.isDynamic = false
         liner.physicsBody?.friction = 1
         liner.physicsBody?.restitution = 1
@@ -139,6 +153,21 @@ class Level1: SKScene, SKPhysicsContactDelegate {
         boarder.friction = 0
         boarder.restitution = 1.0
         self.physicsBody = boarder
+        
+        goal = SKNode()
+        goal.position = CGPoint (x: 0, y: 480)
+        self.addChild(goal)
+        let goal_circle = SKSpriteNode(imageNamed: "Circle_Pink")
+        goal_circle.size = CGSize (width: 80, height: 80)
+        goal_circle.position = CGPoint (x: 10, y: 0)
+        let goal_label = SKLabelNode()
+        goal_label.text = ("1")
+        goal_label.fontColor = UIColor.black
+        goal_label.position = CGPoint (x: -70, y: -25)
+        goal_label.fontSize = 80
+        goal_label.fontName = "ChalkDuster"
+        goal.addChild(goal_circle)
+        goal.addChild(goal_label)
         
         circ_made1 = SKSpriteNode(imageNamed: "Circle_White")
         circ_made1.name = "circle"
@@ -279,7 +308,7 @@ class Level1: SKScene, SKPhysicsContactDelegate {
                         if numPinkCirc >= 1 {
                             // open level completed scene, or reveal next level button
                             print("you win!")
-                            isTimerOn.toggle()
+                            isTimerOn = false
                             toggleTimer(on: isTimerOn, label: timeLabel)
                             //input if statements for stars
                             //
@@ -306,7 +335,6 @@ class Level1: SKScene, SKPhysicsContactDelegate {
     func changetoPink(circle_shape: SKSpriteNode)
     {
         circle_shape.texture = SKTexture(imageNamed: "Circle_Pink")
-        print("Hi")
     }
     func toggleTimer(on: Bool, label: SKLabelNode) {
     if on == true {

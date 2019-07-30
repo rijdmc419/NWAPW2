@@ -14,7 +14,7 @@ import GameplayKit
 class Level2: SKScene, SKPhysicsContactDelegate {
     
     
-    var arraySprites : [Shape]!
+    var arraySprites : [SKSpriteNode]!
     let goodCategory:UInt32 = 0x1 << 0 //1
     let badCategory:UInt32 = 0x1 << 2 //4
     var lineb: SKSpriteNode!
@@ -29,7 +29,16 @@ class Level2: SKScene, SKPhysicsContactDelegate {
     var level_doneButton: SKSpriteNode!
     var restartButton: SKSpriteNode!
     var background: SKSpriteNode!
+    var goal: SKNode!
 
+    var timearea : SKNode!
+    var timebox: SKSpriteNode!
+    var timeLabel: SKLabelNode!
+    var timer = Timer()
+    var duration = 0.0
+    var isTimerOn = false
+
+    var levelName: SKLabelNode!
     
     override func didMove(to view: SKView) {
         background = SKSpriteNode(imageNamed: "Pad_Background")
@@ -38,7 +47,36 @@ class Level2: SKScene, SKPhysicsContactDelegate {
         background.zPosition = -1
         self.physicsWorld.contactDelegate = self
         
-        //for shape in arraySprites {
+        timearea = SKNode()
+        
+        timebox = SKSpriteNode(imageNamed: "Timer")
+        timebox?.size = CGSize (width: 150, height: 180)
+        timebox.position = CGPoint (x: 190, y: 490)
+        timearea.addChild(timebox)
+        
+        timeLabel = SKLabelNode()
+        timeLabel.position = CGPoint (x: 190, y: 465)
+        timeLabel.fontName = "ChalkDuster"
+        timeLabel.fontSize = 40
+        timeLabel.fontColor = UIColor.black
+        timeLabel.zPosition = 0
+        timearea.addChild(timeLabel)
+        isTimerOn.toggle()
+        toggleTimer(on: isTimerOn, label: timeLabel)
+        timearea.position = CGPoint (x: 35, y: 0)
+        timearea.alpha = 1
+        self.addChild(timearea)
+        
+        levelName = SKLabelNode ()
+        levelName.fontName = "ChalkDuster"
+        levelName.fontSize = 40
+        levelName.fontColor = UIColor.black
+        levelName.zPosition = 0
+        levelName.position = CGPoint (x: 0, y: 550)
+        levelName.text = "LEVEL 2"
+        self.addChild(levelName)
+
+        
         
         level_doneButton = SKSpriteNode(imageNamed: "done_button")
         level_doneButton.name = "levelButton"
@@ -61,7 +99,7 @@ class Level2: SKScene, SKPhysicsContactDelegate {
         //bottom boarder
         lineb = SKSpriteNode(imageNamed: "line2")
         lineb.size = CGSize (width: 600, height: 2)
-        lineb.position = CGPoint (x: 0, y: -550)
+        lineb.position = CGPoint (x: 0, y: -500)
         lineb.anchorPoint = CGPoint (x: 0.5, y: 0.5)
         self.addChild(lineb)
         lineb.physicsBody = SKPhysicsBody(rectangleOf:  CGSize (width: 600, height: 2))
@@ -72,28 +110,30 @@ class Level2: SKScene, SKPhysicsContactDelegate {
         lineb.physicsBody?.collisionBitMask = goodCategory
         lineb.name = "wallb"
         lineb.alpha = 0
-        lineb.name = "wall"
         
         //topboarder
         linet = SKSpriteNode(imageNamed: "line2")
         linet.size = CGSize (width: 600, height: 2)
-        linet.position = CGPoint (x: 0, y: 550)
+        linet.position = CGPoint (x: 0, y: 400)
         linet.anchorPoint = CGPoint (x: 0.5, y: 0.5)
         self.addChild(linet)
         linet.physicsBody = SKPhysicsBody(rectangleOf:  CGSize (width: 600, height: 2))
         linet.physicsBody?.isDynamic = false
         linet.physicsBody?.friction = 0
         linet.physicsBody?.restitution = 1
-        linet.name = "wall"
+        linet.name = "wallt"
+        linet.alpha = 0
+        linet.physicsBody?.categoryBitMask = goodCategory
+        linet.physicsBody?.collisionBitMask = goodCategory
         
         
         
         //rightside baorder
         liner = SKSpriteNode(imageNamed: "line2")
-        liner.size = CGSize (width: 2, height: 1100)
-        liner.position = CGPoint (x: 300, y: 0)
+        liner.size = CGSize (width: 2, height: 900)
+        liner.position = CGPoint (x: 300, y: -50)
         liner.anchorPoint = CGPoint (x: 0.5, y: 0.5)
-        liner.physicsBody = SKPhysicsBody(rectangleOf:  CGSize (width: 2, height: 1100))
+        liner.physicsBody = SKPhysicsBody(rectangleOf:  CGSize (width: 2, height: 900))
         liner.physicsBody?.isDynamic = false
         liner.physicsBody?.friction = 0
         liner.physicsBody?.restitution = 1
@@ -107,21 +147,40 @@ class Level2: SKScene, SKPhysicsContactDelegate {
         
         //leftside boarder
         linel = SKSpriteNode(imageNamed: "line2")
-        linel.size = CGSize (width: 2, height: 1100)
-        linel.position = CGPoint (x: -300, y: 0)
+        linel.size = CGSize (width: 2, height: 900)
+        linel.position = CGPoint (x: -300, y: -50)
         linel.anchorPoint = CGPoint (x: 0.5, y: 0.5)
         self.addChild(linel)
-        linel.physicsBody = SKPhysicsBody(rectangleOf:  CGSize (width: 2, height: 1100))
+        linel.physicsBody = SKPhysicsBody(rectangleOf:  CGSize (width: 2, height: 800))
         linel.physicsBody?.isDynamic = false
         linel.physicsBody?.friction = 0
         linel.physicsBody?.restitution = 1
-        linel.name = "wall"
+        linel.name = "walll"
+        linel.alpha = 0
+        linel.physicsBody?.categoryBitMask = goodCategory
+        linel.physicsBody?.collisionBitMask = goodCategory
         
         
         let boarder = SKPhysicsBody(edgeLoopFrom: self.frame)
         boarder.friction = 0
         boarder.restitution = 1.0
         self.physicsBody = boarder
+        
+        //goal
+        goal = SKNode()
+        goal.position = CGPoint (x: 0, y: 480)
+        self.addChild(goal)
+        let goal_circle = SKSpriteNode(imageNamed: "Circle_Pink")
+        goal_circle.size = CGSize (width: 80, height: 80)
+        goal_circle.position = CGPoint (x: 10, y: 0)
+        let goal_label = SKLabelNode()
+        goal_label.text = ("1")
+        goal_label.fontColor = UIColor.black
+        goal_label.position = CGPoint (x: -70, y: -25)
+        goal_label.fontSize = 80
+        goal_label.fontName = "ChalkDuster"
+        goal.addChild(goal_circle)
+        goal.addChild(goal_label)
         
         circ_made1 = SKSpriteNode(imageNamed: "Circle_White")
         circ_made1.name = "circle"
@@ -152,7 +211,7 @@ class Level2: SKScene, SKPhysicsContactDelegate {
             "isCircle" : false
         ];
         square_made1.size = CGSize (width: 100, height: 100)
-        square_made1.position = CGPoint (x: -200, y: -400)
+        square_made1.position = CGPoint (x: -200, y: -350)
         square_made1.anchorPoint = CGPoint (x: 0.5, y: 0.5)
         self.addChild(square_made1)
         square_made1.physicsBody = SKPhysicsBody(rectangleOf:  CGSize (width: 100, height: 100))
@@ -165,11 +224,12 @@ class Level2: SKScene, SKPhysicsContactDelegate {
         square_made1.physicsBody?.friction = 1
         square_made1.physicsBody?.mass = 1
         square_made1.physicsBody?.applyImpulse(CGVector(dx: 50, dy: 50))
-        square_made1.physicsBody?.categoryBitMask = badCategory
+        square_made1.physicsBody?.categoryBitMask = goodCategory
         square_made1.physicsBody?.collisionBitMask = goodCategory
         square_made1.physicsBody?.contactTestBitMask = goodCategory
 
         arrayCircles = [circ1]
+        arraySprites = [circ_made1,square_made1]
         
         for item in arrayCircles
         {
@@ -213,11 +273,15 @@ class Level2: SKScene, SKPhysicsContactDelegate {
             //leftwall
         else if ((firstBody.name == "square") && (secondBody.name == "walll"))
         {
+            print("LeftWAll")
+
             firstBody.physicsBody?.applyImpulse(CGVector(dx:10, dy: 0))
         }
         else if ((firstBody.name == "walll") && (secondBody.name == "square"))
         {
-            secondBody.physicsBody?.applyImpulse(CGVector(dx:0, dy: 0))
+            print("LeftWAll")
+
+            secondBody.physicsBody?.applyImpulse(CGVector(dx:10, dy: 0))
         }
             //bottom wall
         else if ((firstBody.name == "square") && (secondBody.name == "wallb"))
@@ -249,11 +313,15 @@ class Level2: SKScene, SKPhysicsContactDelegate {
             //leftwall
         else if ((firstBody.name == "circle") && (secondBody.name == "walll"))
         {
+            print("LeftWAll")
+
             firstBody.physicsBody?.applyImpulse(CGVector(dx:10, dy: 0))
         }
         else if ((firstBody.name == "walll") && (secondBody.name == "circle"))
         {
-            secondBody.physicsBody?.applyImpulse(CGVector(dx:0, dy: 0))
+            print("LeftWAll")
+
+            secondBody.physicsBody?.applyImpulse(CGVector(dx:10, dy: 0))
         }
             //bottom wall
         else if ((firstBody.name == "circle") && (secondBody.name == "wallb"))
@@ -299,9 +367,11 @@ class Level2: SKScene, SKPhysicsContactDelegate {
                 circle.physicsBody?.restitution = 1
                 circle.physicsBody?.friction = 0
                 circle.physicsBody?.mass = 1
-                circle.name = "square"
                 circle.physicsBody?.velocity = CGVector(dx: velocityx!,dy: velocityy!)
                 circle.userData?.setValue(false, forKey: "isCircle")
+                circle.physicsBody?.categoryBitMask = goodCategory
+                circle.physicsBody?.collisionBitMask = goodCategory
+                
                 circle.name = "square"
             }
         }
@@ -352,6 +422,9 @@ class Level2: SKScene, SKPhysicsContactDelegate {
                         numPinkCirc = numPinkCirc+1
                         if numPinkCirc >= 1 {
                             // open level completed scene, or reveal next level button
+                            isTimerOn = false
+                            toggleTimer(on: isTimerOn, label: timeLabel)
+                            
                             print("you win!")
                             level_doneButton.alpha = 1
                             if clickedNodes.first?.name == "levelButton" {
@@ -393,25 +466,36 @@ class Level2: SKScene, SKPhysicsContactDelegate {
     }
     override func update(_ currentTime: TimeInterval)
     {
-        //Float((circ_made1.physicsBody?.velocity.dx)!)
-        let hold1 = sqrt(((circ_made1.physicsBody?.velocity.dx)!*(circ_made1.physicsBody?.velocity.dx)!) + ((circ_made1.physicsBody?.velocity.dy)! * (circ_made1.physicsBody?.velocity.dy)!))
-        if hold1 < 300
+        for item in arraySprites
         {
-            circ_made1.physicsBody?.velocity.dx = normalixevectorx(x: (circ_made1.physicsBody?.velocity.dx)!, y: (circ_made1.physicsBody?.velocity.dy)!)
-            print("circle x")
-            circ_made1.physicsBody?.velocity.dy = normalixevectory(x: (circ_made1.physicsBody?.velocity.dx)!, y: (circ_made1.physicsBody?.velocity.dy)!)
+            if item.alpha == CGFloat(1)
+            {
+                let hold3 = sqrt(((item.physicsBody?.velocity.dx)!*(item.physicsBody?.velocity.dx)!) + ((item.physicsBody?.velocity.dy)! * (item.physicsBody?.velocity.dy)!))
+                
+                if hold3 < 300 || hold3 > 400
+                {
+                    item.physicsBody?.velocity.dx = normalixevectorx(x: (item.physicsBody?.velocity.dx)!, y: (item.physicsBody?.velocity.dy)!)
+                    
+                    item.physicsBody?.velocity.dy = normalixevectory(x: (item.physicsBody?.velocity.dx)!, y: (item.physicsBody?.velocity.dy)!)
+                    
+                }
+            }
         }
         
-        
-        let hold3 = sqrt(((square_made1.physicsBody?.velocity.dx)!*(square_made1.physicsBody?.velocity.dx)!) + ((square_made1.physicsBody?.velocity.dy)! * (square_made1.physicsBody?.velocity.dy)!))
-        
-        if hold3 < 300
-        {
-            square_made1.physicsBody?.velocity.dx = normalixevectorx(x: (square_made1.physicsBody?.velocity.dx)!, y: (square_made1.physicsBody?.velocity.dy)!)
-            
-            square_made1.physicsBody?.velocity.dy = normalixevectory(x: (square_made1.physicsBody?.velocity.dx)!, y: (square_made1.physicsBody?.velocity.dy)!)
-            
-            print("square y")
+    }
+    func toggleTimer(on: Bool, label: SKLabelNode) {
+        if on == true {
+            timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true, block: { [self] (_) in
+                self.duration += 0.1
+                self.duration = self.duration * 10
+                self.duration = round(self.duration)
+                self.duration = self.duration / 10
+                label.text = String(self.duration)
+                //print("gogogogogogogogogogogog")
+            })
+        }
+        else{
+            timer.invalidate()
         }
         
     }
