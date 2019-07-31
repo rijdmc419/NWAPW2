@@ -11,9 +11,12 @@ import UIKit
 import SpriteKit
 import GameplayKit
 
+let defaults = UserDefaults.standard
 
 class Level1: SKScene, SKPhysicsContactDelegate {
     
+    
+    //public var defaults : UserDefaults!
     
     var arraySprites : [Shape]!
     let goodCategory:UInt32 = 0x1 << 0 //1
@@ -310,6 +313,8 @@ class Level1: SKScene, SKPhysicsContactDelegate {
                             print("you win!")
                             isTimerOn = false
                             toggleTimer(on: isTimerOn, label: timeLabel)
+                            defaults.set(1, forKey: "Level1Stars")//change number for number of stars
+                            
                             //input if statements for stars
                             //
                             //
@@ -337,19 +342,23 @@ class Level1: SKScene, SKPhysicsContactDelegate {
         circle_shape.texture = SKTexture(imageNamed: "Circle_Pink")
     }
     func toggleTimer(on: Bool, label: SKLabelNode) {
-    if on == true {
-        timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true, block: { [self] (_) in
-            self.duration += 0.1
-            self.duration = self.duration * 10
-            self.duration = round(self.duration)
-            self.duration = self.duration / 10
-          label.text = String(self.duration)
-            //print("gogogogogogogogogogogog")
-        })
+        if on == true {
+            timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true, block: { [self] (_) in
+                self.duration += 0.1
+                self.duration = self.duration * 10
+                self.duration = round(self.duration)
+                self.duration = self.duration / 10
+              label.text = String(self.duration)
+                //print("gogogogogogogogogogogog")
+            })
+        }
+        else{
+            timer.invalidate()
+        }
     }
-    else{
-        timer.invalidate()
-    }
-        
+    
+    func getStars() -> Int{
+        let stars = defaults.integer(forKey: "Stars")
+        return stars
     }
 }
