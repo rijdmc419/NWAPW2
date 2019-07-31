@@ -80,13 +80,12 @@ class Level2: SKScene, SKPhysicsContactDelegate {
         levelName.position = CGPoint (x: 0, y: 550)
         levelName.text = "LEVEL 2"
         self.addChild(levelName)
-
         
         pauseButton = SKSpriteNode(imageNamed: "pause")
         pauseButton.name = "pauseButton"
         pauseButton.alpha = 1
         pauseButton.size = CGSize (width: 60, height: 60)
-        pauseButton.position = CGPoint (x: 220, y: 600)
+        pauseButton.position = CGPoint (x: 230, y: 610)
         pauseButton.anchorPoint = CGPoint (x: 0.5, y: 0.5)
         pauseButton.zPosition = 2
         self.addChild(pauseButton)
@@ -209,13 +208,13 @@ class Level2: SKScene, SKPhysicsContactDelegate {
         goal.position = CGPoint (x: 0, y: 480)
         self.addChild(goal)
         let goal_circle = SKSpriteNode(imageNamed: "Circle_Pink")
-        goal_circle.size = CGSize (width: 80, height: 80)
-        goal_circle.position = CGPoint (x: 10, y: 0)
+        goal_circle.size = CGSize (width: 60, height: 60)
+        goal_circle.position = CGPoint (x: 20, y: 0)
         let goal_label = SKLabelNode()
         goal_label.text = ("1")
         goal_label.fontColor = UIColor.black
-        goal_label.position = CGPoint (x: -70, y: -25)
-        goal_label.fontSize = 80
+        goal_label.position = CGPoint (x: -45, y: -20)
+        goal_label.fontSize = 60
         goal_label.fontName = "ChalkDuster"
         goal.addChild(goal_circle)
         goal.addChild(goal_label)

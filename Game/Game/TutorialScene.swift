@@ -55,7 +55,7 @@ class TutorialScene: SKScene, SKPhysicsContactDelegate {
         level_doneButton.name = "levelButton"
         level_doneButton.alpha = 1
         level_doneButton.size = CGSize (width: 120, height: 60)
-        level_doneButton.position = CGPoint (x: -210, y: 610)
+        level_doneButton.position = CGPoint (x: -220, y: 613)
         level_doneButton.anchorPoint = CGPoint (x: 0.5, y: 0.5)
         level_doneButton.zPosition = 2
         self.addChild(level_doneButton)
@@ -63,8 +63,8 @@ class TutorialScene: SKScene, SKPhysicsContactDelegate {
         restartButton = SKSpriteNode(imageNamed: "restart_button")
         restartButton.name = "restartButton"
         restartButton.alpha = 1
-        restartButton.size = CGSize (width: 60, height: 60)
-        restartButton.position = CGPoint (x: 220, y: 610)
+        restartButton.size = CGSize (width: 55, height: 55)
+        restartButton.position = CGPoint (x: 230, y: 620)
         restartButton.anchorPoint = CGPoint (x: 0.5, y: 0.5)
         restartButton.zPosition = 2
         self.addChild(restartButton)
