@@ -474,7 +474,7 @@ class Level1: SKScene, SKPhysicsContactDelegate {
                             //
                             level_doneButton.alpha = 1
                             if clickedNodes.first?.name == "levelButton" {
-                                let level = LevelScreen(fileNamed: "LevelScreen")
+                                let level = Level2(fileNamed: "Level2")
                                 level?.scaleMode = .aspectFill
                                 self.view?.presentScene(level!, transition: SKTransition.fade(withDuration: 0.5))
                                 
