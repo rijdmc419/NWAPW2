@@ -51,7 +51,7 @@ class Level2: SKScene, SKPhysicsContactDelegate {
         self.addChild(background)
         background.zPosition = -1
         self.physicsWorld.contactDelegate = self
-        
+
         timearea = SKNode()
         
         timebox = SKSpriteNode(imageNamed: "Timer")
@@ -504,7 +504,8 @@ class Level2: SKScene, SKPhysicsContactDelegate {
                             // open level completed scene, or reveal next level button
                             isTimerOn = false
                             toggleTimer(on: isTimerOn, label: timeLabel)
-                            
+                            defaults.set(1, forKey: "Level2Stars")
+                            defaults.set(0, forKey: "Level1Stars")
                             print("you win!")
                             level_doneButton.alpha = 1
                             if clickedNodes.first?.name == "levelButton" {

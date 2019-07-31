@@ -10,6 +10,7 @@ import UIKit
 import SpriteKit
 import GameplayKit
 
+let defaults = UserDefaults.standard
 
 class Level1: SKScene, SKPhysicsContactDelegate {
     
@@ -466,8 +467,10 @@ class Level1: SKScene, SKPhysicsContactDelegate {
                             // open level completed scene, or reveal next level button
                             isTimerOn = false
                             toggleTimer(on: isTimerOn, label: timeLabel)
-                            
-                            print("you win!")
+                            //input if statements for stars
+                            //
+                            //
+                            //
                             level_doneButton.alpha = 1
                             if clickedNodes.first?.name == "levelButton" {
                                 let level = LevelScreen(fileNamed: "LevelScreen")
@@ -485,60 +488,20 @@ class Level1: SKScene, SKPhysicsContactDelegate {
     {
         circle_shape.texture = SKTexture(imageNamed: "Circle_Pink")
     }
-    
-    func normalixevectorx(x: CGFloat, y: CGFloat) -> CGFloat
-    {
-        var multiplier = sqrt((x*x)+(y*y))
-        multiplier = 1/multiplier
-        var xvec = multiplier*x
-        xvec = xvec * 400
-        
-        return xvec;
-    }
-    
-    func normalixevectory(x: CGFloat, y: CGFloat) -> CGFloat
-    {
-        var multiplier = sqrt((x*x)+(y*y))
-        multiplier = 1/multiplier
-        var yvec = multiplier*y
-        yvec = yvec * 400
-        
-        return yvec;
-    }
-    override func update(_ currentTime: TimeInterval)
-    {
-        circ_made1.physicsBody?.contactTestBitMask = goodCategory
-        
-        for item in arraySprites
-        {
-            if item.alpha == CGFloat(1)
-            {
-                let hold3 = sqrt(((item.physicsBody?.velocity.dx)!*(item.physicsBody?.velocity.dx)!) + ((item.physicsBody?.velocity.dy)! * (item.physicsBody?.velocity.dy)!))
-                
-                if hold3 < 300 || hold3 > 400
-                {
-                    item.physicsBody?.velocity.dx = normalixevectorx(x: (item.physicsBody?.velocity.dx)!, y: (item.physicsBody?.velocity.dy)!)
-                    
-                    item.physicsBody?.velocity.dy = normalixevectory(x: (item.physicsBody?.velocity.dx)!, y: (item.physicsBody?.velocity.dy)!)
-                    
-                }
-            }
-        }
-        
-    }
     func toggleTimer(on: Bool, label: SKLabelNode) {
-        if on == true {
-            timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true, block: { [self] (_) in
-                self.duration += 0.1
-                self.duration = self.duration * 10
-                self.duration = round(self.duration)
-                self.duration = self.duration / 10
-                label.text = String(self.duration)
-            })
-        }
-        else{
-            timer.invalidate()
-        }
+    if on == true {
+        timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true, block: { [self] (_) in
+            self.duration += 0.1
+            self.duration = self.duration * 10
+            self.duration = round(self.duration)
+            self.duration = self.duration / 10
+          label.text = String(self.duration)
+            //print("gogogogogogogogogogogog")
+        })
+    }
+    else{
+        timer.invalidate()
+    }
         
     }
 }

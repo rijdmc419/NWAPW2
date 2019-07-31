@@ -24,6 +24,16 @@ class LevelScreen: SKScene {
         
         self.title = self.childNode(withName: "Title") as? SKLabelNode
         
+        if defaults.value(forKey: "Level1Stars") != nil && defaults.value(forKey: "Level1Stars") as! Int >= 1 {
+            print("pink!")
+            let level1 = self.childNode(withName: "level_one") as? SKSpriteNode
+            level1?.texture = SKTexture(imageNamed: "level_1_complete")
+        }
+        if defaults.value(forKey: "Level2Stars") != nil && defaults.value(forKey: "Level2Stars") as! Int >= 1 {
+            print("pink!")
+            let level1 = self.childNode(withName: "level_two") as? SKSpriteNode
+            level1?.texture = SKTexture(imageNamed: "level_2_complete")
+        }
         
     }
     
