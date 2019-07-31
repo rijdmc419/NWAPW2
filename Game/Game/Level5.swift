@@ -73,7 +73,7 @@ class Level5: SKScene, SKPhysicsContactDelegate {
         isTimerOn.toggle()
         toggleTimer(on: isTimerOn, label: timeLabel)
         timearea.position = CGPoint (x: 35, y: 0)
-        timearea.alpha = 0
+        timearea.alpha = 1
         self.addChild(timearea)
         
         levelName = SKLabelNode ()
@@ -563,7 +563,7 @@ class Level5: SKScene, SKPhysicsContactDelegate {
     }
     func changetoPink(circle_shape: SKSpriteNode)
     {
-        circle_shape.texture = SKTexture(imageNamed: "happyface2")
+        circle_shape.texture = SKTexture(imageNamed: "happyFace")
         print("Hi")
     }
     

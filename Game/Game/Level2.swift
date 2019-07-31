@@ -69,7 +69,7 @@ class Level2: SKScene, SKPhysicsContactDelegate {
         isTimerOn.toggle()
         toggleTimer(on: isTimerOn, label: timeLabel)
         timearea.position = CGPoint (x: 35, y: 0)
-        timearea.alpha = 0
+        timearea.alpha = 1
         self.addChild(timearea)
         
         levelName = SKLabelNode ()
