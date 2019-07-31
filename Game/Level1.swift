@@ -220,7 +220,7 @@ class Level1: SKScene, SKPhysicsContactDelegate {
         goal.addChild(goal_circle)
         goal.addChild(goal_label)
         
-        circ_made1 = SKSpriteNode(imageNamed: "Circle_White")
+        circ_made1 = SKSpriteNode(imageNamed: "mehface2")
         circ_made1.name = "circle"
         
         circ_made1.userData = [
@@ -486,7 +486,7 @@ class Level1: SKScene, SKPhysicsContactDelegate {
     }
     func changetoPink(circle_shape: SKSpriteNode)
     {
-        circle_shape.texture = SKTexture(imageNamed: "Circle_Pink")
+        circle_shape.texture = SKTexture(imageNamed: "happyFace")
     }
     func toggleTimer(on: Bool, label: SKLabelNode) {
     if on == true {

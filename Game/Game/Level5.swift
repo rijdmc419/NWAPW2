@@ -224,7 +224,7 @@ class Level5: SKScene, SKPhysicsContactDelegate {
         goal.addChild(goal_circle)
         goal.addChild(goal_label)
         
-        circ_made1 = SKSpriteNode(imageNamed: "Circle_White")
+        circ_made1 = SKSpriteNode(imageNamed: "mehface2")
         circ_made1.name = "circle"
         
         circ_made1.userData = [
@@ -247,7 +247,7 @@ class Level5: SKScene, SKPhysicsContactDelegate {
         circ_made1.physicsBody?.applyImpulse(CGVector(dx: 90, dy: -90))
         circ1 = Circle(shape_sprite: circ_made1, isPink: false, isCircle: true)
         
-        circ_made2 = SKSpriteNode(imageNamed: "Circle_White")
+        circ_made2 = SKSpriteNode(imageNamed: "mehface2")
         circ_made2.name = "circle"
         circ_made2.size = CGSize (width: 100, height: 100)
         circ_made2.position = CGPoint (x: 150, y: 250)
@@ -563,7 +563,7 @@ class Level5: SKScene, SKPhysicsContactDelegate {
     }
     func changetoPink(circle_shape: SKSpriteNode)
     {
-        circle_shape.texture = SKTexture(imageNamed: "Circle_Pink")
+        circle_shape.texture = SKTexture(imageNamed: "happyface2")
         print("Hi")
     }
     
