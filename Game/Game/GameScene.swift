@@ -14,9 +14,10 @@ class GameScene: SKScene {
     
     var label : SKLabelNode?
     var spinnyNode : SKShapeNode?
-    var nextScenenButton: SKSpriteNode!
+    var start: SKSpriteNode!
     var TutorialScenenButton: SKSpriteNode!
     var background: SKSpriteNode!
+    var credits: SKSpriteNode!
     
     override func didMove(to view: SKView) {
         
@@ -28,7 +29,8 @@ class GameScene: SKScene {
         label?.fontSize = 63
         
         background = self.childNode(withName: "background") as? SKSpriteNode
-        nextScenenButton = self.childNode(withName: "nextScenenButton") as? SKSpriteNode
+        credits = self.childNode(withName: "credits") as? SKSpriteNode
+        start = self.childNode(withName: "start") as? SKSpriteNode
         TutorialScenenButton = self.childNode(withName: "TutorialScenenButton") as? SKSpriteNode
     }
      
@@ -39,7 +41,7 @@ class GameScene: SKScene {
         if let location = touch?.location(in: self) {
             let nodesArray = self.nodes(at: location)
             
-            if nodesArray.first?.name == "nextScenenButton" {
+            if nodesArray.first?.name == "start" {
                 /*let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
                 let page2 = mainStoryboard.instantiateViewController(withIdentifier: "next") //as! Page2
                 //self.present(page2, animated: true)
@@ -53,6 +55,13 @@ class GameScene: SKScene {
             if nodesArray.first?.name == "TutorialScenenButton" {
                 
                 let level = TutorialScene(fileNamed: "TutorialScene")
+                level?.scaleMode = .aspectFill
+                self.view?.presentScene(level!, transition: SKTransition.fade(withDuration: 0.5))
+            }
+            
+            if nodesArray.first?.name == "credits" {
+                
+                let level = Credits(fileNamed: "Credits")
                 level?.scaleMode = .aspectFill
                 self.view?.presentScene(level!, transition: SKTransition.fade(withDuration: 0.5))
             }
