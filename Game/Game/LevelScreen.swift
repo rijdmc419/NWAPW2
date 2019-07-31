@@ -15,12 +15,23 @@ class LevelScreen: SKScene {
     
     var background : SKSpriteNode!
     var title : SKLabelNode!
+    var reset_defaults: SKSpriteNode!
+    
     
     override func didMove(to view: SKView) {
         background = SKSpriteNode(imageNamed: "Pad_Background")
         background?.size = CGSize (width: 750, height: 1334)
         self.addChild(background)
         background.zPosition = -1
+        
+        reset_defaults = SKSpriteNode(imageNamed: "reset")
+        reset_defaults.name = "reset"
+        reset_defaults.alpha = 1
+        reset_defaults.size = CGSize (width: 150, height: 80)
+        reset_defaults.position = CGPoint (x: -200, y: 580)
+        reset_defaults.anchorPoint = CGPoint (x: 0.5, y: 0.5)
+        reset_defaults.zPosition = 2
+        self.addChild(reset_defaults)
         
         self.title = self.childNode(withName: "Title") as? SKLabelNode
         
@@ -33,6 +44,21 @@ class LevelScreen: SKScene {
             print("pink!")
             let level1 = self.childNode(withName: "level_two") as? SKSpriteNode
             level1?.texture = SKTexture(imageNamed: "level_2_complete")
+        }
+        if defaults.value(forKey: "Level3Stars") != nil && defaults.value(forKey: "Level3Stars") as! Int >= 1 {
+            print("pink!")
+            let level1 = self.childNode(withName: "level_three") as? SKSpriteNode
+            level1?.texture = SKTexture(imageNamed: "level_3_complete")
+        }
+        if defaults.value(forKey: "Level4Stars") != nil && defaults.value(forKey: "Level4Stars") as! Int >= 1 {
+            print("pink!")
+            let level1 = self.childNode(withName: "level_4") as? SKSpriteNode
+            level1?.texture = SKTexture(imageNamed: "level_4_complete")
+        }
+        if defaults.value(forKey: "Level5Stars") != nil && defaults.value(forKey: "Level5Stars") as! Int >= 1 {
+            print("pink!")
+            let level1 = self.childNode(withName: "level_5") as? SKSpriteNode
+            level1?.texture = SKTexture(imageNamed: "level_5_complete")
         }
         
     }
@@ -80,7 +106,20 @@ class LevelScreen: SKScene {
                 level?.scaleMode = .aspectFill
                 self.view?.presentScene(level!, transition: SKTransition.fade(withDuration: 0.5))
             }
+            if nodesArray.first?.name == "reset" {
+                resetDefaults()
+            }
         }
     }
     
+        func resetDefaults() {
+            let dictionary = defaults.dictionaryRepresentation()
+            dictionary.keys.forEach { key in
+                defaults.removeObject(forKey: key)
+            }
+            
+            let level = LevelScreen(fileNamed: "LevelScreen")
+            level?.scaleMode = .aspectFill
+            self.view?.presentScene(level!)
+        }
 }
