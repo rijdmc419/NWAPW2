@@ -546,7 +546,7 @@ class Level5: SKScene, SKPhysicsContactDelegate {
                             // open level completed scene, or reveal next level button
                             isTimerOn = false
                             toggleTimer(on: isTimerOn, label: timeLabel)
-                            
+                            defaults.set(1, forKey: "Level5Stars")
                             print("you win!")
                             level_doneButton.alpha = 1
                             if clickedNodes.first?.name == "levelButton" {

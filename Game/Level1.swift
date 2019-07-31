@@ -467,6 +467,7 @@ class Level1: SKScene, SKPhysicsContactDelegate {
                             // open level completed scene, or reveal next level button
                             isTimerOn = false
                             toggleTimer(on: isTimerOn, label: timeLabel)
+                            defaults.set(1, forKey: "Level1Stars")
                             //input if statements for stars
                             //
                             //

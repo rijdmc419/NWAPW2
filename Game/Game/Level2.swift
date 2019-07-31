@@ -505,7 +505,6 @@ class Level2: SKScene, SKPhysicsContactDelegate {
                             isTimerOn = false
                             toggleTimer(on: isTimerOn, label: timeLabel)
                             defaults.set(1, forKey: "Level2Stars")
-                            defaults.set(0, forKey: "Level1Stars")
                             print("you win!")
                             level_doneButton.alpha = 1
                             if clickedNodes.first?.name == "levelButton" {
