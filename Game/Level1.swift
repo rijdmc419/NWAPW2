@@ -314,7 +314,10 @@ class Level1: SKScene, SKPhysicsContactDelegate {
                             //
                             //
                             //
-                            level_doneButton.alpha = 1
+                            //level_doneButton.alpha = 1
+                            
+                            
+                            
                             if clickedNodes.first?.name == "levelButton" {
                                 let level = Level2(fileNamed: "Level2")
                                 level?.scaleMode = .aspectFill
