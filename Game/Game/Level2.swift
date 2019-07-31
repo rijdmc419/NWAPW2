@@ -177,10 +177,11 @@ class Level2: SKScene, SKPhysicsContactDelegate {
         liner.physicsBody?.restitution = 1
         liner.physicsBody?.affectedByGravity = false
         liner.alpha = 0
-        self.addChild(liner)
         liner.physicsBody?.categoryBitMask = goodCategory
         liner.physicsBody?.collisionBitMask = goodCategory
         liner.name = "wallr"
+        self.addChild(liner)
+
         
         
         //leftside boarder
@@ -264,7 +265,7 @@ class Level2: SKScene, SKPhysicsContactDelegate {
         square_made1.physicsBody?.applyImpulse(CGVector(dx: 50, dy: 50))
         square_made1.physicsBody?.categoryBitMask = goodCategory
         square_made1.physicsBody?.collisionBitMask = goodCategory
-        square_made1.physicsBody?.contactTestBitMask = goodCategory
+
 
         arrayCircles = [circ1]
         arraySprites = [circ_made1,square_made1]
@@ -302,10 +303,13 @@ class Level2: SKScene, SKPhysicsContactDelegate {
             //rightwall
         else if ((firstBody.name == "square") && (secondBody.name == "wallr"))
         {
+            print("right")
             firstBody.physicsBody?.applyImpulse(CGVector(dx:-10, dy: 0))
         }
         else if ((firstBody.name == "wallr") && (secondBody.name == "square"))
         {
+            print("right")
+
             secondBody.physicsBody?.applyImpulse(CGVector(dx:-10, dy: 0))
         }
             //leftwall
@@ -342,10 +346,14 @@ class Level2: SKScene, SKPhysicsContactDelegate {
             //rightwall
         else if ((firstBody.name == "circle") && (secondBody.name == "wallr"))
         {
+            print("right")
+
             firstBody.physicsBody?.applyImpulse(CGVector(dx:-10, dy: 0))
         }
         else if ((firstBody.name == "wallr") && (secondBody.name == "circle"))
         {
+            print("right")
+
             secondBody.physicsBody?.applyImpulse(CGVector(dx:-10, dy: 0))
         }
             //leftwall
@@ -500,7 +508,7 @@ class Level2: SKScene, SKPhysicsContactDelegate {
                             print("you win!")
                             level_doneButton.alpha = 1
                             if clickedNodes.first?.name == "levelButton" {
-                                let level = Level3(fileNamed: "Level3")
+                                let level = LevelScreen(fileNamed: "LevelScreen")
                                 level?.scaleMode = .aspectFill
                                 self.view?.presentScene(level!, transition: SKTransition.fade(withDuration: 0.5))
 
@@ -538,6 +546,9 @@ class Level2: SKScene, SKPhysicsContactDelegate {
     }
     override func update(_ currentTime: TimeInterval)
     {
+        square_made1.physicsBody?.contactTestBitMask = goodCategory
+        circ_made1.physicsBody?.contactTestBitMask = goodCategory
+
         for item in arraySprites
         {
             if item.alpha == CGFloat(1)
