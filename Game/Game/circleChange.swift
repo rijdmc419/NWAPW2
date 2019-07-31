@@ -100,17 +100,16 @@ class circleChange: SKScene {
         restartButton = SKSpriteNode(imageNamed: "square_white")
         restartButton.name = "restartButton"
         restartButton.alpha = 1
-        restartButton.size = CGSize (width: 120, height: 60)
-        restartButton.position = CGPoint (x: 210, y: 610)
+        restartButton.size = CGSize (width: 120, height: 120)
+        restartButton.position = CGPoint (x: 10, y: 200)
         restartButton.anchorPoint = CGPoint (x: 0.5, y: 0.5)
-        restartButton.zPosition = 2
-        self.addChild(restartButton)
+        restartButton.zPosition = 4
         
         pauseButton = SKSpriteNode(imageNamed: "pause")
         pauseButton.name = "pauseButton"
         pauseButton.alpha = 1
         pauseButton.size = CGSize (width: 60, height: 60)
-        pauseButton.position = CGPoint (x: 210, y: -600)
+        pauseButton.position = CGPoint (x: 220, y: 600)
         pauseButton.anchorPoint = CGPoint (x: 0.5, y: 0.5)
         pauseButton.zPosition = 2
         self.addChild(pauseButton)
@@ -118,8 +117,8 @@ class circleChange: SKScene {
         menuButton = SKSpriteNode(imageNamed: "main_menu")
         menuButton.name = "menuButton"
         menuButton.alpha = 1
-        menuButton.size = CGSize (width: 120, height: 60)
-        menuButton.position = CGPoint (x: 0, y: 0)
+        menuButton.size = CGSize (width: 240, height: 120)
+        menuButton.position = CGPoint (x: 30, y: 0)
         menuButton.anchorPoint = CGPoint (x: 0.5, y: 0.5)
         menuButton.zPosition = 4
         
@@ -137,6 +136,7 @@ class circleChange: SKScene {
         self.addChild(pauseMenu)
         pauseMenu.addChild(menuButton)
         pauseMenu.addChild(tint)
+        pauseMenu.addChild(restartButton)
         
         
         let boarder = SKPhysicsBody(edgeLoopFrom: self.frame)
@@ -346,6 +346,13 @@ class circleChange: SKScene {
             if clickedNodes.first?.name == "restartButton" {
                 
                 let circlechange = circleChange(fileNamed: "circleChange")
+                circlechange?.scaleMode = .aspectFill
+                self.view?.presentScene(circlechange!, transition: SKTransition.fade(withDuration: 0.5))
+            }
+            
+            if clickedNodes.first?.name == "menuButton"
+            {
+                let circlechange = LevelScreen(fileNamed: "LevelScreen")
                 circlechange?.scaleMode = .aspectFill
                 self.view?.presentScene(circlechange!, transition: SKTransition.fade(withDuration: 0.5))
             }

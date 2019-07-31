@@ -40,6 +40,11 @@ class Level2: SKScene, SKPhysicsContactDelegate {
 
     var levelName: SKLabelNode!
     
+    var pauseButton: SKSpriteNode!
+    var pauseMenu: SKNode!
+    var menuButton: SKSpriteNode!
+    var tint: SKSpriteNode!
+    
     override func didMove(to view: SKView) {
         background = SKSpriteNode(imageNamed: "Pad_Background")
         background?.size = CGSize (width: 750, height: 1334)
@@ -64,7 +69,7 @@ class Level2: SKScene, SKPhysicsContactDelegate {
         isTimerOn.toggle()
         toggleTimer(on: isTimerOn, label: timeLabel)
         timearea.position = CGPoint (x: 35, y: 0)
-        timearea.alpha = 1
+        timearea.alpha = 0
         self.addChild(timearea)
         
         levelName = SKLabelNode ()
@@ -76,6 +81,32 @@ class Level2: SKScene, SKPhysicsContactDelegate {
         levelName.text = "LEVEL 2"
         self.addChild(levelName)
 
+        
+        pauseButton = SKSpriteNode(imageNamed: "pause")
+        pauseButton.name = "pauseButton"
+        pauseButton.alpha = 1
+        pauseButton.size = CGSize (width: 60, height: 60)
+        pauseButton.position = CGPoint (x: 220, y: 600)
+        pauseButton.anchorPoint = CGPoint (x: 0.5, y: 0.5)
+        pauseButton.zPosition = 2
+        self.addChild(pauseButton)
+        //for pausescene
+        menuButton = SKSpriteNode(imageNamed: "main_menu")
+        menuButton.name = "menuButton"
+        menuButton.alpha = 1
+        menuButton.size = CGSize (width: 240, height: 120)
+        menuButton.position = CGPoint (x: 30, y: 0)
+        menuButton.anchorPoint = CGPoint (x: 0.5, y: 0.5)
+        menuButton.zPosition = 4
+        //tint for pause scene
+        tint = SKSpriteNode()
+        tint.name = "tint"
+        tint.color = .darkGray
+        tint.alpha = 0.25
+        tint.size = CGSize (width: 2000, height: 2000)
+        tint.position = CGPoint (x: 0, y: 0)
+        tint.anchorPoint = CGPoint (x: 0.5, y: 0.5)
+        tint.zPosition = 3
         
         
         level_doneButton = SKSpriteNode(imageNamed: "done_button")
@@ -90,11 +121,18 @@ class Level2: SKScene, SKPhysicsContactDelegate {
         restartButton = SKSpriteNode(imageNamed: "restart_button")
         restartButton.name = "restartButton"
         restartButton.alpha = 1
-        restartButton.size = CGSize (width: 60, height: 60)
-        restartButton.position = CGPoint (x: 210, y: 610)
+        restartButton.size = CGSize (width: 120, height: 120)
+        restartButton.position = CGPoint (x: 10, y: 200)
         restartButton.anchorPoint = CGPoint (x: 0.5, y: 0.5)
-        restartButton.zPosition = 2
-        self.addChild(restartButton)
+        restartButton.zPosition = 4
+        
+        //for pause scene
+        pauseMenu = SKNode()
+        pauseMenu.alpha = 0
+        self.addChild(pauseMenu)
+        pauseMenu.addChild(menuButton)
+        pauseMenu.addChild(tint)
+        pauseMenu.addChild(restartButton)
         
         //bottom boarder
         lineb = SKSpriteNode(imageNamed: "line2")
@@ -410,6 +448,40 @@ class Level2: SKScene, SKPhysicsContactDelegate {
                 level2?.scaleMode = .aspectFill
                 self.view?.presentScene(level2!, transition: SKTransition.fade(withDuration: 0.5))
                 
+            }
+            
+            if clickedNodes.first?.name == "menuButton"
+            {
+                let circlechange = LevelScreen(fileNamed: "LevelScreen")
+                circlechange?.scaleMode = .aspectFill
+                self.view?.presentScene(circlechange!, transition: SKTransition.fade(withDuration: 0.5))
+                scene?.physicsWorld.speed = 0
+                
+                UIView.animate(withDuration: 0.8)
+                {
+                    self.pauseMenu.alpha = 1
+                }
+            }
+            
+            if clickedNodes.first?.name == "pauseButton"
+            {
+                isTimerOn.toggle()
+                toggleTimer(on: isTimerOn, label: timeLabel)
+                scene?.physicsWorld.speed = 0
+                
+                UIView.animate(withDuration: 0.8)
+                {
+                    self.pauseMenu.alpha = 1
+                }
+                
+            }
+            
+            if clickedNodes.first?.name == "tint" {
+                
+                isTimerOn.toggle()
+                toggleTimer(on: isTimerOn, label: timeLabel)
+                pauseMenu.alpha = 0
+                scene?.physicsWorld.speed = 1
             }
             var numPinkCirc = 0
             for item in arrayCircles

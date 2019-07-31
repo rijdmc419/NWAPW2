@@ -14,7 +14,7 @@ import GameplayKit
 class Level3: SKScene, SKPhysicsContactDelegate {
     
     
-    var arraySprites : [Shape]!
+    var arraySprites : [SKSpriteNode]!
     let goodCategory:UInt32 = 0x1 << 0 //1
     let badCategory:UInt32 = 0x1 << 2 //4
     var lineb: SKSpriteNode!
@@ -39,12 +39,8 @@ class Level3: SKScene, SKPhysicsContactDelegate {
         self.addChild(background)
         background.zPosition = -1
         self.physicsWorld.contactDelegate = self
-        //circle1 = self.childNode(withName: "circle1") as? SKSpriteNode
-        //let circ_made = SKSpriteNode(imageNamed: "Circle_White")
-        // background = self.childNode(withName: "background") as? SKSpriteNode
-        //circ_made = self.childNode(withName: "Circle_White") as? SKSpriteNode
+
         
-        //for shape in arraySprites {
         
         level_doneButton = SKSpriteNode(imageNamed: "done_button")
         level_doneButton.name = "levelButton"
@@ -67,54 +63,63 @@ class Level3: SKScene, SKPhysicsContactDelegate {
         //bottom boarder
         lineb = SKSpriteNode(imageNamed: "line2")
         lineb.size = CGSize (width: 600, height: 2)
-        lineb.position = CGPoint (x: 0, y: -550)
+        lineb.position = CGPoint (x: 0, y: -500)
         lineb.anchorPoint = CGPoint (x: 0.5, y: 0.5)
         self.addChild(lineb)
         lineb.physicsBody = SKPhysicsBody(rectangleOf:  CGSize (width: 600, height: 2))
         lineb.physicsBody?.isDynamic = false
         lineb.physicsBody?.friction = 0
         lineb.physicsBody?.restitution = 1
-        lineb.name = "wall"
+        lineb.physicsBody?.categoryBitMask = goodCategory
+        lineb.physicsBody?.collisionBitMask = goodCategory
+        lineb.name = "wallb"
+        lineb.alpha = 0
         
         //topboarder
         linet = SKSpriteNode(imageNamed: "line2")
         linet.size = CGSize (width: 600, height: 2)
-        linet.position = CGPoint (x: 0, y: 550)
+        linet.position = CGPoint (x: 0, y: 400)
         linet.anchorPoint = CGPoint (x: 0.5, y: 0.5)
         self.addChild(linet)
         linet.physicsBody = SKPhysicsBody(rectangleOf:  CGSize (width: 600, height: 2))
         linet.physicsBody?.isDynamic = false
         linet.physicsBody?.friction = 0
         linet.physicsBody?.restitution = 1
-        linet.name = "wall"
-        
-        
+        linet.name = "wallt"
+        linet.alpha = 0
+        linet.physicsBody?.categoryBitMask = goodCategory
+        linet.physicsBody?.collisionBitMask = goodCategory
         
         //rightside baorder
         liner = SKSpriteNode(imageNamed: "line2")
-        liner.size = CGSize (width: 2, height: 1100)
-        liner.position = CGPoint (x: 300, y: 0)
+        liner.size = CGSize (width: 2, height: 900)
+        liner.position = CGPoint (x: 300, y: -50)
         liner.anchorPoint = CGPoint (x: 0.5, y: 0.5)
-        liner.physicsBody = SKPhysicsBody(rectangleOf:  CGSize (width: 20, height: 1100))
+        liner.physicsBody = SKPhysicsBody(rectangleOf:  CGSize (width: 2, height: 900))
         liner.physicsBody?.isDynamic = false
-        liner.physicsBody?.friction = 1
+        liner.physicsBody?.friction = 0
         liner.physicsBody?.restitution = 1
         liner.physicsBody?.affectedByGravity = false
+        liner.alpha = 0
         self.addChild(liner)
-        liner.name = "wall"
-        
+        liner.physicsBody?.categoryBitMask = goodCategory
+        liner.physicsBody?.collisionBitMask = goodCategory
+        liner.name = "wallr"
         
         //leftside boarder
         linel = SKSpriteNode(imageNamed: "line2")
-        linel.size = CGSize (width: 2, height: 1100)
-        linel.position = CGPoint (x: -300, y: 0)
+        linel.size = CGSize (width: 2, height: 900)
+        linel.position = CGPoint (x: -300, y: -50)
         linel.anchorPoint = CGPoint (x: 0.5, y: 0.5)
         self.addChild(linel)
-        linel.physicsBody = SKPhysicsBody(rectangleOf:  CGSize (width: 2, height: 1100))
+        linel.physicsBody = SKPhysicsBody(rectangleOf:  CGSize (width: 2, height: 800))
         linel.physicsBody?.isDynamic = false
         linel.physicsBody?.friction = 0
         linel.physicsBody?.restitution = 1
-        linel.name = "wall"
+        linel.name = "walll"
+        linel.alpha = 0
+        linel.physicsBody?.categoryBitMask = goodCategory
+        linel.physicsBody?.collisionBitMask = goodCategory
         
         
         let boarder = SKPhysicsBody(edgeLoopFrom: self.frame)
@@ -143,7 +148,7 @@ class Level3: SKScene, SKPhysicsContactDelegate {
         circ_made1.physicsBody?.restitution = 1.0
         circ_made1.physicsBody?.friction = 0
        
-        circ_made1.physicsBody?.applyImpulse(CGVector(dx: 70, dy: 0))
+        circ_made1.physicsBody?.applyImpulse(CGVector(dx: 70, dy: 5))
         circ1 = Circle(shape_sprite: circ_made1, isPink: false, isCircle: true)
         
         circ_made2 = SKSpriteNode(imageNamed: "Circle_White")
@@ -187,12 +192,14 @@ class Level3: SKScene, SKPhysicsContactDelegate {
         square_made1.physicsBody?.restitution = 1.0
         square_made1.physicsBody?.friction = 1
         square_made1.physicsBody?.mass = 0.3
-        square_made1.physicsBody?.applyImpulse(CGVector(dx: -70, dy: 0))
+        square_made1.physicsBody?.applyImpulse(CGVector(dx: -70, dy: -5))
         square_made1.physicsBody?.categoryBitMask = goodCategory
         square_made1.physicsBody?.collisionBitMask = goodCategory
         square_made1.physicsBody?.contactTestBitMask = goodCategory
         
         arrayCircles = [circ1, circ2]
+        arraySprites = [circ_made1, circ_made2, square_made1]
+
         
         for item in arrayCircles
         {
@@ -226,7 +233,86 @@ class Level3: SKScene, SKPhysicsContactDelegate {
         {
             collisions(circle: firstBody, square: secondBody)
             print("hi")
+        }
+            //rightwall
+        else if ((firstBody.name == "square") && (secondBody.name == "wallr"))
+        {
+            firstBody.physicsBody?.applyImpulse(CGVector(dx:-10, dy: 0))
+        }
+        else if ((firstBody.name == "wallr") && (secondBody.name == "square"))
+        {
+            secondBody.physicsBody?.applyImpulse(CGVector(dx:-10, dy: 0))
+        }
+            //leftwall
+        else if ((firstBody.name == "square") && (secondBody.name == "walll"))
+        {
+            print("LeftWAll")
             
+            firstBody.physicsBody?.applyImpulse(CGVector(dx:10, dy: 0))
+        }
+        else if ((firstBody.name == "walll") && (secondBody.name == "square"))
+        {
+            print("LeftWAll")
+            
+            secondBody.physicsBody?.applyImpulse(CGVector(dx:10, dy: 0))
+        }
+            //bottom wall
+        else if ((firstBody.name == "square") && (secondBody.name == "wallb"))
+        {
+            firstBody.physicsBody?.applyImpulse(CGVector(dx:0, dy: 10))
+        }
+        else if ((firstBody.name == "wallb") && (secondBody.name == "square"))
+        {
+            secondBody.physicsBody?.applyImpulse(CGVector(dx:0, dy: 10))
+        }
+            //top wall
+        else if ((firstBody.name == "square") && (secondBody.name == "wallt"))
+        {
+            firstBody.physicsBody?.applyImpulse(CGVector(dx:0, dy: -10))
+        }
+        else if ((firstBody.name == "wallt") && (secondBody.name == "square"))
+        {
+            secondBody.physicsBody?.applyImpulse(CGVector(dx:0, dy: -10))
+        }
+            //rightwall
+        else if ((firstBody.name == "circle") && (secondBody.name == "wallr"))
+        {
+            firstBody.physicsBody?.applyImpulse(CGVector(dx:-10, dy: 0))
+        }
+        else if ((firstBody.name == "wallr") && (secondBody.name == "circle"))
+        {
+            secondBody.physicsBody?.applyImpulse(CGVector(dx:-10, dy: 0))
+        }
+            //leftwall
+        else if ((firstBody.name == "circle") && (secondBody.name == "walll"))
+        {
+            print("LeftWAll")
+            
+            firstBody.physicsBody?.applyImpulse(CGVector(dx:10, dy: 0))
+        }
+        else if ((firstBody.name == "walll") && (secondBody.name == "circle"))
+        {
+            print("LeftWAll")
+            
+            secondBody.physicsBody?.applyImpulse(CGVector(dx:10, dy: 0))
+        }
+            //bottom wall
+        else if ((firstBody.name == "circle") && (secondBody.name == "wallb"))
+        {
+            firstBody.physicsBody?.applyImpulse(CGVector(dx:0, dy: 10))
+        }
+        else if ((firstBody.name == "wallb") && (secondBody.name == "circle"))
+        {
+            secondBody.physicsBody?.applyImpulse(CGVector(dx:0, dy: 10))
+        }
+            //top wall
+        else if ((firstBody.name == "circle") && (secondBody.name == "wallt"))
+        {
+            firstBody.physicsBody?.applyImpulse(CGVector(dx:0, dy: -10))
+        }
+        else if ((firstBody.name == "wallt") && (secondBody.name == "circle"))
+        {
+            secondBody.physicsBody?.applyImpulse(CGVector(dx:0, dy: -10))
         }
     }
     func collisions(circle : SKSpriteNode, square : SKSpriteNode)
@@ -255,7 +341,6 @@ class Level3: SKScene, SKPhysicsContactDelegate {
                 circle.userData?.setValue(false, forKey: "isCircle")
                 circle.physicsBody?.categoryBitMask = goodCategory
                 circle.physicsBody?.collisionBitMask = goodCategory
-
                 circle.name = "square"
 
             }
@@ -335,5 +420,44 @@ class Level3: SKScene, SKPhysicsContactDelegate {
 
 
         print("Hi")
+    }
+    
+    func normalixevectorx(x: CGFloat, y: CGFloat) -> CGFloat
+    {
+        var multiplier = sqrt((x*x)+(y*y))
+        multiplier = 1/multiplier
+        var xvec = multiplier*x
+        xvec = xvec * 400
+        
+        return xvec;
+    }
+    
+    func normalixevectory(x: CGFloat, y: CGFloat) -> CGFloat
+    {
+        var multiplier = sqrt((x*x)+(y*y))
+        multiplier = 1/multiplier
+        var yvec = multiplier*y
+        yvec = yvec * 400
+        
+        return yvec;
+    }
+    override func update(_ currentTime: TimeInterval)
+    {
+        for item in arraySprites
+        {
+            if item.alpha == CGFloat(1)
+            {
+                let hold3 = sqrt(((item.physicsBody?.velocity.dx)!*(item.physicsBody?.velocity.dx)!) + ((item.physicsBody?.velocity.dy)! * (item.physicsBody?.velocity.dy)!))
+                
+                if hold3 < 300 || hold3 > 400
+                {
+                    item.physicsBody?.velocity.dx = normalixevectorx(x: (item.physicsBody?.velocity.dx)!, y: (item.physicsBody?.velocity.dy)!)
+                    
+                    item.physicsBody?.velocity.dy = normalixevectory(x: (item.physicsBody?.velocity.dx)!, y: (item.physicsBody?.velocity.dy)!)
+                    
+                }
+            }
+        }
+        
     }
 }
