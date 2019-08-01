@@ -580,7 +580,7 @@ class Level2: SKScene, SKPhysicsContactDelegate {
                             // open level completed scene, or reveal next level button
                             isTimerOn = false
                             toggleTimer(on: isTimerOn, label: timeLabel)
-                            defaults.set(1, forKey: "Level2Stars")
+                            //defaults.set(1, forKey: "Level2Stars")
                             scene?.physicsWorld.speed = 0
                             
                             print("you win!")
@@ -615,17 +615,20 @@ class Level2: SKScene, SKPhysicsContactDelegate {
                                 self.view?.presentScene(level!, transition: SKTransition.fade(withDuration: 0.5))
                             }
                             
-                            if self.duration < 0.5
+                            if self.duration <= 0.5
                             {
                                 starEraserButton.texture = SKTexture(imageNamed: "star_3")
+                                defaults.set(3, forKey: "Level2Stars")
                             }
-                            else if self.duration >= 0.5 && self.duration < 2
+                            else if self.duration > 0.5 && self.duration <= 2
                             {
                                 starEraserButton.texture = SKTexture(imageNamed: "star_2")
+                                defaults.set(2, forKey: "Level2Stars")
                             }
-                            else if self.duration >= 2
+                            else if self.duration > 2
                             {
                                 starEraserButton.texture = SKTexture(imageNamed: "star_1")
+                                defaults.set(1, forKey: "Level2Stars")
                             }
                         }
                     }

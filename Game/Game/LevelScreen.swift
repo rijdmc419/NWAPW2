@@ -55,26 +55,159 @@ class LevelScreen: SKScene {
             print("pink!")
             let level1 = self.childNode(withName: "level_one") as? SKSpriteNode
             level1?.texture = SKTexture(imageNamed: "level_1_complete")
+            let level2 = self.childNode(withName: "level_two") as? SKSpriteNode
+            level2?.texture = SKTexture(imageNamed: "level_two")
+            if defaults.value(forKey: "Level1Stars") as! Int == 1 {
+                let stars = SKSpriteNode(imageNamed: "1_star")
+                stars.size = CGSize (width: 20, height: 20)
+                stars.position = CGPoint (x: 0, y: -55)
+                stars.anchorPoint = CGPoint (x: 0.5, y: 0.5)
+                stars.zPosition = 2
+                level1?.addChild(stars)
+            }
+            else if defaults.value(forKey: "Level1Stars") as! Int == 2 {
+                let stars = SKSpriteNode(imageNamed: "2_star")
+                stars.size = CGSize (width: 40, height: 20)
+                stars.position = CGPoint (x: 0, y: -55)
+                stars.anchorPoint = CGPoint (x: 0.5, y: 0.5)
+                stars.zPosition = 2
+                level1?.addChild(stars)
+            }
+            else if defaults.value(forKey: "Level1Stars") as! Int == 3 {
+                let stars = SKSpriteNode(imageNamed: "3_star")
+                stars.size = CGSize (width: 60, height: 20)
+                stars.position = CGPoint (x: 0, y: -55)
+                stars.anchorPoint = CGPoint (x: 0.5, y: 0.5)
+                stars.zPosition = 2
+                level1?.addChild(stars)
+            }
+            
         }
         if defaults.value(forKey: "Level2Stars") != nil && defaults.value(forKey: "Level2Stars") as! Int >= 1 {
             print("pink!")
             let level1 = self.childNode(withName: "level_two") as? SKSpriteNode
             level1?.texture = SKTexture(imageNamed: "level_2_complete")
+            let level2 = self.childNode(withName: "level_three") as? SKSpriteNode
+            level2?.texture = SKTexture(imageNamed: "level_three")
+            if defaults.value(forKey: "Level2Stars") as! Int == 1 {
+                let stars = SKSpriteNode(imageNamed: "1_star")
+                stars.size = CGSize (width: 20, height: 20)
+                stars.position = CGPoint (x: 0, y: -55)
+                stars.anchorPoint = CGPoint (x: 0.5, y: 0.5)
+                stars.zPosition = 2
+                level1?.addChild(stars)
+            }
+            else if defaults.value(forKey: "Level2Stars") as! Int == 2 {
+                let stars = SKSpriteNode(imageNamed: "2_star")
+                stars.size = CGSize (width: 40, height: 20)
+                stars.position = CGPoint (x: 0, y: -55)
+                stars.anchorPoint = CGPoint (x: 0.5, y: 0.5)
+                stars.zPosition = 2
+                level1?.addChild(stars)
+            }
+            else if defaults.value(forKey: "Level2Stars") as! Int == 3 {
+                let stars = SKSpriteNode(imageNamed: "3_star")
+                stars.size = CGSize (width: 60, height: 20)
+                stars.position = CGPoint (x: 0, y: -55)
+                stars.anchorPoint = CGPoint (x: 0.5, y: 0.5)
+                stars.zPosition = 2
+                level1?.addChild(stars)
+            }
+            
         }
         if defaults.value(forKey: "Level3Stars") != nil && defaults.value(forKey: "Level3Stars") as! Int >= 1 {
             print("pink!")
             let level1 = self.childNode(withName: "level_three") as? SKSpriteNode
             level1?.texture = SKTexture(imageNamed: "level_3_complete")
+            let level2 = self.childNode(withName: "level_4") as? SKSpriteNode
+            level2?.texture = SKTexture(imageNamed: "level_4")
+            if defaults.value(forKey: "Level3Stars") as! Int == 1 {
+                let stars = SKSpriteNode(imageNamed: "1_star")
+                stars.size = CGSize (width: 20, height: 20)
+                stars.position = CGPoint (x: 0, y: -55)
+                stars.anchorPoint = CGPoint (x: 0.5, y: 0.5)
+                stars.zPosition = 2
+                level1?.addChild(stars)
+            }
+            else if defaults.value(forKey: "Level3Stars") as! Int == 2 {
+                let stars = SKSpriteNode(imageNamed: "2_star")
+                stars.size = CGSize (width: 40, height: 20)
+                stars.position = CGPoint (x: 0, y: -55)
+                stars.anchorPoint = CGPoint (x: 0.5, y: 0.5)
+                stars.zPosition = 2
+                level1?.addChild(stars)
+            }
+            else if defaults.value(forKey: "Level3Stars") as! Int == 3 {
+                let stars = SKSpriteNode(imageNamed: "3_star")
+                stars.size = CGSize (width: 60, height: 20)
+                stars.position = CGPoint (x: 0, y: -55)
+                stars.anchorPoint = CGPoint (x: 0.5, y: 0.5)
+                stars.zPosition = 2
+                level1?.addChild(stars)
+            }
+            
         }
         if defaults.value(forKey: "Level4Stars") != nil && defaults.value(forKey: "Level4Stars") as! Int >= 1 {
             print("pink!")
             let level1 = self.childNode(withName: "level_4") as? SKSpriteNode
             level1?.texture = SKTexture(imageNamed: "level_4_complete")
+            let level2 = self.childNode(withName: "level_5") as? SKSpriteNode
+            level2?.texture = SKTexture(imageNamed: "level_5")
+            if defaults.value(forKey: "Level4Stars") as! Int == 1 {
+                let stars = SKSpriteNode(imageNamed: "1_star")
+                stars.size = CGSize (width: 20, height: 20)
+                stars.position = CGPoint (x: 0, y: -55)
+                stars.anchorPoint = CGPoint (x: 0.5, y: 0.5)
+                stars.zPosition = 2
+                level1?.addChild(stars)
+            }
+            else if defaults.value(forKey: "Level4Stars") as! Int == 2 {
+                let stars = SKSpriteNode(imageNamed: "2_star")
+                stars.size = CGSize (width: 40, height: 20)
+                stars.position = CGPoint (x: 0, y: -55)
+                stars.anchorPoint = CGPoint (x: 0.5, y: 0.5)
+                stars.zPosition = 2
+                level1?.addChild(stars)
+            }
+            else if defaults.value(forKey: "Level4Stars") as! Int == 3 {
+                let stars = SKSpriteNode(imageNamed: "3_star")
+                stars.size = CGSize (width: 60, height: 20)
+                stars.position = CGPoint (x: 0, y: -55)
+                stars.anchorPoint = CGPoint (x: 0.5, y: 0.5)
+                stars.zPosition = 2
+                level1?.addChild(stars)
+            }
+            
         }
         if defaults.value(forKey: "Level5Stars") != nil && defaults.value(forKey: "Level5Stars") as! Int >= 1 {
             print("pink!")
             let level1 = self.childNode(withName: "level_5") as? SKSpriteNode
             level1?.texture = SKTexture(imageNamed: "level_5_complete")
+            if defaults.value(forKey: "Level5Stars") as! Int == 1 {
+                let stars = SKSpriteNode(imageNamed: "1_star")
+                stars.size = CGSize (width: 20, height: 20)
+                stars.position = CGPoint (x: 0, y: -55)
+                stars.anchorPoint = CGPoint (x: 0.5, y: 0.5)
+                stars.zPosition = 2
+                level1?.addChild(stars)
+            }
+            else if defaults.value(forKey: "Level5Stars") as! Int == 2 {
+                let stars = SKSpriteNode(imageNamed: "2_star")
+                stars.size = CGSize (width: 40, height: 20)
+                stars.position = CGPoint (x: 0, y: -55)
+                stars.anchorPoint = CGPoint (x: 0.5, y: 0.5)
+                stars.zPosition = 2
+                level1?.addChild(stars)
+            }
+            else if defaults.value(forKey: "Level5Stars") as! Int == 3 {
+                let stars = SKSpriteNode(imageNamed: "3_star")
+                stars.size = CGSize (width: 60, height: 20)
+                stars.position = CGPoint (x: 0, y: -55)
+                stars.anchorPoint = CGPoint (x: 0.5, y: 0.5)
+                stars.zPosition = 2
+                level1?.addChild(stars)
+            }
+            
         }
         
     }
