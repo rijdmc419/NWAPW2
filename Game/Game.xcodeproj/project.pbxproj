@@ -155,7 +155,6 @@
 			isa = PBXGroup;
 			children = (
 				8DBEA48B22F2146A00C51B43 /* levelCompleteScreen.sks */,
-				F72BD8EB22DE381600BAF3C4 /* Level2.swift */,
 				8DBEA48922F2098D00C51B43 /* levelCompleteScreen.swift */,
 				F72BD8B722DD285900BAF3C4 /* AppDelegate.swift */,
 				F72BD8BB22DD285900BAF3C4 /* Actions.sks */,
@@ -172,6 +171,7 @@
 				8F2256B222EA2BEC0017FD72 /* Level1.sks */,
 				8F2256B422EA2C040017FD72 /* Level1.swift */,
 				F72BD8EF22DE38A900BAF3C4 /* Level2.sks */,
+				F72BD8EB22DE381600BAF3C4 /* Level2.swift */,
 				F7E1176522EA2D0D0069331C /* Level3.sks */,
 				F7E1176322EA2C830069331C /* Level3.swift */,
 				F7E1176922EA32E80069331C /* Level4.sks */,
