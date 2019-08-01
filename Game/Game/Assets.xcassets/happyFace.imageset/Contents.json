@@ -2,12 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "happyFace-1.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "happyface.png",
+      "filename" : "happyFace-1.png",
       "scale" : "2x"
     },
     {
