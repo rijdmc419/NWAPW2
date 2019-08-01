@@ -282,9 +282,9 @@ class Level2: SKScene, SKPhysicsContactDelegate {
         goal = SKNode()
         goal.position = CGPoint (x: 0, y: 480)
         self.addChild(goal)
-        let goal_circle = SKSpriteNode(imageNamed: "Circle_Pink")
-        goal_circle.size = CGSize (width: 60, height: 60)
-        goal_circle.position = CGPoint (x: 20, y: 0)
+        let goal_circle = SKSpriteNode(imageNamed: "happyface")
+        goal_circle.size = CGSize (width: 80, height: 80)
+        goal_circle.position = CGPoint (x: 10, y: 0)
         let goal_label = SKLabelNode()
         goal_label.text = ("1")
         goal_label.fontColor = UIColor.black
@@ -635,7 +635,7 @@ class Level2: SKScene, SKPhysicsContactDelegate {
     }
     func changetoPink(circle_shape: SKSpriteNode)
     {
-        circle_shape.texture = SKTexture(imageNamed: "happyFace")
+        circle_shape.texture = SKTexture(imageNamed: "happyface")
         print("Hi")
     }
     

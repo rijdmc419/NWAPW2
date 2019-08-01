@@ -210,7 +210,7 @@ class Level4: SKScene, SKPhysicsContactDelegate {
         goal = SKNode()
         goal.position = CGPoint (x: 0, y: 480)
         self.addChild(goal)
-        let goal_circle = SKSpriteNode(imageNamed: "Circle_Pink")
+        let goal_circle = SKSpriteNode(imageNamed: "happyface")
         goal_circle.size = CGSize (width: 80, height: 80)
         goal_circle.position = CGPoint (x: 10, y: 0)
         let goal_label = SKLabelNode()
@@ -544,7 +544,7 @@ class Level4: SKScene, SKPhysicsContactDelegate {
     }
     func changetoPink(circle_shape: SKSpriteNode)
     {
-        circle_shape.texture = SKTexture(imageNamed: "happyFace")
+        circle_shape.texture = SKTexture(imageNamed: "happyface")
         print("Hi")
     }
     

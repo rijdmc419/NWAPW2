@@ -208,7 +208,7 @@ class Level1: SKScene, SKPhysicsContactDelegate {
         goal = SKNode()
         goal.position = CGPoint (x: 0, y: 480)
         self.addChild(goal)
-        let goal_circle = SKSpriteNode(imageNamed: "Circle_Pink")
+        let goal_circle = SKSpriteNode(imageNamed: "happyface")
         goal_circle.size = CGSize (width: 80, height: 80)
         goal_circle.position = CGPoint (x: 10, y: 0)
         let goal_label = SKLabelNode()
@@ -477,7 +477,7 @@ class Level1: SKScene, SKPhysicsContactDelegate {
                             
                             
                             if clickedNodes.first?.name == "levelButton" {
-                                let level = Level2(fileNamed: "Level2")
+                                let level = LevelScreen(fileNamed: "LevelScreen")
                                 level?.scaleMode = .aspectFill
                                 self.view?.presentScene(level!, transition: SKTransition.fade(withDuration: 0.5))
                                 
@@ -490,7 +490,7 @@ class Level1: SKScene, SKPhysicsContactDelegate {
     }
     func changetoPink(circle_shape: SKSpriteNode)
     {
-        circle_shape.texture = SKTexture(imageNamed: "happyFace")
+        circle_shape.texture = SKTexture(imageNamed: "happyface")
     }
     func toggleTimer(on: Bool, label: SKLabelNode) {
     if on == true {
