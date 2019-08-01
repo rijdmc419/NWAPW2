@@ -32,7 +32,7 @@ class Credits: SKScene {
         done_button = SKSpriteNode(imageNamed: "main_menu")
         done_button.name = "main_menu"
         done_button.alpha = 1
-        done_button.size = CGSize (width: 220, height: 80)
+        done_button.size = CGSize (width: 160, height: 80)
         done_button.position = CGPoint (x: -210, y: 580)
         done_button.anchorPoint = CGPoint (x: 0.5, y: 0.5)
         done_button.zPosition = 2
