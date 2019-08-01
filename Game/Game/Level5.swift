@@ -631,7 +631,7 @@ class Level5: SKScene, SKPhysicsContactDelegate {
                             if clickedNodes.first?.name == "restartLevelButton"
                             {
                                 //change to specific level
-                                let circlechange = Level4(fileNamed: "Level4")
+                                let circlechange = Level5(fileNamed: "Level5")
                                 circlechange?.scaleMode = .aspectFill
                                 self.view?.presentScene(circlechange!, transition: SKTransition.fade(withDuration: 0.5))
                             }
