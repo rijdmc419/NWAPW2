@@ -115,7 +115,7 @@ class Level2: SKScene, SKPhysicsContactDelegate {
         tint.zPosition = 3
         
         //level complete var
-        starEraserButton = SKSpriteNode(imageNamed: "eraser")
+        //starEraserButton = SKSpriteNode(imageNamed: "eraser")
         starEraserButton.name = "starEraserButton"
         starEraserButton.alpha = 1
         starEraserButton.size = CGSize (width: 240, height: 120)
