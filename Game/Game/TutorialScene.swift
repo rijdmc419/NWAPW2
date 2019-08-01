@@ -135,7 +135,7 @@ class TutorialScene: SKScene, SKPhysicsContactDelegate {
         goal = SKNode()
         goal.position = CGPoint (x: 0, y: 480)
         self.addChild(goal)
-        let goal_circle = SKSpriteNode(imageNamed: "Circle_Pink")
+        let goal_circle = SKSpriteNode(imageNamed: "happyface")
         goal_circle.size = CGSize (width: 80, height: 80)
         goal_circle.position = CGPoint (x: 10, y: 0)
         let goal_label = SKLabelNode()
@@ -147,7 +147,7 @@ class TutorialScene: SKScene, SKPhysicsContactDelegate {
         goal.addChild(goal_circle)
         goal.addChild(goal_label)
         
-        circ_made1 = SKSpriteNode(imageNamed: "Circle_White")
+        circ_made1 = SKSpriteNode(imageNamed: "mehface2")
         circ_made1.name = "circle"
         
         circ_made1.userData = [
@@ -171,7 +171,7 @@ class TutorialScene: SKScene, SKPhysicsContactDelegate {
         circ1 = Circle(shape_sprite: circ_made1, isPink: false, isCircle: true)
         circ_made1.alpha = 0
 
-        square_made1 = SKSpriteNode(imageNamed: "square_white")
+        square_made1 = SKSpriteNode(imageNamed: "angryface")
         square_made1.name = "square"
         square_made1.userData = [
             "isCircle" : false
@@ -272,7 +272,7 @@ class TutorialScene: SKScene, SKPhysicsContactDelegate {
             {
                 print("loop2")
                 //turn to square
-                circle.texture = SKTexture(imageNamed: "square_white")
+                circle.texture = SKTexture(imageNamed: "angryface")
                 let velocityx = circle.physicsBody?.velocity.dx
                 let velocityy = circle.physicsBody?.velocity.dy
                 circle.physicsBody = SKPhysicsBody(rectangleOf: CGSize (width: 100,height: 100))
@@ -449,7 +449,7 @@ class TutorialScene: SKScene, SKPhysicsContactDelegate {
     }
     func changetoPink(circle_shape: SKSpriteNode)
     {
-        circle_shape.texture = SKTexture(imageNamed: "Circle_Pink")
+        circle_shape.texture = SKTexture(imageNamed: "happyface")
         circle_shape.physicsBody?.collisionBitMask = goodCategory
 
         print("Hi")

@@ -544,7 +544,7 @@ class Level3: SKScene, SKPhysicsContactDelegate {
     }
     func changetoPink(circle_shape: SKSpriteNode)
     {
-        circle_shape.texture = SKTexture(imageNamed: "happyFace")
+        circle_shape.texture = SKTexture(imageNamed: "happyface")
         print("Hi")
     }
     
