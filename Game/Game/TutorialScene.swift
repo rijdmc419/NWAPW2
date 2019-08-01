@@ -342,14 +342,14 @@ class TutorialScene: SKScene, SKPhysicsContactDelegate {
                 newText(stuff1: stuff1, stuff2: stuff2, arrow: arrow)
                 
                 circ_made1.position = CGPoint (x: -200, y: 200)
-                circ_made1.physicsBody?.applyImpulse(CGVector(dx: 60, dy: -60))
+                circ_made1.physicsBody?.applyImpulse(CGVector(dx: 70, dy: -70))
                 circ_made1.texture = SKTexture(imageNamed: "Circle_White")
                 circ_made1.userData?.setValue(false, forKey: "isPink")
                 
                 square_made1.alpha = 1
                 square_made1.position = CGPoint (x: 200, y: -200)
                 square_made1.physicsBody = SKPhysicsBody(rectangleOf: CGSize (width: 100,height: 100))
-                square_made1.physicsBody?.applyImpulse(CGVector(dx: -60, dy: 60))
+                square_made1.physicsBody?.applyImpulse(CGVector(dx: -70, dy: 70))
                 square_made1.physicsBody?.affectedByGravity = false
                 square_made1.physicsBody?.contactTestBitMask = goodCategory
                 square_made1.physicsBody?.allowsRotation = false
@@ -399,9 +399,9 @@ class TutorialScene: SKScene, SKPhysicsContactDelegate {
                 circ_made1.physicsBody?.angularDamping = 0.0
                 circ_made1.physicsBody?.restitution = 1.0
                 circ_made1.physicsBody?.friction = 0
-                circ_made1.physicsBody?.applyImpulse(CGVector(dx: 50, dy: -50))
+                circ_made1.physicsBody?.applyImpulse(CGVector(dx: 70, dy: -70))
                 square_made1.physicsBody?.isDynamic = true
-                square_made1.physicsBody?.applyImpulse(CGVector(dx: -50, dy: 50))
+                square_made1.physicsBody?.applyImpulse(CGVector(dx: -70, dy: 70))
                 fourthtouch = true
                 
             }
