@@ -444,7 +444,7 @@ class Level6: SKScene, SKPhysicsContactDelegate{
         square_made3.physicsBody?.collisionBitMask = goodCategory
         square_made3.physicsBody?.contactTestBitMask = goodCategory
         
-        arraySprites = [circ_made1, circ_made2, circ_made3, square_made1, square_made2]
+        arraySprites = [circ_made1, circ_made2, circ_made3, square_made1, square_made2, square_made3]
 
     }
     func didBegin(_ contact: SKPhysicsContact)

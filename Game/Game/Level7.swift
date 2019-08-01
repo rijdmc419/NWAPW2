@@ -324,10 +324,10 @@ class Level7: SKScene, SKPhysicsContactDelegate{
         circ_made1.physicsBody?.applyImpulse(CGVector(dx: -90, dy: 90))
         circ1 = Circle(shape_sprite: circ_made1, isPink: false, isCircle: true)
         
-        circ_made2 = SKSpriteNode(imageNamed: "mehface2")
+        /*circ_made2 = SKSpriteNode(imageNamed: "mehface2")
         circ_made2.name = "circle"
         circ_made2.size = CGSize (width: 100, height: 100)
-        circ_made2.position = CGPoint (x: -135, y: -235)
+        circ_made2.position = CGPoint (x: -35, y: -145)
         circ_made2.anchorPoint = CGPoint (x: 0.5, y: 0.5)
         self.addChild(circ_made2)
         circ_made2.physicsBody = SKPhysicsBody(circleOfRadius: 50)
@@ -344,7 +344,7 @@ class Level7: SKScene, SKPhysicsContactDelegate{
         circ_made3 = SKSpriteNode(imageNamed: "mehface2")
         circ_made3.name = "circle"
         circ_made3.size = CGSize (width: 100, height: 100)
-        circ_made3.position = CGPoint (x: -15, y: -115)
+        circ_made3.position = CGPoint (x: 175, y: -25)
         circ_made3.anchorPoint = CGPoint (x: 0.5, y: 0.5)
         self.addChild(circ_made3)
         circ_made3.physicsBody = SKPhysicsBody(circleOfRadius: 50)
@@ -356,9 +356,9 @@ class Level7: SKScene, SKPhysicsContactDelegate{
         circ_made3.physicsBody?.restitution = 1.0
         circ_made3.physicsBody?.friction = 0
         circ_made3.physicsBody?.applyImpulse(CGVector(dx: -90, dy: 90))
-        circ3 = Circle(shape_sprite: circ_made3, isPink: false, isCircle: true)
+        circ3 = Circle(shape_sprite: circ_made3, isPink: false, isCircle: true)*/
         
-        arrayCircles = [circ1, circ2, circ3]
+        arrayCircles = [circ1]
         
         for item in arrayCircles {
             
@@ -380,7 +380,7 @@ class Level7: SKScene, SKPhysicsContactDelegate{
             "isCircle" : false
         ];
         square_made1.size = CGSize (width: 100, height: 100)
-        square_made1.position = CGPoint (x: -190, y: -290)
+        square_made1.position = CGPoint (x: -140, y: -295)
         square_made1.anchorPoint = CGPoint (x: 0.5, y: 0.5)
         self.addChild(square_made1)
         square_made1.physicsBody = SKPhysicsBody(rectangleOf: CGSize (width: 100,height: 100))
@@ -404,7 +404,7 @@ class Level7: SKScene, SKPhysicsContactDelegate{
             "isCircle" : false
         ];
         square_made2.size = CGSize (width: 100, height: 100)
-        square_made2.position = CGPoint (x: -70, y: -170)
+        square_made2.position = CGPoint (x: 70, y: 5)
         square_made2.anchorPoint = CGPoint (x: 0.5, y: 0.5)
         self.addChild(square_made2)
         square_made2.physicsBody = SKPhysicsBody(rectangleOf: CGSize (width: 100,height: 100))
@@ -416,7 +416,7 @@ class Level7: SKScene, SKPhysicsContactDelegate{
         square_made2.physicsBody?.restitution = 1.0
         square_made2.physicsBody?.friction = 0
         square_made2.physicsBody?.mass = 0.5
-        square_made2.physicsBody?.applyImpulse(CGVector(dx: 90, dy: -90))
+        square_made2.physicsBody?.applyImpulse(CGVector(dx: -80, dy: -90))
         square_made2.physicsBody?.categoryBitMask = goodCategory
         square_made2.physicsBody?.collisionBitMask = goodCategory
         square_made2.physicsBody?.contactTestBitMask = goodCategory
@@ -427,7 +427,7 @@ class Level7: SKScene, SKPhysicsContactDelegate{
             "isCircle" : false
         ];
         square_made3.size = CGSize (width: 100, height: 100)
-        square_made3.position = CGPoint (x: 245, y: 345)
+        square_made3.position = CGPoint (x: 245, y: 305)
         square_made3.anchorPoint = CGPoint (x: 0.5, y: 0.5)
         self.addChild(square_made3)
         square_made3.physicsBody = SKPhysicsBody(rectangleOf: CGSize (width: 100,height: 100))
@@ -444,7 +444,7 @@ class Level7: SKScene, SKPhysicsContactDelegate{
         square_made3.physicsBody?.collisionBitMask = goodCategory
         square_made3.physicsBody?.contactTestBitMask = goodCategory
         
-        arraySprites = [circ_made1, circ_made2, circ_made3, square_made1, square_made2]
+        arraySprites = [circ_made1, square_made1, square_made2, square_made3]
         
     }
     func didBegin(_ contact: SKPhysicsContact)
@@ -740,8 +740,8 @@ class Level7: SKScene, SKPhysicsContactDelegate{
         square_made2.physicsBody?.contactTestBitMask = goodCategory
         square_made3.physicsBody?.contactTestBitMask = goodCategory
         circ_made1.physicsBody?.contactTestBitMask = goodCategory
-        circ_made2.physicsBody?.contactTestBitMask = goodCategory
-        circ_made3.physicsBody?.contactTestBitMask = goodCategory
+        //circ_made2.physicsBody?.contactTestBitMask = goodCategory
+        //circ_made3.physicsBody?.contactTestBitMask = goodCategory
         for item in arraySprites
         {
             if item.alpha == CGFloat(1)
