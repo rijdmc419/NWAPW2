@@ -179,7 +179,7 @@ class Level1: SKScene, SKPhysicsContactDelegate {
         tintBar = SKSpriteNode()
         tintBar.name = "tintBar"
         tintBar.color = .darkGray
-        tintBar.alpha = 1
+        tintBar.alpha = 0.7
         tintBar.size = CGSize (width: 400, height: 2000)
         tintBar.position = CGPoint (x: 0, y: 0)
         tintBar.anchorPoint = CGPoint (x: 0.5, y: 0.5)
@@ -545,7 +545,7 @@ class Level1: SKScene, SKPhysicsContactDelegate {
                             isTimerOn = false
                             toggleTimer(on: isTimerOn, label: timeLabel)
                             defaults.set(1, forKey: "Level1Stars")
-                           scene?.physicsWorld.speed = 0
+                            scene?.physicsWorld.speed = 0
                             print("you win!")
                             completeScreen.alpha = 1
                             if clickedNodes.first?.name == "restartLevelButton"

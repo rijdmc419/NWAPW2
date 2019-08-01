@@ -185,7 +185,7 @@ class Level5: SKScene, SKPhysicsContactDelegate {
         tintBar = SKSpriteNode()
         tintBar.name = "tintBar"
         tintBar.color = .darkGray
-        tintBar.alpha = 1
+        tintBar.alpha = 0.7
         tintBar.size = CGSize (width: 400, height: 2000)
         tintBar.position = CGPoint (x: 0, y: 0)
         tintBar.anchorPoint = CGPoint (x: 0.5, y: 0.5)
