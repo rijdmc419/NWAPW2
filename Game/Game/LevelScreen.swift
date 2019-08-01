@@ -106,6 +106,11 @@ class LevelScreen: SKScene {
                 level?.scaleMode = .aspectFill
                 self.view?.presentScene(level!, transition: SKTransition.fade(withDuration: 0.5))
             }
+            if nodesArray.first?.name == "level_6" {
+                let level = Level6(fileNamed: "Level6")
+                level?.scaleMode = .aspectFill
+                self.view?.presentScene(level!, transition: SKTransition.fade(withDuration: 0.5))
+            }
             if nodesArray.first?.name == "reset" {
                 resetDefaults()
             }
