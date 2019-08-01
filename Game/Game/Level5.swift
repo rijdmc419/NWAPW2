@@ -49,6 +49,17 @@ class Level5: SKScene, SKPhysicsContactDelegate {
     var menuButton: SKSpriteNode!
     var tint: SKSpriteNode!
     
+    //level complete vars
+    var starEraserButton: SKSpriteNode!
+    var LevelScreenButton: SKSpriteNode!
+    var restartLevelButton: SKSpriteNode!
+    var nextButton: SKSpriteNode!
+    var completeScreen: SKNode!
+    var tintBar: SKSpriteNode!
+    var tintBar2: SKSpriteNode!
+    var buttonRow: SKNode!
+    
+    
     override func didMove(to view: SKView) {
         background = SKSpriteNode(imageNamed: "Pad_Background")
         background?.size = CGSize (width: 750, height: 1334)
@@ -129,6 +140,73 @@ class Level5: SKScene, SKPhysicsContactDelegate {
         restartButton.position = CGPoint (x: 10, y: 200)
         restartButton.anchorPoint = CGPoint (x: 0.5, y: 0.5)
         restartButton.zPosition = 4
+        
+        //level complete var
+        starEraserButton = SKSpriteNode(imageNamed: "eraser")
+        starEraserButton.name = "starEraserButton"
+        starEraserButton.alpha = 1
+        starEraserButton.size = CGSize (width: 320, height: 160)
+        starEraserButton.position = CGPoint (x: 30, y: 100)
+        starEraserButton.anchorPoint = CGPoint (x: 0.5, y: 0.5)
+        starEraserButton.zPosition = 4
+        
+        LevelScreenButton = SKSpriteNode(imageNamed: "LevelSelectButtonCircle")
+        LevelScreenButton.name = "LevelScreenButton"
+        LevelScreenButton.alpha = 1
+        LevelScreenButton.size = CGSize (width: 100, height: 100)
+        LevelScreenButton.position = CGPoint (x: -120, y: 0)
+        LevelScreenButton.anchorPoint = CGPoint (x: 0.5, y: 0.5)
+        LevelScreenButton.zPosition = 4
+        
+        restartLevelButton = SKSpriteNode(imageNamed: "ScoringRestartCircle")
+        restartLevelButton.name = "restartLevelButton"
+        restartLevelButton.alpha = 1
+        restartLevelButton.size = CGSize (width: 100, height: 100)
+        restartLevelButton.position = CGPoint (x: 0, y: 0)
+        restartLevelButton.anchorPoint = CGPoint (x: 0.5, y: 0.5)
+        restartLevelButton.zPosition = 4
+        
+        nextButton = SKSpriteNode(imageNamed: "NextLevelCircle")
+        nextButton.name = "nextButton"
+        nextButton.alpha = 1
+        nextButton.size = CGSize (width: 100, height: 100)
+        nextButton.position = CGPoint (x: 120, y: 0)
+        nextButton.anchorPoint = CGPoint (x: 0.5, y: 0.5)
+        nextButton.zPosition = 4
+        
+        buttonRow = SKNode()
+        buttonRow.addChild(LevelScreenButton)
+        buttonRow.addChild(restartLevelButton)
+        buttonRow.addChild(nextButton)
+        //buttonRow.size = CGSize (width: 100, height: 100)
+        buttonRow.position = CGPoint (x: 0, y: -100)
+        
+        
+        tintBar = SKSpriteNode()
+        tintBar.name = "tintBar"
+        tintBar.color = .darkGray
+        tintBar.alpha = 0.7
+        tintBar.size = CGSize (width: 400, height: 2000)
+        tintBar.position = CGPoint (x: 0, y: 0)
+        tintBar.anchorPoint = CGPoint (x: 0.5, y: 0.5)
+        tintBar.zPosition = 3
+        
+        tintBar2 = SKSpriteNode()
+        tintBar2.name = "tintBar2"
+        tintBar2.color = .darkGray
+        tintBar2.alpha = 0.25
+        tintBar2.size = CGSize (width: 2000, height: 2000)
+        tintBar2.position = CGPoint (x: 0, y: 0)
+        tintBar2.anchorPoint = CGPoint (x: 0.5, y: 0.5)
+        tintBar2.zPosition = 3
+        
+        completeScreen = SKNode()
+        completeScreen.alpha = 0
+        self.addChild(completeScreen)
+        completeScreen.addChild(tintBar)
+        completeScreen.addChild(tintBar2)
+        completeScreen.addChild(buttonRow)
+        completeScreen.addChild(starEraserButton)
         
         //for pause scene
         pauseMenu = SKNode()
@@ -548,12 +626,43 @@ class Level5: SKScene, SKPhysicsContactDelegate {
                             toggleTimer(on: isTimerOn, label: timeLabel)
                             defaults.set(1, forKey: "Level5Stars")
                             print("you win!")
-                            level_doneButton.alpha = 1
-                            if clickedNodes.first?.name == "levelButton" {
-                                let level = LevelScreen(fileNamed: "LevelScreen")
-                                level?.scaleMode = .aspectFill
-                                self.view?.presentScene(level!, transition: SKTransition.fade(withDuration: 0.5))
-                                
+                            scene?.physicsWorld.speed = 0
+                            completeScreen.alpha = 1
+                            if clickedNodes.first?.name == "restartLevelButton"
+                            {
+                                //change to specific level
+                                let circlechange = Level5(fileNamed: "Level5")
+                                circlechange?.scaleMode = .aspectFill
+                                self.view?.presentScene(circlechange!, transition: SKTransition.fade(withDuration: 0.5))
+                            }
+                            
+                            if clickedNodes.first?.name == "LevelScreenButton"
+                            {
+                                let circlechange = LevelScreen(fileNamed: "LevelScreen")
+                                circlechange?.scaleMode = .aspectFill
+                                self.view?.presentScene(circlechange!, transition: SKTransition.fade(withDuration: 0.5))
+                            }
+                            
+                            if clickedNodes.first?.name == "nextButton"
+                            {
+                                //change to  next level
+                                let circlechange = Level5(fileNamed: "Level5")
+                                circlechange?.scaleMode = .aspectFill
+                                self.view?.presentScene(circlechange!, transition: SKTransition.fade(withDuration: 0.5))
+                            }
+                            
+                            
+                            if self.duration < 0.5
+                            {
+                                starEraserButton.texture = SKTexture(imageNamed: "star_3")
+                            }
+                            else if self.duration >= 0.5 && self.duration < 2
+                            {
+                                starEraserButton.texture = SKTexture(imageNamed: "star_2")
+                            }
+                            else if self.duration >= 2
+                            {
+                                starEraserButton.texture = SKTexture(imageNamed: "star_1")
                             }
                         }
                     }

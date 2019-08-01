@@ -343,7 +343,7 @@ class TutorialScene: SKScene, SKPhysicsContactDelegate {
                 
                 circ_made1.position = CGPoint (x: -200, y: 200)
                 circ_made1.physicsBody?.applyImpulse(CGVector(dx: 70, dy: -70))
-                circ_made1.texture = SKTexture(imageNamed: "Circle_White")
+                circ_made1.texture = SKTexture(imageNamed: "mehface2")
                 circ_made1.userData?.setValue(false, forKey: "isPink")
                 
                 square_made1.alpha = 1
@@ -367,7 +367,7 @@ class TutorialScene: SKScene, SKPhysicsContactDelegate {
                 
                 circ_made1.alpha = 1
                 circ_made1.position = CGPoint (x: -200, y: 200)
-                circ_made1.texture = SKTexture(imageNamed: "Circle_White")
+                circ_made1.texture = SKTexture(imageNamed: "mehface2")
                 circ_made1.userData?.setValue(false, forKey: "isPink")
                 circ_made1.userData?.setValue(true, forKey: "isCircle")
                 circ_made1.physicsBody?.isDynamic = false
