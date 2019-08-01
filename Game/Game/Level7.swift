@@ -1,5 +1,5 @@
 //
-//  Level6.swift
+//  Level7.swift
 //  Game
 //
 //  Created by Amelia Ellis on 8/1/19.
@@ -12,7 +12,7 @@ import SpriteKit
 import GameplayKit
 
 
-class Level6: SKScene, SKPhysicsContactDelegate{
+class Level7: SKScene, SKPhysicsContactDelegate{
     
     
     var arraySprites : [SKSpriteNode]!
@@ -98,7 +98,7 @@ class Level6: SKScene, SKPhysicsContactDelegate{
         levelName.fontColor = UIColor.black
         levelName.zPosition = 0
         levelName.position = CGPoint (x: 0, y: 550)
-        levelName.text = "LEVEL 6"
+        levelName.text = "LEVEL 7"
         self.addChild(levelName)
         
         
@@ -321,13 +321,13 @@ class Level6: SKScene, SKPhysicsContactDelegate{
         circ_made1.physicsBody?.angularDamping = 0.0
         circ_made1.physicsBody?.restitution = 1.0
         circ_made1.physicsBody?.friction = 0
-        circ_made1.physicsBody?.applyImpulse(CGVector(dx: 90, dy: 90))
+        circ_made1.physicsBody?.applyImpulse(CGVector(dx: -90, dy: 90))
         circ1 = Circle(shape_sprite: circ_made1, isPink: false, isCircle: true)
         
         circ_made2 = SKSpriteNode(imageNamed: "mehface2")
         circ_made2.name = "circle"
         circ_made2.size = CGSize (width: 100, height: 100)
-        circ_made2.position = CGPoint (x: 0, y: 345)
+        circ_made2.position = CGPoint (x: -135, y: -235)
         circ_made2.anchorPoint = CGPoint (x: 0.5, y: 0.5)
         self.addChild(circ_made2)
         circ_made2.physicsBody = SKPhysicsBody(circleOfRadius: 50)
@@ -338,13 +338,13 @@ class Level6: SKScene, SKPhysicsContactDelegate{
         circ_made2.physicsBody?.angularDamping = 0.0
         circ_made2.physicsBody?.restitution = 1.0
         circ_made2.physicsBody?.friction = 0
-        circ_made2.physicsBody?.applyImpulse(CGVector(dx: -90, dy: -90))
+        circ_made2.physicsBody?.applyImpulse(CGVector(dx: -90, dy: 90))
         circ2 = Circle(shape_sprite: circ_made2, isPink: false, isCircle: true)
         
         circ_made3 = SKSpriteNode(imageNamed: "mehface2")
         circ_made3.name = "circle"
         circ_made3.size = CGSize (width: 100, height: 100)
-        circ_made3.position = CGPoint (x: 150, y: 250)
+        circ_made3.position = CGPoint (x: -15, y: -115)
         circ_made3.anchorPoint = CGPoint (x: 0.5, y: 0.5)
         self.addChild(circ_made3)
         circ_made3.physicsBody = SKPhysicsBody(circleOfRadius: 50)
@@ -355,18 +355,18 @@ class Level6: SKScene, SKPhysicsContactDelegate{
         circ_made3.physicsBody?.angularDamping = 0.0
         circ_made3.physicsBody?.restitution = 1.0
         circ_made3.physicsBody?.friction = 0
-        circ_made3.physicsBody?.applyImpulse(CGVector(dx: -80, dy: -100))
+        circ_made3.physicsBody?.applyImpulse(CGVector(dx: -90, dy: 90))
         circ3 = Circle(shape_sprite: circ_made3, isPink: false, isCircle: true)
         
         arrayCircles = [circ1, circ2, circ3]
-
+        
         for item in arrayCircles {
             
             item.shape_sprite.userData = [
                 "isPink" : false,
                 "isCircle" : true
             ];
-
+            
             item.shape_sprite.physicsBody?.collisionBitMask = goodCategory
             item.shape_sprite.physicsBody?.categoryBitMask = goodCategory
             item.shape_sprite.physicsBody?.mass = 1
@@ -380,7 +380,7 @@ class Level6: SKScene, SKPhysicsContactDelegate{
             "isCircle" : false
         ];
         square_made1.size = CGSize (width: 100, height: 100)
-        square_made1.position = CGPoint (x: -245, y: 345)
+        square_made1.position = CGPoint (x: -190, y: -290)
         square_made1.anchorPoint = CGPoint (x: 0.5, y: 0.5)
         self.addChild(square_made1)
         square_made1.physicsBody = SKPhysicsBody(rectangleOf: CGSize (width: 100,height: 100))
@@ -404,7 +404,7 @@ class Level6: SKScene, SKPhysicsContactDelegate{
             "isCircle" : false
         ];
         square_made2.size = CGSize (width: 100, height: 100)
-        square_made2.position = CGPoint (x: 0, y: -345)
+        square_made2.position = CGPoint (x: -70, y: -170)
         square_made2.anchorPoint = CGPoint (x: 0.5, y: 0.5)
         self.addChild(square_made2)
         square_made2.physicsBody = SKPhysicsBody(rectangleOf: CGSize (width: 100,height: 100))
@@ -416,7 +416,7 @@ class Level6: SKScene, SKPhysicsContactDelegate{
         square_made2.physicsBody?.restitution = 1.0
         square_made2.physicsBody?.friction = 0
         square_made2.physicsBody?.mass = 0.5
-        square_made2.physicsBody?.applyImpulse(CGVector(dx: 40, dy: 90))
+        square_made2.physicsBody?.applyImpulse(CGVector(dx: 90, dy: -90))
         square_made2.physicsBody?.categoryBitMask = goodCategory
         square_made2.physicsBody?.collisionBitMask = goodCategory
         square_made2.physicsBody?.contactTestBitMask = goodCategory
@@ -439,13 +439,13 @@ class Level6: SKScene, SKPhysicsContactDelegate{
         square_made3.physicsBody?.restitution = 1.0
         square_made3.physicsBody?.friction = 0
         square_made3.physicsBody?.mass = 0.5
-        square_made3.physicsBody?.applyImpulse(CGVector(dx: -90, dy: 50))
+        square_made3.physicsBody?.applyImpulse(CGVector(dx: 90, dy: -90))
         square_made3.physicsBody?.categoryBitMask = goodCategory
         square_made3.physicsBody?.collisionBitMask = goodCategory
         square_made3.physicsBody?.contactTestBitMask = goodCategory
         
         arraySprites = [circ_made1, circ_made2, circ_made3, square_made1, square_made2]
-
+        
     }
     func didBegin(_ contact: SKPhysicsContact)
     {
@@ -611,7 +611,7 @@ class Level6: SKScene, SKPhysicsContactDelegate{
             if clickedNodes.first?.name == "restartButton"
             {
                 
-                let level2 = Level6(fileNamed: "Level6")
+                let level2 = Level7(fileNamed: "Level7")
                 level2?.scaleMode = .aspectFill
                 self.view?.presentScene(level2!, transition: SKTransition.fade(withDuration: 0.5))
                 
@@ -670,7 +670,7 @@ class Level6: SKScene, SKPhysicsContactDelegate{
                             if clickedNodes.first?.name == "restartLevelButton"
                             {
                                 //change to specific level
-                                let circlechange = Level6(fileNamed: "Level6")
+                                let circlechange = Level7(fileNamed: "Level7")
                                 circlechange?.scaleMode = .aspectFill
                                 self.view?.presentScene(circlechange!, transition: SKTransition.fade(withDuration: 0.5))
                             }
@@ -775,6 +775,7 @@ class Level6: SKScene, SKPhysicsContactDelegate{
         
     }
 }
+
 
 
 

@@ -17,6 +17,8 @@
 		8F2256B922EA2E240017FD72 /* Level5.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8F2256B822EA2E240017FD72 /* Level5.sks */; };
 		8F3B0E1A22F37223002F1CC9 /* Level6.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F3B0E1922F37223002F1CC9 /* Level6.swift */; };
 		8F3B0E1C22F3723F002F1CC9 /* Level6.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8F3B0E1B22F3723F002F1CC9 /* Level6.sks */; };
+		8F3B0E1E22F38BF9002F1CC9 /* Level7.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F3B0E1D22F38BF9002F1CC9 /* Level7.swift */; };
+		8F3B0E2022F38C0B002F1CC9 /* Level7.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8F3B0E1F22F38C0B002F1CC9 /* Level7.sks */; };
 		F710627E22EB7A6900749F1E /* TutorialScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = F710627D22EB7A6900749F1E /* TutorialScene.swift */; };
 		F710628022EB7A7D00749F1E /* TutorialScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = F710627F22EB7A7D00749F1E /* TutorialScene.sks */; };
 		F72BD8B822DD285900BAF3C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72BD8B722DD285900BAF3C4 /* AppDelegate.swift */; };
@@ -71,6 +73,8 @@
 		8F2256B822EA2E240017FD72 /* Level5.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level5.sks; sourceTree = "<group>"; };
 		8F3B0E1922F37223002F1CC9 /* Level6.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level6.swift; sourceTree = "<group>"; };
 		8F3B0E1B22F3723F002F1CC9 /* Level6.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level6.sks; sourceTree = "<group>"; };
+		8F3B0E1D22F38BF9002F1CC9 /* Level7.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level7.swift; sourceTree = "<group>"; };
+		8F3B0E1F22F38C0B002F1CC9 /* Level7.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level7.sks; sourceTree = "<group>"; };
 		F710627D22EB7A6900749F1E /* TutorialScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialScene.swift; sourceTree = "<group>"; };
 		F710627F22EB7A7D00749F1E /* TutorialScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = TutorialScene.sks; sourceTree = "<group>"; };
 		F72BD8B422DD285900BAF3C4 /* Game.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Game.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -184,6 +188,8 @@
 				8F2256B622EA2E110017FD72 /* Level5.swift */,
 				8F3B0E1B22F3723F002F1CC9 /* Level6.sks */,
 				8F3B0E1922F37223002F1CC9 /* Level6.swift */,
+				8F3B0E1F22F38C0B002F1CC9 /* Level7.sks */,
+				8F3B0E1D22F38BF9002F1CC9 /* Level7.swift */,
 				F72BD8BF22DD285900BAF3C4 /* GameViewController.swift */,
 				F72BD8C122DD285900BAF3C4 /* Main.storyboard */,
 				8D12B04D22E62F1F007A6578 /* audioTest.swift */,
@@ -331,6 +337,7 @@
 				F74DDFE722E22F2E00349C4A /* circleChange.sks in Resources */,
 				F72BD8BC22DD285900BAF3C4 /* Actions.sks in Resources */,
 				8DBEA48C22F2146A00C51B43 /* levelCompleteScreen.sks in Resources */,
+				8F3B0E2022F38C0B002F1CC9 /* Level7.sks in Resources */,
 				F7CBBF1822EF89D3008828B0 /* LevelScreen.sks in Resources */,
 				F7CBBF1C22F0E91C008828B0 /* Credits.sks in Resources */,
 				F7E1176A22EA32E80069331C /* Level4.sks in Resources */,
@@ -371,6 +378,7 @@
 				F7CBBF1622EF89C3008828B0 /* LevelScreen.swift in Sources */,
 				F72BD8C022DD285900BAF3C4 /* GameViewController.swift in Sources */,
 				F710627E22EB7A6900749F1E /* TutorialScene.swift in Sources */,
+				8F3B0E1E22F38BF9002F1CC9 /* Level7.swift in Sources */,
 				F74DDFEB22E22FB800349C4A /* circleChange.swift in Sources */,
 				F7CBBF1A22F0E90D008828B0 /* Credits.swift in Sources */,
 				F72BD8B822DD285900BAF3C4 /* AppDelegate.swift in Sources */,
