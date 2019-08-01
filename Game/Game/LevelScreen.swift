@@ -32,8 +32,24 @@ class LevelScreen: SKScene {
         reset_defaults.anchorPoint = CGPoint (x: 0.5, y: 0.5)
         reset_defaults.zPosition = 2
         self.addChild(reset_defaults)
-        
         self.title = self.childNode(withName: "Title") as? SKLabelNode
+        
+        if defaults.value(forKey: "OpenfirstTime") == nil{
+            defaults.set(true, forKey: "OpenfirstTime")
+            print ("openfirst")
+        }
+        
+        else if defaults.value(forKey: "OpenfirstTime") as! Bool == true {
+            defaults.set(0, forKey: "Level1Stars")
+            defaults.set(0, forKey: "Level2Stars")
+            defaults.set(0, forKey: "Level3Stars")
+            defaults.set(0, forKey: "Level4Stars")
+            defaults.set(0, forKey: "Level5Stars")
+            defaults.set(false, forKey: "OpenfirstTime")
+            print ("already open")
+        }
+        
+        
         
         if defaults.value(forKey: "Level1Stars") != nil && defaults.value(forKey: "Level1Stars") as! Int >= 1 {
             print("pink!")
@@ -83,25 +99,25 @@ class LevelScreen: SKScene {
                 self.view?.presentScene(level!, transition: SKTransition.fade(withDuration: 0.5))
             }
             
-            if nodesArray.first?.name == "level_two" {
+            if nodesArray.first?.name == "level_two" && (defaults.value(forKey: "Level1Stars") as! Int >= 1) {
                 let level = Level2(fileNamed: "Level2")
                 level?.scaleMode = .aspectFill
                 self.view?.presentScene(level!, transition: SKTransition.fade(withDuration: 0.5))
             }
             
-            if nodesArray.first?.name == "level_three" {
+            if nodesArray.first?.name == "level_three" && defaults.value(forKey: "Level2Stars") as! Int >= 1 {
                 let level = Level3(fileNamed: "Level3")
                 level?.scaleMode = .aspectFill
                 self.view?.presentScene(level!, transition: SKTransition.fade(withDuration: 0.5))
             }
             
-            if nodesArray.first?.name == "level_4" {
+            if nodesArray.first?.name == "level_4" && defaults.value(forKey: "Level3Stars") as! Int >= 1{
                 let level = Level4(fileNamed: "Level4")
                 level?.scaleMode = .aspectFill
                 self.view?.presentScene(level!, transition: SKTransition.fade(withDuration: 0.5))
             }
             
-            if nodesArray.first?.name == "level_5" {
+            if nodesArray.first?.name == "level_5" && defaults.value(forKey: "Level4Stars") as! Int >= 1 {
                 let level = Level5(fileNamed: "Level5")
                 level?.scaleMode = .aspectFill
                 self.view?.presentScene(level!, transition: SKTransition.fade(withDuration: 0.5))
