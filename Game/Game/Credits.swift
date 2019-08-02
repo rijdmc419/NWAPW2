@@ -18,6 +18,7 @@ class Credits: SKScene {
     var background : SKSpriteNode!
     var credit_text1: SKSpriteNode!
     var done_button: SKSpriteNode!
+    var secret: SKSpriteNode!
     
     override func didMove(to view: SKView) {
     
@@ -28,6 +29,8 @@ class Credits: SKScene {
         
         credit_text1 = self.childNode(withName: "credit_text") as? SKSpriteNode
         credit_text1.zPosition = 0
+        secret = self.childNode(withName: "easterEgg") as? SKSpriteNode
+        secret.zPosition = 1
         
         done_button = SKSpriteNode(imageNamed: "main_menu")
         done_button.name = "main_menu"
@@ -50,6 +53,12 @@ class Credits: SKScene {
             print("part1")
             
             if clickedNodes.first?.name == "main_menu"{
+                
+                let level = GameScene(fileNamed: "GameScene")
+                level?.scaleMode = .aspectFill
+                self.view?.presentScene(level!, transition: SKTransition.fade(withDuration: 0.5))
+            }
+            if clickedNodes.first?.name == "secret"{
                 
                 let level = GameScene(fileNamed: "GameScene")
                 level?.scaleMode = .aspectFill
