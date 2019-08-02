@@ -131,10 +131,10 @@ class Level1: SKScene, SKPhysicsContactDelegate {
         restartButton = SKSpriteNode(imageNamed: "restart_button")
         restartButton.name = "restartButton"
         restartButton.alpha = 1
-        restartButton.size = CGSize (width: 120, height: 120)
-        restartButton.position = CGPoint (x: 10, y: 200)
+        restartButton.size = CGSize (width: 100, height: 100)
+        restartButton.position = CGPoint (x: -220, y: 550)
         restartButton.anchorPoint = CGPoint (x: 0.5, y: 0.5)
-        restartButton.zPosition = 4
+        restartButton.zPosition = 2
         
         //level complete var
         starEraserButton = SKSpriteNode(imageNamed: "eraser")
@@ -209,7 +209,7 @@ class Level1: SKScene, SKPhysicsContactDelegate {
         self.addChild(pauseMenu)
         pauseMenu.addChild(menuButton)
         pauseMenu.addChild(tint)
-        pauseMenu.addChild(restartButton)
+        self.addChild(restartButton)
         
         //bottom boarder
         lineb = SKSpriteNode(imageNamed: "line2")
@@ -495,7 +495,7 @@ class Level1: SKScene, SKPhysicsContactDelegate {
                 
                 let level = Level1(fileNamed: "Level1")
                 level?.scaleMode = .aspectFill
-                self.view?.presentScene(level!, transition: SKTransition.fade(withDuration: 0.5))
+                self.view?.presentScene(level!)
                 
             }
             
