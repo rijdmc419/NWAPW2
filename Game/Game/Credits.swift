@@ -30,7 +30,7 @@ class Credits: SKScene {
         credit_text1 = self.childNode(withName: "credit_text") as? SKSpriteNode
         credit_text1.zPosition = 0
         secret = self.childNode(withName: "easterEgg") as? SKSpriteNode
-        secret.zPosition = 1
+        secret.zPosition = 3
         
         done_button = SKSpriteNode(imageNamed: "main_menu")
         done_button.name = "main_menu"
@@ -58,11 +58,13 @@ class Credits: SKScene {
                 level?.scaleMode = .aspectFill
                 self.view?.presentScene(level!, transition: SKTransition.fade(withDuration: 0.5))
             }
-            if clickedNodes.first?.name == "secret"{
-                
-                let level = GameScene(fileNamed: "GameScene")
-                level?.scaleMode = .aspectFill
-                self.view?.presentScene(level!, transition: SKTransition.fade(withDuration: 0.5))
+            for item in clickedNodes {
+                if item.name == "easterEgg"{
+                    
+                    let level = LevelSecret(fileNamed: "LevelSecret")
+                    level?.scaleMode = .aspectFill
+                    self.view?.presentScene(level!, transition: SKTransition.fade(withDuration: 0.5))
+                }
             }
         }
         
