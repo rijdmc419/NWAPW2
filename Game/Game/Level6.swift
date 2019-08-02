@@ -299,7 +299,7 @@ class Level6: SKScene, SKPhysicsContactDelegate{
         goal_circle.size = CGSize (width: 80, height: 80)
         goal_circle.position = CGPoint (x: 10, y: 0)
         let goal_label = SKLabelNode()
-        goal_label.text = ("3")
+        goal_label.text = ("2")
         goal_label.fontColor = UIColor.black
         goal_label.position = CGPoint (x: -70, y: -25)
         goal_label.fontSize = 80
@@ -659,7 +659,7 @@ class Level6: SKScene, SKPhysicsContactDelegate{
                     if item.shape_sprite.userData?.value(forKey: "isPink") as? Bool == true {
                         
                         numPinkCirc = numPinkCirc+1
-                        if numPinkCirc >= 3 {
+                        if numPinkCirc >= 2 {
                             // open level completed scene, or reveal next level button
                             isTimerOn = false
                             toggleTimer(on: isTimerOn, label: timeLabel)
@@ -691,17 +691,17 @@ class Level6: SKScene, SKPhysicsContactDelegate{
                             }
                             
                             
-                            if self.duration < 0.5
+                            if self.duration <= 1.5
                             {
                                 starEraserButton.texture = SKTexture(imageNamed: "star_3")
                                 defaults.set(3, forKey: "Level6Stars")
                             }
-                            else if self.duration >= 0.5 && self.duration < 2
+                            else if self.duration > 1.5 && self.duration <= 3
                             {
                                 starEraserButton.texture = SKTexture(imageNamed: "star_2")
                                 defaults.set(2, forKey: "Level6Stars")
                             }
-                            else if self.duration >= 2
+                            else if self.duration > 3
                             {
                                 starEraserButton.texture = SKTexture(imageNamed: "star_1")
                                 defaults.set(1, forKey: "Level6Stars")

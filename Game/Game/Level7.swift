@@ -299,7 +299,7 @@ class Level7: SKScene, SKPhysicsContactDelegate{
         goal_circle.size = CGSize (width: 80, height: 80)
         goal_circle.position = CGPoint (x: 10, y: 0)
         let goal_label = SKLabelNode()
-        goal_label.text = ("3")
+        goal_label.text = ("1")
         goal_label.fontColor = UIColor.black
         goal_label.position = CGPoint (x: -70, y: -25)
         goal_label.fontSize = 80
@@ -659,7 +659,7 @@ class Level7: SKScene, SKPhysicsContactDelegate{
                     if item.shape_sprite.userData?.value(forKey: "isPink") as? Bool == true {
                         
                         numPinkCirc = numPinkCirc+1
-                        if numPinkCirc >= 3 {
+                        if numPinkCirc >= 1 {
                             // open level completed scene, or reveal next level button
                             isTimerOn = false
                             toggleTimer(on: isTimerOn, label: timeLabel)
