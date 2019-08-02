@@ -1,17 +1,18 @@
 //
-//  Level9.swift
+//  Level8.swift
 //  Game
 //
-//  Created by Amelia Ellis on 8/1/19.
-//  Copyright © 2019 Rij Dorfman. All rights reserved.
+//  Created by Chloe Unflat on 8/1/19.
+//  Copyright © 2019 Chloe Unflat. All rights reserved.
 //
+
 
 import UIKit
 import SpriteKit
 import GameplayKit
 
 
-class Level9: SKScene, SKPhysicsContactDelegate{
+class Level8: SKScene, SKPhysicsContactDelegate{
     
     
     var arraySprites : [SKSpriteNode]!
@@ -27,6 +28,8 @@ class Level9: SKScene, SKPhysicsContactDelegate{
     var circ2 : Circle!
     var circ_made3: SKSpriteNode!
     var circ3 : Circle!
+    var circ_made4: SKSpriteNode!
+    var circ4 : Circle!
     var arrayCircles : [Circle]!
     var square_made1: SKSpriteNode!
     var square1 : Square!
@@ -34,6 +37,8 @@ class Level9: SKScene, SKPhysicsContactDelegate{
     var square2 : Square!
     var square_made3 : SKSpriteNode!
     var square3 : Square!
+    var square_made4 : SKSpriteNode!
+    var square4 : Square!
     var level_doneButton: SKSpriteNode!
     var restartButton: SKSpriteNode!
     var background: SKSpriteNode!
@@ -97,7 +102,7 @@ class Level9: SKScene, SKPhysicsContactDelegate{
         levelName.fontColor = UIColor.black
         levelName.zPosition = 0
         levelName.position = CGPoint (x: 0, y: 550)
-        levelName.text = "LEVEL 9"
+        levelName.text = "LEVEL 8"
         self.addChild(levelName)
         
         
@@ -144,10 +149,9 @@ class Level9: SKScene, SKPhysicsContactDelegate{
         restartButton.position = CGPoint (x: -220, y: 550)
         restartButton.anchorPoint = CGPoint (x: 0.5, y: 0.5)
         restartButton.zPosition = 2
-
         
         //level complete var
-        starEraserButton = SKSpriteNode(imageNamed: "eraser")
+        starEraserButton = SKSpriteNode(imageNamed: "square_white")
         starEraserButton.name = "starEraserButton"
         starEraserButton.alpha = 1
         starEraserButton.size = CGSize (width: 320, height: 160)
@@ -183,6 +187,7 @@ class Level9: SKScene, SKPhysicsContactDelegate{
         buttonRow.addChild(LevelScreenButton)
         buttonRow.addChild(restartLevelButton)
         buttonRow.addChild(nextButton)
+        //buttonRow.size = CGSize (width: 100, height: 100)
         buttonRow.position = CGPoint (x: 0, y: -100)
         
         
@@ -298,7 +303,7 @@ class Level9: SKScene, SKPhysicsContactDelegate{
         goal_circle.size = CGSize (width: 80, height: 80)
         goal_circle.position = CGPoint (x: 10, y: 0)
         let goal_label = SKLabelNode()
-        goal_label.text = ("2")
+        goal_label.text = ("1")
         goal_label.fontColor = UIColor.black
         goal_label.position = CGPoint (x: -70, y: -25)
         goal_label.fontSize = 80
@@ -309,7 +314,7 @@ class Level9: SKScene, SKPhysicsContactDelegate{
         circ_made1 = SKSpriteNode(imageNamed: "mehface2")
         circ_made1.name = "circle"
         circ_made1.size = CGSize (width: 100, height: 100)
-        circ_made1.position = CGPoint (x: 0, y: 175)
+        circ_made1.position = CGPoint (x: 0, y: 100)
         circ_made1.anchorPoint = CGPoint (x: 0.5, y: 0.5)
         self.addChild(circ_made1)
         circ_made1.physicsBody = SKPhysicsBody(circleOfRadius: 50)
@@ -320,13 +325,13 @@ class Level9: SKScene, SKPhysicsContactDelegate{
         circ_made1.physicsBody?.angularDamping = 0.0
         circ_made1.physicsBody?.restitution = 1.0
         circ_made1.physicsBody?.friction = 0
-        circ_made1.physicsBody?.applyImpulse(CGVector(dx: 90, dy: 15))
+        circ_made1.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 0))
         circ1 = Circle(shape_sprite: circ_made1, isPink: false, isCircle: true)
         
         circ_made2 = SKSpriteNode(imageNamed: "mehface2")
         circ_made2.name = "circle"
         circ_made2.size = CGSize (width: 100, height: 100)
-        circ_made2.position = CGPoint (x: 0, y: -175)
+        circ_made2.position = CGPoint (x: -150, y: 100)
         circ_made2.anchorPoint = CGPoint (x: 0.5, y: 0.5)
         self.addChild(circ_made2)
         circ_made2.physicsBody = SKPhysicsBody(circleOfRadius: 50)
@@ -337,15 +342,15 @@ class Level9: SKScene, SKPhysicsContactDelegate{
         circ_made2.physicsBody?.angularDamping = 0.0
         circ_made2.physicsBody?.restitution = 1.0
         circ_made2.physicsBody?.friction = 0
-        circ_made2.physicsBody?.applyImpulse(CGVector(dx: -90, dy: 20))
+        circ_made2.physicsBody?.applyImpulse(CGVector(dx: -40, dy: 20))
         circ2 = Circle(shape_sprite: circ_made2, isPink: false, isCircle: true)
         
         circ_made3 = SKSpriteNode(imageNamed: "mehface2")
         circ_made3.name = "circle"
         circ_made3.size = CGSize (width: 100, height: 100)
-        circ_made3.position = CGPoint (x: -445, y: 0)
+        circ_made3.position = CGPoint (x: 150, y: 100)
         circ_made3.anchorPoint = CGPoint (x: 0.5, y: 0.5)
-        //self.addChild(circ_made3)
+        self.addChild(circ_made3)
         circ_made3.physicsBody = SKPhysicsBody(circleOfRadius: 50)
         circ_made3.physicsBody?.isDynamic = true
         circ_made3.physicsBody?.affectedByGravity = false
@@ -354,10 +359,27 @@ class Level9: SKScene, SKPhysicsContactDelegate{
         circ_made3.physicsBody?.angularDamping = 0.0
         circ_made3.physicsBody?.restitution = 1.0
         circ_made3.physicsBody?.friction = 0
-        circ_made3.physicsBody?.applyImpulse(CGVector(dx: -80, dy: -100))
+        circ_made3.physicsBody?.applyImpulse(CGVector(dx: -70, dy: 0))
         circ3 = Circle(shape_sprite: circ_made3, isPink: false, isCircle: true)
         
-        arrayCircles = [circ1, circ2, circ3]
+        circ_made4 = SKSpriteNode(imageNamed: "mehface2")
+        circ_made4.name = "circle"
+        circ_made4.size = CGSize (width: 100, height: 100)
+        circ_made4.position = CGPoint (x: 0, y: -350)
+        circ_made4.anchorPoint = CGPoint (x: 0.5, y: 0.5)
+        self.addChild(circ_made4)
+        circ_made4.physicsBody = SKPhysicsBody(circleOfRadius: 50)
+        circ_made4.physicsBody?.isDynamic = true
+        circ_made4.physicsBody?.affectedByGravity = false
+        circ_made4.physicsBody?.allowsRotation = false
+        circ_made4.physicsBody?.linearDamping = 0.0
+        circ_made4.physicsBody?.angularDamping = 0.0
+        circ_made4.physicsBody?.restitution = 1.0
+        circ_made4.physicsBody?.friction = 0
+        circ_made4.physicsBody?.applyImpulse(CGVector(dx: -20, dy: 90))
+        circ4 = Circle(shape_sprite: circ_made4, isPink: false, isCircle: true)
+        
+        arrayCircles = [circ1, circ2, circ3, circ4]
         
         for item in arrayCircles {
             
@@ -379,7 +401,7 @@ class Level9: SKScene, SKPhysicsContactDelegate{
             "isCircle" : false
         ];
         square_made1.size = CGSize (width: 100, height: 100)
-        square_made1.position = CGPoint (x: 0, y: 345)
+        square_made1.position = CGPoint (x: 0, y: -50)
         square_made1.anchorPoint = CGPoint (x: 0.5, y: 0.5)
         self.addChild(square_made1)
         square_made1.physicsBody = SKPhysicsBody(rectangleOf: CGSize (width: 100,height: 100))
@@ -391,7 +413,7 @@ class Level9: SKScene, SKPhysicsContactDelegate{
         square_made1.physicsBody?.restitution = 1.0
         square_made1.physicsBody?.friction = 1
         square_made1.physicsBody?.mass = 0.5
-        square_made1.physicsBody?.applyImpulse(CGVector(dx: 90, dy: -10))
+        square_made1.physicsBody?.applyImpulse(CGVector(dx: -90, dy: -90))
         square_made1.physicsBody?.categoryBitMask = goodCategory
         square_made1.physicsBody?.collisionBitMask = goodCategory
         square_made1.physicsBody?.contactTestBitMask = goodCategory
@@ -403,7 +425,7 @@ class Level9: SKScene, SKPhysicsContactDelegate{
             "isCircle" : false
         ];
         square_made2.size = CGSize (width: 100, height: 100)
-        square_made2.position = CGPoint (x: 0, y: 50)
+        square_made2.position = CGPoint (x: 0, y: 290)
         square_made2.anchorPoint = CGPoint (x: 0.5, y: 0.5)
         self.addChild(square_made2)
         square_made2.physicsBody = SKPhysicsBody(rectangleOf: CGSize (width: 100,height: 100))
@@ -415,7 +437,7 @@ class Level9: SKScene, SKPhysicsContactDelegate{
         square_made2.physicsBody?.restitution = 1.0
         square_made2.physicsBody?.friction = 0
         square_made2.physicsBody?.mass = 0.5
-        square_made2.physicsBody?.applyImpulse(CGVector(dx: -90, dy: -10))
+        square_made2.physicsBody?.applyImpulse(CGVector(dx: 10, dy: 90))
         square_made2.physicsBody?.categoryBitMask = goodCategory
         square_made2.physicsBody?.collisionBitMask = goodCategory
         square_made2.physicsBody?.contactTestBitMask = goodCategory
@@ -425,25 +447,9 @@ class Level9: SKScene, SKPhysicsContactDelegate{
         square_made3.userData = [
             "isCircle" : false
         ];
-        square_made3.size = CGSize (width: 100, height: 100)
-        square_made3.position = CGPoint (x: 245, y: -345)
-        square_made3.anchorPoint = CGPoint (x: 0.5, y: 0.5)
-        //self.addChild(square_made3)
-        square_made3.physicsBody = SKPhysicsBody(rectangleOf: CGSize (width: 100,height: 100))
-        square_made3.physicsBody?.isDynamic = true
-        square_made3.physicsBody?.affectedByGravity = false
-        square_made3.physicsBody?.allowsRotation = false
-        square_made3.physicsBody?.linearDamping = 0.0
-        square_made3.physicsBody?.angularDamping = 0.0
-        square_made3.physicsBody?.restitution = 1.0
-        square_made3.physicsBody?.friction = 0
-        square_made3.physicsBody?.mass = 0.5
-        square_made3.physicsBody?.applyImpulse(CGVector(dx: -90, dy: 50))
-        square_made3.physicsBody?.categoryBitMask = goodCategory
-        square_made3.physicsBody?.collisionBitMask = goodCategory
-        square_made3.physicsBody?.contactTestBitMask = goodCategory
+       
         
-        arraySprites = [circ_made1, circ_made2, circ_made3, square_made1, square_made2, square_made3]
+        arraySprites = [circ_made1, circ_made2, circ_made3, circ_made4, square_made1, square_made2]
         
     }
     func didBegin(_ contact: SKPhysicsContact)
@@ -610,7 +616,7 @@ class Level9: SKScene, SKPhysicsContactDelegate{
             if clickedNodes.first?.name == "restartButton"
             {
                 
-                let level2 = Level9(fileNamed: "Level9")
+                let level2 = Level8(fileNamed: "Level8")
                 level2?.scaleMode = .aspectFill
                 self.view?.presentScene(level2!, transition: SKTransition.fade(withDuration: 0.5))
                 
@@ -658,7 +664,7 @@ class Level9: SKScene, SKPhysicsContactDelegate{
                     if item.shape_sprite.userData?.value(forKey: "isPink") as? Bool == true {
                         
                         numPinkCirc = numPinkCirc+1
-                        if numPinkCirc >= 2 {
+                        if numPinkCirc >= 1 {
                             // open level completed scene, or reveal next level button
                             isTimerOn = false
                             toggleTimer(on: isTimerOn, label: timeLabel)
@@ -669,7 +675,7 @@ class Level9: SKScene, SKPhysicsContactDelegate{
                             if clickedNodes.first?.name == "restartLevelButton"
                             {
                                 //change to specific level
-                                let circlechange = Level9(fileNamed: "Level9")
+                                let circlechange = Level8(fileNamed: "Level8")
                                 circlechange?.scaleMode = .aspectFill
                                 self.view?.presentScene(circlechange!, transition: SKTransition.fade(withDuration: 0.5))
                             }
@@ -684,7 +690,7 @@ class Level9: SKScene, SKPhysicsContactDelegate{
                             if clickedNodes.first?.name == "nextButton"
                             {
                                 //change to  next level
-                                let circlechange = LevelScreen(fileNamed: "LevelScreen")
+                                let circlechange = Level9(fileNamed: "Level9")
                                 circlechange?.scaleMode = .aspectFill
                                 self.view?.presentScene(circlechange!, transition: SKTransition.fade(withDuration: 0.5))
                             }
@@ -693,17 +699,17 @@ class Level9: SKScene, SKPhysicsContactDelegate{
                             if self.duration < 0.5
                             {
                                 starEraserButton.texture = SKTexture(imageNamed: "star_3")
-                                defaults.set(3, forKey: "Level9Stars")
+                                defaults.set(3, forKey: "Level8Stars")
                             }
                             else if self.duration >= 0.5 && self.duration < 2
                             {
                                 starEraserButton.texture = SKTexture(imageNamed: "star_2")
-                                defaults.set(2, forKey: "Level9Stars")
+                                defaults.set(2, forKey: "Level8Stars")
                             }
                             else if self.duration >= 2
                             {
                                 starEraserButton.texture = SKTexture(imageNamed: "star_1")
-                                defaults.set(1, forKey: "Level9Stars")
+                                defaults.set(1, forKey: "Level8Stars")
                             }
                         }
                     }
@@ -740,10 +746,11 @@ class Level9: SKScene, SKPhysicsContactDelegate{
     {
         square_made1.physicsBody?.contactTestBitMask = goodCategory
         square_made2.physicsBody?.contactTestBitMask = goodCategory
-        square_made3.physicsBody?.contactTestBitMask = goodCategory
         circ_made1.physicsBody?.contactTestBitMask = goodCategory
         circ_made2.physicsBody?.contactTestBitMask = goodCategory
         circ_made3.physicsBody?.contactTestBitMask = goodCategory
+        circ_made4.physicsBody?.contactTestBitMask = goodCategory
+        
         for item in arraySprites
         {
             if item.alpha == CGFloat(1)
@@ -777,4 +784,7 @@ class Level9: SKScene, SKPhysicsContactDelegate{
         
     }
 }
+
+
+
 

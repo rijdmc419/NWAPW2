@@ -26,11 +26,11 @@ class LevelScreen: SKScene {
         
         reset_defaults = SKSpriteNode(imageNamed: "reset")
         reset_defaults.name = "reset"
-        reset_defaults.alpha = 1
+        reset_defaults.alpha = 0
         reset_defaults.size = CGSize (width: 150, height: 80)
         reset_defaults.position = CGPoint (x: -200, y: 580)
         reset_defaults.anchorPoint = CGPoint (x: 0.5, y: 0.5)
-        reset_defaults.zPosition = 2
+        reset_defaults.zPosition = -2
         self.addChild(reset_defaults)
         self.title = self.childNode(withName: "Title") as? SKLabelNode
         
@@ -398,7 +398,7 @@ class LevelScreen: SKScene {
                 level?.scaleMode = .aspectFill
                 self.view?.presentScene(level!, transition: SKTransition.fade(withDuration: 0.5))
             }
-            /*
+            
             if nodesArray.first?.name == "level_8" && defaults.value(forKey: "Level7Stars") as! Int >= 1  {
                 let level = Level8(fileNamed: "Level8")
                 level?.scaleMode = .aspectFill
@@ -409,7 +409,7 @@ class LevelScreen: SKScene {
                 level?.scaleMode = .aspectFill
                 self.view?.presentScene(level!, transition: SKTransition.fade(withDuration: 0.5))
             }
-            */
+            
             if nodesArray.first?.name == "reset" {
                 resetDefaults()
             }

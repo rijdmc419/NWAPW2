@@ -18,6 +18,7 @@ class GameScene: SKScene {
     var TutorialScenenButton: SKSpriteNode!
     var background: SKSpriteNode!
     var credits: SKSpriteNode!
+    var reset_defaults: SKSpriteNode!
     
     override func didMove(to view: SKView) {
         
@@ -28,6 +29,8 @@ class GameScene: SKScene {
         
         label?.fontSize = 63
         
+       
+        reset_defaults = self.childNode(withName: "reset") as? SKSpriteNode
         background = self.childNode(withName: "background") as? SKSpriteNode
         credits = self.childNode(withName: "credits") as? SKSpriteNode
         start = self.childNode(withName: "start") as? SKSpriteNode
@@ -65,9 +68,38 @@ class GameScene: SKScene {
                 level?.scaleMode = .aspectFill
                 self.view?.presentScene(level!, transition: SKTransition.fade(withDuration: 0.5))
             }
+            if nodesArray.first?.name == "reset" {
+                resetDefaults()
+            }
         }
     }
+    
+    func resetDefaults() {
+        let dictionary = defaults.dictionaryRepresentation()
+        dictionary.keys.forEach { key in
+            defaults.removeObject(forKey: key)
+        }
         
+        if defaults.value(forKey: "OpenfirstTime") == nil{
+            defaults.set(true, forKey: "OpenfirstTime")
+            print ("openfirst")
+        }
+            
+        else if defaults.value(forKey: "OpenfirstTime") as! Bool == true {
+            defaults.set(0, forKey: "Level1Stars")
+            defaults.set(0, forKey: "Level2Stars")
+            defaults.set(0, forKey: "Level3Stars")
+            defaults.set(0, forKey: "Level4Stars")
+            defaults.set(0, forKey: "Level5Stars")
+            defaults.set(0, forKey: "Level6Stars")
+            defaults.set(0, forKey: "Level7Stars")
+            defaults.set(0, forKey: "Level8Stars")
+            defaults.set(0, forKey: "Level9Stars")
+            defaults.set(false, forKey: "OpenfirstTime")
+            print ("already open")
+        }
+        print("Reset")
+    }
         
         /*
          let level1 = Level1(fileNamed: "Level1")
