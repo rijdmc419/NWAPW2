@@ -742,7 +742,7 @@ class LevelSecret: SKScene, SKPhysicsContactDelegate {
                             if self.duration <= 100
                             {
                                 starEraserButton.texture = SKTexture(imageNamed: "star_3")
-                                defaults.set(3, forKey: "Level5Stars")
+                                defaults.set(3, forKey: "LevelEggStars")
                             }
                            
                         }
