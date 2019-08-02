@@ -401,7 +401,7 @@ class Level8: SKScene, SKPhysicsContactDelegate{
             "isCircle" : false
         ];
         square_made1.size = CGSize (width: 100, height: 100)
-        square_made1.position = CGPoint (x: -245, y: 345)
+        square_made1.position = CGPoint (x: -245, y: 0)
         square_made1.anchorPoint = CGPoint (x: 0.5, y: 0.5)
         self.addChild(square_made1)
         square_made1.physicsBody = SKPhysicsBody(rectangleOf: CGSize (width: 100,height: 100))
@@ -448,7 +448,7 @@ class Level8: SKScene, SKPhysicsContactDelegate{
             "isCircle" : false
         ];
         square_made3.size = CGSize (width: 100, height: 100)
-        square_made3.position = CGPoint (x: 245, y: 345)
+        square_made3.position = CGPoint (x: 245, y: 0)
         square_made3.anchorPoint = CGPoint (x: 0.5, y: 0.5)
         self.addChild(square_made3)
         square_made3.physicsBody = SKPhysicsBody(rectangleOf: CGSize (width: 100,height: 100))
@@ -471,7 +471,7 @@ class Level8: SKScene, SKPhysicsContactDelegate{
             "isCircle" : false
         ];
         square_made4.size = CGSize (width: 100, height: 100)
-        square_made4.position = CGPoint (x: 245, y: 345)
+        square_made4.position = CGPoint (x: -245, y: 0)
         square_made4.anchorPoint = CGPoint (x: 0.5, y: 0.5)
         self.addChild(square_made4)
         square_made4.physicsBody = SKPhysicsBody(rectangleOf: CGSize (width: 100,height: 100))
