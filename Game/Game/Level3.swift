@@ -134,9 +134,9 @@ class Level3: SKScene, SKPhysicsContactDelegate {
         restartButton.name = "restartButton"
         restartButton.alpha = 1
         restartButton.size = CGSize (width: 120, height: 120)
-        restartButton.position = CGPoint (x: 10, y: 200)
+        restartButton.position = CGPoint (x: -220, y: 550)
         restartButton.anchorPoint = CGPoint (x: 0.5, y: 0.5)
-        restartButton.zPosition = 4
+        restartButton.zPosition = 2
         
         //level complete var
         starEraserButton = SKSpriteNode(imageNamed: "eraser")
@@ -211,7 +211,7 @@ class Level3: SKScene, SKPhysicsContactDelegate {
         self.addChild(pauseMenu)
         pauseMenu.addChild(menuButton)
         pauseMenu.addChild(tint)
-        pauseMenu.addChild(restartButton)
+        self.addChild(restartButton)
         
         //bottom boarder
         lineb = SKSpriteNode(imageNamed: "line2")

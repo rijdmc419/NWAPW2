@@ -45,6 +45,10 @@ class LevelScreen: SKScene {
             defaults.set(0, forKey: "Level3Stars")
             defaults.set(0, forKey: "Level4Stars")
             defaults.set(0, forKey: "Level5Stars")
+            defaults.set(0, forKey: "Level6Stars")
+            defaults.set(0, forKey: "Level7Stars")
+            defaults.set(0, forKey: "Level8Stars")
+            defaults.set(0, forKey: "Level9Stars")
             defaults.set(false, forKey: "OpenfirstTime")
             print ("already open")
         }
@@ -183,6 +187,8 @@ class LevelScreen: SKScene {
             print("pink!")
             let level1 = self.childNode(withName: "level_5") as? SKSpriteNode
             level1?.texture = SKTexture(imageNamed: "level_5_complete")
+            let level2 = self.childNode(withName: "level_6") as? SKSpriteNode
+            level2?.texture = SKTexture(imageNamed: "level_6")
             if defaults.value(forKey: "Level5Stars") as! Int == 1 {
                 let stars = SKSpriteNode(imageNamed: "1_star")
                 stars.size = CGSize (width: 20, height: 20)
@@ -209,6 +215,133 @@ class LevelScreen: SKScene {
             }
             
         }
+        if defaults.value(forKey: "Level6Stars") != nil && defaults.value(forKey: "Level6Stars") as! Int >= 1 {
+            print("pink!")
+            let level1 = self.childNode(withName: "level_6") as? SKSpriteNode
+            level1?.texture = SKTexture(imageNamed: "level_6_complete")
+            let level2 = self.childNode(withName: "level_7") as? SKSpriteNode
+            level2?.texture = SKTexture(imageNamed: "level_7")
+            if defaults.value(forKey: "Level6Stars") as! Int == 1 {
+                let stars = SKSpriteNode(imageNamed: "1_star")
+                stars.size = CGSize (width: 20, height: 20)
+                stars.position = CGPoint (x: 0, y: -55)
+                stars.anchorPoint = CGPoint (x: 0.5, y: 0.5)
+                stars.zPosition = 2
+                level1?.addChild(stars)
+            }
+            else if defaults.value(forKey: "Level6Stars") as! Int == 2 {
+                let stars = SKSpriteNode(imageNamed: "2_star")
+                stars.size = CGSize (width: 40, height: 20)
+                stars.position = CGPoint (x: 0, y: -55)
+                stars.anchorPoint = CGPoint (x: 0.5, y: 0.5)
+                stars.zPosition = 2
+                level1?.addChild(stars)
+            }
+            else if defaults.value(forKey: "Level6Stars") as! Int == 3 {
+                let stars = SKSpriteNode(imageNamed: "3_star")
+                stars.size = CGSize (width: 60, height: 20)
+                stars.position = CGPoint (x: 0, y: -55)
+                stars.anchorPoint = CGPoint (x: 0.5, y: 0.5)
+                stars.zPosition = 2
+                level1?.addChild(stars)
+            }
+            
+        }
+        if defaults.value(forKey: "Level7Stars") != nil && defaults.value(forKey: "Level7Stars") as! Int >= 1 {
+            print("pink!")
+            let level1 = self.childNode(withName: "level_7") as? SKSpriteNode
+            level1?.texture = SKTexture(imageNamed: "level_7_complete")
+            let level2 = self.childNode(withName: "level_8") as? SKSpriteNode
+            level2?.texture = SKTexture(imageNamed: "level_8")
+            if defaults.value(forKey: "Level7Stars") as! Int == 1 {
+                let stars = SKSpriteNode(imageNamed: "1_star")
+                stars.size = CGSize (width: 20, height: 20)
+                stars.position = CGPoint (x: 0, y: -55)
+                stars.anchorPoint = CGPoint (x: 0.5, y: 0.5)
+                stars.zPosition = 2
+                level1?.addChild(stars)
+            }
+            else if defaults.value(forKey: "Level7Stars") as! Int == 2 {
+                let stars = SKSpriteNode(imageNamed: "2_star")
+                stars.size = CGSize (width: 40, height: 20)
+                stars.position = CGPoint (x: 0, y: -55)
+                stars.anchorPoint = CGPoint (x: 0.5, y: 0.5)
+                stars.zPosition = 2
+                level1?.addChild(stars)
+            }
+            else if defaults.value(forKey: "Level7Stars") as! Int == 3 {
+                let stars = SKSpriteNode(imageNamed: "3_star")
+                stars.size = CGSize (width: 60, height: 20)
+                stars.position = CGPoint (x: 0, y: -55)
+                stars.anchorPoint = CGPoint (x: 0.5, y: 0.5)
+                stars.zPosition = 2
+                level1?.addChild(stars)
+            }
+            
+        }
+        if defaults.value(forKey: "Level8Stars") != nil && defaults.value(forKey: "Level8Stars") as! Int >= 1 {
+            print("pink!")
+            let level1 = self.childNode(withName: "level_8") as? SKSpriteNode
+            level1?.texture = SKTexture(imageNamed: "level_8_complete")
+            let level2 = self.childNode(withName: "level_9") as? SKSpriteNode
+            level2?.texture = SKTexture(imageNamed: "level_9")
+            if defaults.value(forKey: "Level8Stars") as! Int == 1 {
+                let stars = SKSpriteNode(imageNamed: "1_star")
+                stars.size = CGSize (width: 20, height: 20)
+                stars.position = CGPoint (x: 0, y: -55)
+                stars.anchorPoint = CGPoint (x: 0.5, y: 0.5)
+                stars.zPosition = 2
+                level1?.addChild(stars)
+            }
+            else if defaults.value(forKey: "Level8Stars") as! Int == 2 {
+                let stars = SKSpriteNode(imageNamed: "2_star")
+                stars.size = CGSize (width: 40, height: 20)
+                stars.position = CGPoint (x: 0, y: -55)
+                stars.anchorPoint = CGPoint (x: 0.5, y: 0.5)
+                stars.zPosition = 2
+                level1?.addChild(stars)
+            }
+            else if defaults.value(forKey: "Level8Stars") as! Int == 3 {
+                let stars = SKSpriteNode(imageNamed: "3_star")
+                stars.size = CGSize (width: 60, height: 20)
+                stars.position = CGPoint (x: 0, y: -55)
+                stars.anchorPoint = CGPoint (x: 0.5, y: 0.5)
+                stars.zPosition = 2
+                level1?.addChild(stars)
+            }
+            
+        }
+        if defaults.value(forKey: "Level9Stars") != nil && defaults.value(forKey: "Level9Stars") as! Int >= 1 {
+            print("pink!")
+            let level1 = self.childNode(withName: "level_9") as? SKSpriteNode
+            level1?.texture = SKTexture(imageNamed: "level_9_complete")
+            if defaults.value(forKey: "Level9Stars") as! Int == 1 {
+                let stars = SKSpriteNode(imageNamed: "1_star")
+                stars.size = CGSize (width: 20, height: 20)
+                stars.position = CGPoint (x: 0, y: -55)
+                stars.anchorPoint = CGPoint (x: 0.5, y: 0.5)
+                stars.zPosition = 2
+                level1?.addChild(stars)
+            }
+            else if defaults.value(forKey: "Level9Stars") as! Int == 2 {
+                let stars = SKSpriteNode(imageNamed: "2_star")
+                stars.size = CGSize (width: 40, height: 20)
+                stars.position = CGPoint (x: 0, y: -55)
+                stars.anchorPoint = CGPoint (x: 0.5, y: 0.5)
+                stars.zPosition = 2
+                level1?.addChild(stars)
+            }
+            else if defaults.value(forKey: "Level9Stars") as! Int == 3 {
+                let stars = SKSpriteNode(imageNamed: "3_star")
+                stars.size = CGSize (width: 60, height: 20)
+                stars.position = CGPoint (x: 0, y: -55)
+                stars.anchorPoint = CGPoint (x: 0.5, y: 0.5)
+                stars.zPosition = 2
+                level1?.addChild(stars)
+            }
+            
+        }
+        
         
     }
     
@@ -255,11 +388,28 @@ class LevelScreen: SKScene {
                 level?.scaleMode = .aspectFill
                 self.view?.presentScene(level!, transition: SKTransition.fade(withDuration: 0.5))
             }
-            if nodesArray.first?.name == "level_6" {
+            if nodesArray.first?.name == "level_6" && defaults.value(forKey: "Level5Stars") as! Int >= 1  {
+                let level = Level6(fileNamed: "Level6")
+                level?.scaleMode = .aspectFill
+                self.view?.presentScene(level!, transition: SKTransition.fade(withDuration: 0.5))
+            }
+            if nodesArray.first?.name == "level_7" && defaults.value(forKey: "Level6Stars") as! Int >= 1  {
                 let level = Level7(fileNamed: "Level7")
                 level?.scaleMode = .aspectFill
                 self.view?.presentScene(level!, transition: SKTransition.fade(withDuration: 0.5))
             }
+            /*
+            if nodesArray.first?.name == "level_8" && defaults.value(forKey: "Level7Stars") as! Int >= 1  {
+                let level = Level8(fileNamed: "Level8")
+                level?.scaleMode = .aspectFill
+                self.view?.presentScene(level!, transition: SKTransition.fade(withDuration: 0.5))
+            }
+            if nodesArray.first?.name == "level_9" && defaults.value(forKey: "Level8Stars") as! Int >= 1 {
+                let level = Level9(fileNamed: "Level9")
+                level?.scaleMode = .aspectFill
+                self.view?.presentScene(level!, transition: SKTransition.fade(withDuration: 0.5))
+            }
+            */
             if nodesArray.first?.name == "reset" {
                 resetDefaults()
             }
@@ -272,8 +422,28 @@ class LevelScreen: SKScene {
                 defaults.removeObject(forKey: key)
             }
             
+            if defaults.value(forKey: "OpenfirstTime") == nil{
+                defaults.set(true, forKey: "OpenfirstTime")
+                print ("openfirst")
+            }
+                
+            else if defaults.value(forKey: "OpenfirstTime") as! Bool == true {
+                defaults.set(0, forKey: "Level1Stars")
+                defaults.set(0, forKey: "Level2Stars")
+                defaults.set(0, forKey: "Level3Stars")
+                defaults.set(0, forKey: "Level4Stars")
+                defaults.set(0, forKey: "Level5Stars")
+                defaults.set(0, forKey: "Level6Stars")
+                defaults.set(0, forKey: "Level7Stars")
+                defaults.set(0, forKey: "Level8Stars")
+                defaults.set(0, forKey: "Level9Stars")
+                defaults.set(false, forKey: "OpenfirstTime")
+                print ("already open")
+            }
+            
             let level = LevelScreen(fileNamed: "LevelScreen")
             level?.scaleMode = .aspectFill
             self.view?.presentScene(level!)
+            print("Reset")
         }
 }

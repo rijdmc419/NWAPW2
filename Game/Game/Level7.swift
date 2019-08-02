@@ -142,9 +142,9 @@ class Level7: SKScene, SKPhysicsContactDelegate{
         restartButton.name = "restartButton"
         restartButton.alpha = 1
         restartButton.size = CGSize (width: 120, height: 120)
-        restartButton.position = CGPoint (x: 10, y: 200)
+        restartButton.position = CGPoint (x: -220, y: 550)
         restartButton.anchorPoint = CGPoint (x: 0.5, y: 0.5)
-        restartButton.zPosition = 4
+        restartButton.zPosition = 2
         
         //level complete var
         starEraserButton = SKSpriteNode(imageNamed: "eraser")
@@ -219,7 +219,7 @@ class Level7: SKScene, SKPhysicsContactDelegate{
         self.addChild(pauseMenu)
         pauseMenu.addChild(menuButton)
         pauseMenu.addChild(tint)
-        pauseMenu.addChild(restartButton)
+        self.addChild(restartButton)
         
         //bottom boarder
         lineb = SKSpriteNode(imageNamed: "line2")
@@ -694,14 +694,17 @@ class Level7: SKScene, SKPhysicsContactDelegate{
                             if self.duration < 0.5
                             {
                                 starEraserButton.texture = SKTexture(imageNamed: "star_3")
+                                defaults.set(3, forKey: "Level7Stars")
                             }
                             else if self.duration >= 0.5 && self.duration < 2
                             {
                                 starEraserButton.texture = SKTexture(imageNamed: "star_2")
+                                defaults.set(2, forKey: "Level7Stars")
                             }
                             else if self.duration >= 2
                             {
                                 starEraserButton.texture = SKTexture(imageNamed: "star_1")
+                                defaults.set(1, forKey: "Level7Stars")
                             }
                         }
                     }
